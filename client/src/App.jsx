@@ -33,19 +33,9 @@ class App extends Component {
     return hashParams;
   }
 
-  getNowPlaying(){
-    spotifyApi.getMyCurrentPlaybackState()
-      .then((response) => {
-        this.setState({
-          nowPlaying: { 
-              name: response.item.name, 
-              albumArt: response.item.album.images[0].url
-            }
-        });
-      })
-  }
+ 
 fetchDataFromSpotify=()=>{
-  fetch('https://api.spotify.com/v1/artists/21E3waRsmPlU7jZsS13rcj', {
+  fetch('https://api.spotify.com/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50&market=US', {
             method: 'GET', headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -59,9 +49,10 @@ fetchDataFromSpotify=()=>{
             });
 }
   render() {
+    console.log(spotifyApi)
     return (
       <div className="App">
-        <a href='http://localhost:8888' > Login to Spotify </a>
+        
         <div>
           Now Playing: { this.state.nowPlaying.name }
         </div>
@@ -74,13 +65,13 @@ fetchDataFromSpotify=()=>{
             Fetch Data From Spotify
           </button>
           {this.state.data?<div>
-            <h2>Artist Name: {this.state.data.name} </h2>
+            {/* <h2>Artist Name: {this.state.data.display_name} </h2>
           <h3>Popularity: {this.state.data.popularity}</h3>
           {this.state.data.images.map(img=>{
             return (
               <img src={img.url} width={img.width}/>
             )
-          })}
+          })} */}
           </div>:null}
           </div>
         
