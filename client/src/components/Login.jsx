@@ -1,13 +1,14 @@
-import React from "react";
+import React from "react";  
+import Logo from "../assets/Spotify_Logo_RGB_Green.png"
 
 export default function Login() {
   return (
-    <div>
+    <div className="login">
       <h1>Welcome to the whatever APP</h1>
 
       <a href="http://localhost:8888">
         <h3>Please login using your Spotify account</h3>
-        <img src="./src/assets/Spotify_Logo_RGB_Green.png" alt=""/>
+        <img className="App-logo" src={Logo} alt="Spotify Logo"/>
       </a>
     </div>
   );
