@@ -9,8 +9,8 @@ function App() {
   return (
     <Container>
       <Home />
-      <Result/>
       <Welcome />
+      <Result/>
     </Container>
   );
 }
