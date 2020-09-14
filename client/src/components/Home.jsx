@@ -12,6 +12,7 @@ export default function Login() {
         <img className="App-logo" src={Logo} alt="Spotify Logo"/>
         <h3>account</h3>
       </a>
+      <p>to find your true music Buddy.</p>
     </div>
   );
 }
