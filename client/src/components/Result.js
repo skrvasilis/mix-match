@@ -21,12 +21,12 @@ export default function Result() {
    })
    
    console.log(topGenres)
-    for (let i = 0; i<topGenres.length;i++) {
-        for (let j = 0; j<topGenres.length; i++) {
-             intersection = topGenres[i].filter(element=> topGenres[j].includes(element))
-        }
-    }
-    console.log(intersection)
+    // for (let i = 0; i<topGenres.length;i++) {
+    //     for (let j = 0; j<topGenres.length; i++) {
+    //          intersection = topGenres[i].filter(element=> topGenres[j].includes(element))
+    //     }
+    // }
+    // console.log(intersection)
 
    }
 
