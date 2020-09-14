@@ -21,16 +21,6 @@ export default function Home() {
         <p>to find your real music Buddy!</p>
       </a>
       </div>
-<<<<<<< HEAD
-     {/*  {loggedIn && (
-        <div>
-          <button onClick={() => fetchDataFromSpotify()}>
-            Fetch Data From Spotify
-          </button>
-        </div>
-      )} */}
-=======
->>>>>>> 6d64585d47f3ea336ee847286d6f2e84f9bfda8b
     </div>
   );
 }
