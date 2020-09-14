@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import MyContext from "../MyContext";
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Welcome() {
   const{userData, userTop} = useContext(MyContext) 
@@ -35,7 +37,7 @@ if (top) {
           src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
           alt="avatar"
         />
-        <h3>Now we know your music taste ;)</h3>
+        <h3>Now we know your music taste </h3>
         <ul className="results">
         <h4>Your top 5 Artists are:</h4>
           {top && topArtists.map((item)=>{
@@ -54,10 +56,14 @@ if (top) {
          
         </ul>
         <ul className="results">
-          Your top 5 music genres:
+          <h4>Your top 5 music genres:</h4>
           <li>Genre 1</li>
         </ul>
-        <button>Click here to find people with similar taste</button>
+        <Link to="/mymatchesall">
+          <button type="button">
+            Click here to find people with similar taste
+          </button>
+        </Link>
       </div>
     </div>
   );
