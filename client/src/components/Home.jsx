@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import MyContext from "./MyContext";
+import MyContext from "../MyContext";
 
 export default function Home() {
   const { data, setData, fetchDataFromSpotify, loggedIn } = useContext(
