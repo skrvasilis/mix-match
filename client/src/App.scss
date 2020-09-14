@@ -1,18 +1,58 @@
-body {
+#root {
+  color: white;
   background-color: black;
+  margin: 0;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+  .results {
+    padding: 0;
+    li {
+  
+      list-style: none;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      h4{
+        margin-right: 2rem;
+      }
+      .artist-avatar{
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
 }
 
 .App {
   text-align: center;
-  .login{ 
+  .login {
     margin: 0 auto;
     max-width: 50%;
   }
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.logo {
+  width: 10rem;
 }
 
 .App-header {
@@ -31,11 +71,15 @@ body {
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-
-div, button {
+div,
+button {
   margin: 10px;
 }

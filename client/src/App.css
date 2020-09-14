@@ -1,5 +1,65 @@
-body {
+#root {
+  color: white;
   background-color: black;
+  margin: 0;
+}
+
+#root a {
+  color: white;
+  text-decoration: none;
+}
+
+#root .avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+#root .results {
+  padding: 0;
+}
+
+#root .results li {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#root .results li h4 {
+  margin-right: 2rem;
+}
+
+#root .results li .artist-avatar {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  height: 100vh;
 }
 
 .App {
@@ -11,10 +71,8 @@ body {
   max-width: 50%;
 }
 
-.App-logo {
-  -webkit-animation: App-logo-spin infinite 20s linear;
-          animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.logo {
+  width: 10rem;
 }
 
 .App-header {
@@ -54,7 +112,8 @@ body {
   }
 }
 
-div, button {
+div,
+button {
   margin: 10px;
 }
 /*# sourceMappingURL=App.css.map */
