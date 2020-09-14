@@ -10,7 +10,7 @@ export default function Welcome() {
           src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
           alt="avatar"
         />
-        <h3>Now we know your music taste ;)</h3>
+        <h3>Now we know your music taste</h3>
         <ul className="results">
         <h4>Your top 5 Artists are:</h4>
           <li>
