@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 import SpotifyWebApi from "spotify-web-api-js";
-import Login from "./components/Login";
+import Home from "./components/Home";
 const spotifyApi = new SpotifyWebApi();
 
 class App extends Component {
@@ -59,8 +59,7 @@ class App extends Component {
     console.log(spotifyApi);
     return (
       <div className="App">
-        Fuck that shit
-        <Login />
+        <Home />
         <div>Now Playing: {this.state.nowPlaying.name}</div>
         <div>
           <img src={this.state.nowPlaying.albumArt} style={{ height: 150 }} />
