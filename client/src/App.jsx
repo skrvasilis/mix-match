@@ -1,17 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
+import Container from './Container'
+import Home from './Home'
 
-import SpotifyWebApi from "spotify-web-api-js";
-const spotifyApi = new SpotifyWebApi();
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: null,
-    };
 
-    const params = this.getHashParams();
+function App() {
+ 
+
+  /*   const params = this.getHashParams();
     this.token = params.access_token;
     console.log(params, this.token);
     if (this.token) {
@@ -34,8 +31,8 @@ class App extends Component {
     }
     return hashParams;
   }
-
-  getNowPlaying() {
+ */
+ /*  getNowPlaying() {
     spotifyApi.getMyCurrentPlaybackState().then((response) => {
       this.setState({
         nowPlaying: {
@@ -44,8 +41,8 @@ class App extends Component {
         },
       });
     });
-  }
-  fetchDataFromSpotify = () => {
+  } */
+  /* fetchDataFromSpotify = () => {
     fetch("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=20&offset=5", {
       method: "GET",
       headers: {
@@ -62,36 +59,25 @@ class App extends Component {
       );
     });
   };
+
+
+
+
+
+
+
   render() {
     if (this.state.data) {
-      console.log(this.state.data);
-    }
+      console.log(this.state);
+    } */
     return (
-      <div className="App">
-        <a href="http://localhost:8888"> Login to Spotify </a>
-        <div>Now Playing: {this.state.nowPlaying.name}</div>
-        <div>
-          <img src={this.state.nowPlaying.albumArt} style={{ height: 150 }} />
-        </div>
-        {this.state.loggedIn && (
-          <div>
-            <button onClick={() => this.fetchDataFromSpotify()}>
-              Fetch Data From Spotify
-            </button>
-            {this.state.data ? (
-              <div>
-                {/* <h2>Artist Name: {this.state.data.name} </h2>
-                <h3>Popularity: {this.state.data.popularity}</h3>
-                {this.state.data.images.map((img) => {
-                  return <img src={img.url} width={img.width} />;
-                })} */}
-              </div>
-            ) : null}
-          </div>
-        )}
-      </div>
+     
+        <Container>
+        <Home/>
+        </Container>
+    
     );
   }
-}
+
 
 export default App;
