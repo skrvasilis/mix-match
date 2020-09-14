@@ -4,9 +4,11 @@ import MyContext from "./MyContext";
 const spotifyApi = new SpotifyWebApi();
 
 export default function Container(props) {
-  const [data, setData] = useState([]);
+  const [userData, setUserData] = useState([]);
   // loggedIn: this.token ? true : false,
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const [userTop, setUserTop] = useState([]);
 
   const getHashParams = () => {
     var hashParams = {};
@@ -32,7 +34,20 @@ export default function Container(props) {
     }
   }, [token]);
 
-  const fetchDataFromSpotify = () => {
+  useEffect(() => {
+    fetch("https://api.spotify.com/v1/me", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    }).then((response) => {
+      response.json().then((userData) => {
+        setUserData(userData);
+        console.log(userData);
+      });
+    });
     fetch(
       "https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=20&offset=5",
       {
@@ -45,16 +60,17 @@ export default function Container(props) {
       }
     ).then((response) => {
       response.json().then((data) => {
-        setData(data);
-        console.log(data);
+        setUserTop(data);
+        console.log(userTop);
       });
     });
+  }, [loggedIn]);
+  /* const fetchDataFromSpotify = () => {
+ 
   };
-
+ */
   return (
-    <MyContext.Provider
-      value={{ data, setData, fetchDataFromSpotify, loggedIn }}
-    >
+    <MyContext.Provider value={{ userData, userTop }}>
       {props.children}
     </MyContext.Provider>
   );
