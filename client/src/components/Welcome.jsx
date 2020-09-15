@@ -3,20 +3,18 @@ import MyContext from "../MyContext";
 import { Link } from "react-router-dom";
 
 export default function Welcome() {
-  const { userData, userTop,savedData, setSavedData } = useContext(MyContext);
-  
+  const { userData, userTop, savedData, setSavedData } = useContext(MyContext);
+
   const [top, setTop] = useState([]);
   let topArtists = [];
   let topGenres = [];
   let genresFinal = [];
-  const allArtists = []
+  const allArtists = [];
 
-
- /*  const [obj, setObj] = useState({ name: "Mohamad", age: 33, class: {section:'fbw28' , teacher:'Naqvi'} });
-  <button onClick={() => setObj({ ...obj, class:{...obj.class, section:'fbw30'}})}> */
 
   useEffect(() => {
-    setTop(userTop.items)
+    setTop(userTop.items);
+    console.log(allArtists)
   }, [userTop]);
 
   if (top) {
@@ -24,9 +22,9 @@ export default function Welcome() {
       topArtists.push(top[i]);
     }
 
-    top.map((item)=>{
-      allArtists.push(item.name)
-        })
+    top.map((item) => {
+      allArtists.push(item.name);
+    });
 
     top.map((item) => {
       topGenres.push(item.genres);
@@ -64,11 +62,15 @@ export default function Welcome() {
     genresFinal = genresFinal.filter((x) => isNaN(x));
   }
 
-  useEffect(()=>{
-    setSavedData(...savedData,{userName:userData.display_name,userImage:userData.images,userTracks:allArtists,userGenres:topGenres})
-    console.log(savedData)
-  },[top])
-    
+  useEffect(() => {
+    setSavedData(...savedData, {
+      userName: userData.display_name,
+      userImage: userData.images,
+      userTracks: allArtists,
+      userGenres: topGenres,
+    });
+    console.log(savedData);
+  }, [top]);
 
   return (
     <div className="main">
@@ -76,7 +78,11 @@ export default function Welcome() {
         <h1> welcome {userData.display_name}</h1>
         <img
           className="avatar"
-          src={userData.images ? userData.images[0].url:' https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
+          src={
+            userData.images
+              ? userData.images[0].url
+              : " https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+
           }
           alt="avatar"
         />
