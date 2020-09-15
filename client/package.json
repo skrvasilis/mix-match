@@ -12,6 +12,7 @@
     "spotify-web-api-js": "^0.22.1"
   },
   "scripts": {
+    "jsondb": "json-server --watch db.json",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
