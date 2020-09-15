@@ -65,7 +65,7 @@ export default function Welcome() {
   }
 
   useEffect(()=>{
-    setSavedData({userName:userData.display_name,userImage:userData.images,userTracks:allArtists,userGenres:topGenres})
+    setSavedData(...savedData,{userName:userData.display_name,userImage:userData.images,userTracks:allArtists,userGenres:topGenres})
     console.log(savedData)
   },[top])
     
