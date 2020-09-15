@@ -22,7 +22,6 @@ function App() {
         <Welcome />
         <MyMatchesAll />
         <MyMatchSingle /> */}
-        <Result />
       </Router>
     </Container>
   );

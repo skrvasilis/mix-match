@@ -5,8 +5,8 @@ const spotifyApi = new SpotifyWebApi();
 
 export default function Container(props) {
   const [userData, setUserData] = useState([]);
-  // loggedIn: this.token ? true : false,
   const [loggedIn, setLoggedIn] = useState(false);
+  const [savedData, setSavedData]= useState({});
 
   const [userTop, setUserTop] = useState([]);
 
@@ -70,7 +70,7 @@ export default function Container(props) {
   };
  */
   return (
-    <MyContext.Provider value={{ userData, userTop }}>
+    <MyContext.Provider value={{ userData, userTop ,savedData, setSavedData}}>
       {props.children}
     </MyContext.Provider>
   );
