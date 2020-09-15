@@ -3,12 +3,13 @@ import MyContext from "../MyContext";
 import { Link } from "react-router-dom";
 
 export default function Welcome() {
-  const { userData, userTop } = useContext(MyContext);
-  const [userImage, setImage] = useState("");
+  const { userData, userTop,savedData, setSavedData } = useContext(MyContext);
+  
   const [top, setTop] = useState([]);
   let topArtists = [];
   let topGenres = [];
   let genresFinal = [];
+  const allArtists = []
 
   useEffect(() => {
     setTop(userTop.items);
@@ -18,6 +19,10 @@ export default function Welcome() {
     for (let i = 0; i < 5; i++) {
       topArtists.push(top[i]);
     }
+
+    top.map((item)=>{
+      allArtists.push(item.name)
+        })
 
     top.map((item) => {
       topGenres.push(item.genres);
@@ -43,17 +48,16 @@ export default function Welcome() {
     });
 
     sortable.reverse();
+    console.log(sortable);
 
     for (let i = 0; i < 5; i++) {
       topFiveGenres.push(sortable[i]);
     }
-    console.log(topFiveGenres);
 
     for (let i = 0; i < topFiveGenres.length; i++) {
       genresFinal = genresFinal.concat(topFiveGenres[i]);
     }
     genresFinal = genresFinal.filter((x) => isNaN(x));
-    console.log(genresFinal);
   }
 
   return (
