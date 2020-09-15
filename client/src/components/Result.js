@@ -5,9 +5,8 @@ export default function Result() {
   const { userData, userTop } = useContext(MyContext);
   const [top, setTop] = useState([]);
   let topGenres = []
-  let intersection = null
+  let topFiveGenres = []
 
-//   const intersection = array1.filter(element => array2.includes(element));
 
 
 
@@ -15,21 +14,47 @@ export default function Result() {
     setTop(userTop.items);
   }, [userTop]);
 
-   if (top) {
+   /* if (top) {
    top.map((item)=>{
-       topGenres.push([item.genres])
+       topGenres.push(item.genres)
    })
    
-   console.log(topGenres)
-    // for (let i = 0; i<topGenres.length;i++) {
-    //     for (let j = 0; j<topGenres.length; i++) {
-    //          intersection = topGenres[i].filter(element=> topGenres[j].includes(element))
-    //     }
-    // }
-    // console.log(intersection)
+   let tmp={}
+       for (let i = 0; i<topGenres.length;i++) {
+          for (let j = 0; j<topGenres[i].length; j++) {
+        if (!tmp[topGenres[i][j]]) {
+          tmp[topGenres[i][j]] = 0;
+      } 
+      tmp[topGenres[i][j]]++;
+  }
 
-   }
+}
 
+let sortable = [];
+for (const genre in tmp) {
+  sortable.push([genre,tmp[genre]]);
+}
+
+sortable.sort(function(a, b) {
+  return a[1] - b[1];
+});
+
+sortable.reverse()
+
+
+for (let i=0;i<5;i++){
+  topFiveGenres.push(sortable[i])
+}
+console.log(topFiveGenres)
+
+
+
+}
+ */
+
+
+
+    
    
   return (
     <div>
@@ -38,7 +63,6 @@ export default function Result() {
         top.map((item) => {
             return (
                 <p style={{ color: "white" }}>{item.genres} </p>
-
             )
         })}
     </div>
