@@ -14,23 +14,23 @@
   .results {
     padding: 0;
     li {
-  
+      
       list-style: none;
       display: flex;
       flex-flow: row wrap;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      h4{
+      h4 {
         margin-right: 2rem;
       }
-      .list-avatar{
+      .list-avatar {
+        margin: 1rem;
         border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
       }
     }
   }
-
 }
 
 .main {
@@ -40,43 +40,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100vh;
-}
-
-.App {
-  text-align: center;
-  .login {
-    margin: 0 auto;
-    max-width: 50%;
-  }
-}
-
-.logo {
-  width: 10rem;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  min-height: 100vh;
 }
 
 div,

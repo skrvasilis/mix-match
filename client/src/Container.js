@@ -7,8 +7,30 @@ export default function Container(props) {
   const [userData, setUserData] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [savedData, setSavedData]= useState({});
+  const [allData, setAllData] = useState(null)
 
   const [userTop, setUserTop] = useState([]);
+
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/posts').then(resp=>resp.json()).then(data=>{
+      setAllData(data)
+    })
+    console.log(allData)
+  },[])
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/savedData', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    "savedData": {savedData}
+  })
+})
+  },[savedData])
 
   const getHashParams = () => {
     var hashParams = {};
@@ -49,7 +71,7 @@ export default function Container(props) {
       });
     });
     fetch(
-      "https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=20&offset=5",
+      "https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=20&offset=5",
       {
         method: "GET",
         headers: {
@@ -65,10 +87,7 @@ export default function Container(props) {
       });
     });
   }, [loggedIn]);
-  /* const fetchDataFromSpotify = () => {
  
-  };
- */
   return (
     <MyContext.Provider value={{ userData, userTop ,savedData, setSavedData}}>
       {props.children}
