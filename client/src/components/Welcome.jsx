@@ -11,10 +11,9 @@ export default function Welcome() {
   let genresFinal = [];
   const allArtists = [];
 
-
   useEffect(() => {
     setTop(userTop.items);
-    console.log(allArtists)
+    console.log(allArtists);
   }, [userTop]);
 
   if (top) {
@@ -69,20 +68,21 @@ export default function Welcome() {
       userTracks: allArtists,
       userGenres: topGenres,
     });
-    console.log(savedData);
   }, [top]);
-
+  const completeName =
+    String(userData.display_name)[0].toUpperCase() +
+    String(userData.display_name).substring(1);
+  const displayFirstName = completeName.replace(/ .*/, "");
   return (
     <div className="main">
       <div className="content">
-        <h1> welcome {userData.display_name}</h1>
+        <h1>Welcome {displayFirstName + "!"}</h1>
         <img
           className="avatar"
           src={
-            userData.images
+            userData.images === 0
               ? userData.images[0].url
               : " https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-
           }
           alt="avatar"
         />
@@ -107,7 +107,7 @@ export default function Welcome() {
           <h4>Your top 5 music genres:</h4>
           {top &&
             genresFinal.map((item) => {
-              return <li>{item}</li>;
+              return <li><h4>{item}</h4></li>;
             })}
         </ul>
         <Link to="/mymatchesall">
