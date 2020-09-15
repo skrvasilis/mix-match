@@ -79,7 +79,8 @@ export default function Welcome() {
         <h1> welcome {userData.display_name}</h1>
         <img
           className="avatar"
-          src={userData.images && userData.images[0].url}
+          src={userData.images ? userData.images[0].url:' https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
+          }
           alt="avatar"
         />
         <h3>Now we know your music taste</h3>
