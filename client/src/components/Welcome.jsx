@@ -3,29 +3,58 @@ import MyContext from "../MyContext";
 import { Link } from "react-router-dom";
 
 export default function Welcome() {
-  const{userData, userTop} = useContext(MyContext) 
-  const [userImage, setImage] = useState('')
+  const { userData, userTop } = useContext(MyContext);
+  const [userImage, setImage] = useState("");
   const [top, setTop] = useState([]);
-  let topArtists = []
+  let topArtists = [];
+  let topGenres = [];
+  let genresFinal = [];
 
-  
-if (userData) {
-  console.log(userData.images)
-}
+  useEffect(() => {
+    setTop(userTop.items);
+  }, [userTop]);
 
-useEffect(() => {
-  setTop(userTop.items);
-}, [userTop]);
+  if (top) {
+    for (let i = 0; i < 5; i++) {
+      topArtists.push(top[i]);
+    }
 
+    top.map((item) => {
+      topGenres.push(item.genres);
+    });
 
+    let tmp = {};
+    for (let i = 0; i < topGenres.length; i++) {
+      for (let j = 0; j < topGenres[i].length; j++) {
+        if (!tmp[topGenres[i][j]]) {
+          tmp[topGenres[i][j]] = 0;
+        }
+        tmp[topGenres[i][j]]++;
+      }
+    }
+    let topFiveGenres = [];
+    let sortable = [];
+    for (const genre in tmp) {
+      sortable.push([genre, tmp[genre]]);
+    }
 
-if (top) {
-  for (let i =0;i<5;i++) {
-    topArtists.push(top[i])
+    sortable.sort(function (a, b) {
+      return a[1] - b[1];
+    });
+
+    sortable.reverse();
+
+    for (let i = 0; i < 5; i++) {
+      topFiveGenres.push(sortable[i]);
+    }
+    console.log(topFiveGenres);
+
+    for (let i = 0; i < topFiveGenres.length; i++) {
+      genresFinal = genresFinal.concat(topFiveGenres[i]);
+    }
+    genresFinal = genresFinal.filter((x) => isNaN(x));
+    console.log(genresFinal);
   }
-  console.log(topArtists)
-}
- 
 
   return (
     <div className="main">
@@ -33,30 +62,32 @@ if (top) {
         <h1> welcome {userData.display_name}</h1>
         <img
           className="avatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+          src={userData.images && userData.images[0].url}
           alt="avatar"
         />
         <h3>Now we know your music taste</h3>
         <ul className="results">
-        <h4>Your top 5 Artists are:</h4>
-          {top && topArtists.map((item)=>{
-            return (
-            <li>
-            <h4>{item && item.name}</h4> 
-             <img
-               className="artist-avatar"
-               src={item && item.images[0].url}
-               alt="avatar"
-             />
-           </li>
-           )
-          })}
-          
-         
+          <h4>Your top 5 Artists are:</h4>
+          {top &&
+            topArtists.map((item) => {
+              return (
+                <li>
+                  <h4>{item && item.name}</h4>
+                  <img
+                    className="list-avatar"
+                    src={item && item.images[0].url}
+                    alt="avatar"
+                  />
+                </li>
+              );
+            })}
         </ul>
         <ul className="results">
           <h4>Your top 5 music genres:</h4>
-          <li>Genre 1</li>
+          {top &&
+            genresFinal.map((item) => {
+              return <li>{item}</li>;
+            })}
         </ul>
         <Link to="/mymatchesall">
           <button type="button">
