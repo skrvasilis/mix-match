@@ -11,8 +11,12 @@ export default function Welcome() {
   let genresFinal = [];
   const allArtists = []
 
+
+ /*  const [obj, setObj] = useState({ name: "Mohamad", age: 33, class: {section:'fbw28' , teacher:'Naqvi'} });
+  <button onClick={() => setObj({ ...obj, class:{...obj.class, section:'fbw30'}})}> */
+
   useEffect(() => {
-    setTop(userTop.items);
+    setTop(userTop.items)
   }, [userTop]);
 
   if (top) {
@@ -59,6 +63,12 @@ export default function Welcome() {
     }
     genresFinal = genresFinal.filter((x) => isNaN(x));
   }
+
+  useEffect(()=>{
+    setSavedData({userName:userData.display_name,userImage:userData.images,userTracks:allArtists,userGenres:topGenres})
+    console.log(savedData)
+  },[top])
+    
 
   return (
     <div className="main">

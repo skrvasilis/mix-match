@@ -6,7 +6,7 @@ const spotifyApi = new SpotifyWebApi();
 export default function Container(props) {
   const [userData, setUserData] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [savedData, setSavedData]= useState({'user':[]});
+  const [savedData, setSavedData]= useState({});
 
   const [userTop, setUserTop] = useState([]);
 
