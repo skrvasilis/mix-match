@@ -44,7 +44,7 @@ if (top) {
             <li>
             <h4>{item && item.name}</h4> 
              <img
-               className="artist-avatar"
+               className="list-avatar"
                src={item && item.images[0].url}
                alt="avatar"
              />
