@@ -7,12 +7,54 @@ export default function Container(props) {
   const [userData, setUserData] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [savedData, setSavedData] = useState([]);
-  const [dataBase, setDataBase] = useState([]);
+  const [dataBase, setDataBase] = useState([]); //use localstorage
   const [userTop, setUserTop] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
   const [topGenres, setTopGenres] = useState([]);
   const [allArtists, setAllArtist] = useState([]);
   const [genresFinal, setGenresFinal] = useState([]);
+  const [accesToken, setAccessToken] = useLocalStorage("userAccesTokenKey",); //accesToken saved to local storage
+
+  
+// Use localstorage HOOK
+
+function useLocalStorage(key, initialValue) {
+  // State to store our value
+  // Pass initial state function to useState so logic is only executed once
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      // Get from local storage by key
+      const item = window.localStorage.getItem(key);
+      // Parse stored json or if none return initialValue
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      // If error also return initialValue
+      console.log(error);
+      return initialValue;
+    }
+  });
+
+    // Return a wrapped version of useState's setter function that ...
+  // ... persists the new value to localStorage.
+  const setValue = value => {
+    try {
+      // Allow value to be a function so we have same API as useState
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value;
+      // Save state
+      setStoredValue(valueToStore);
+      // Save to local storage
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      // A more advanced implementation would handle the error case
+      console.log(error);
+    }
+  };
+
+  return [storedValue, setValue];
+}
+
+////
 
   useEffect(() => {
     if (savedData.length > 0) {
@@ -47,17 +89,18 @@ export default function Container(props) {
   useEffect(() => {
     if (token) {
       spotifyApi.setAccessToken(token);
+      setAccessToken(token);
       setLoggedIn(true);
     }
   }, [token]);
-
+  console.log(token)
   useEffect(() => {
     fetch("https://api.spotify.com/v1/me", {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
+        Authorization: "Bearer " + accesToken,
       },
     }).then((response) => {
       response.json().then((userData) => {
@@ -71,7 +114,7 @@ export default function Container(props) {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
+          Authorization: "Bearer " + accesToken,
         },
       }
     ).then((response) => {
