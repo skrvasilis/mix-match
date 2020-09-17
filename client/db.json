@@ -1,744 +1,615 @@
 {
-  "savedData": [
+  "user": [
     {
-      "savedData": {
-        "savedData": {}
-      },
+      "userName": "Vassilis Skrimpas",
+      "userImage": [
+        {
+          "height": null,
+          "url": "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c1.0.318.318a/p320x320/69931209_2555046714555238_22917992736096256_o.jpg?_nc_cat=105&_nc_sid=0c64ff&_nc_ohc=-QvRVBVzrbYAX_9KTVV&_nc_ht=scontent-frx5-1.xx&oh=72c85a0ffe874d9bf122e167ccca5249&oe=5F8939FF",
+          "width": null
+        }
+      ],
+      "userTracks": [
+        "Terror Jr",
+        "Easter",
+        "Kate Nash",
+        "The Blaze",
+        "Janelle Monáe",
+        "David Bowie",
+        "Fever Ray",
+        "Alkistis Protopsalti",
+        "Katy Garbi",
+        "yeule",
+        "The Boy",
+        "Tami T",
+        "Camera Obscura",
+        "Björk",
+        "Cardi B",
+        "Belle & Sebastian",
+        "FKA twigs",
+        "Planningtorock",
+        "Krista Papista",
+        "The Cinematic Orchestra"
+      ],
+      "userGenres": [
+        [
+          "dance pop",
+          "electropop",
+          "indie electropop",
+          "indie poptimism",
+          "indietronica",
+          "metropopolis",
+          "pop"
+        ],
+        [],
+        [
+          "anti-folk",
+          "electropop",
+          "piano rock"
+        ],
+        [
+          "french indie pop",
+          "french indietronica",
+          "new french touch",
+          "tropical house"
+        ],
+        [
+          "afrofuturism",
+          "alternative r&b",
+          "art pop",
+          "atl hip hop",
+          "dance pop",
+          "electropop",
+          "escape room",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        [
+          "album rock",
+          "art rock",
+          "classic rock",
+          "dance rock",
+          "glam rock",
+          "permanent wave",
+          "rock"
+        ],
+        [
+          "alternative dance",
+          "art pop",
+          "electronica",
+          "electropop",
+          "new rave",
+          "swedish electropop",
+          "swedish synth",
+          "swedish synthpop"
+        ],
+        [
+          "entehno",
+          "greek indie",
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "ambient pop",
+          "escape room",
+          "glitchcore",
+          "hyperpop"
+        ],
+        [
+          "greek indie"
+        ],
+        [],
+        [
+          "indie pop",
+          "scottish indie",
+          "twee pop"
+        ],
+        [
+          "alternative dance",
+          "art pop",
+          "dance pop",
+          "electronica",
+          "electropop",
+          "experimental pop",
+          "experimental vocal",
+          "icelandic experimental",
+          "icelandic pop",
+          "metropopolis",
+          "permanent wave",
+          "pop rock",
+          "trip hop"
+        ],
+        [
+          "pop",
+          "pop rap",
+          "rap"
+        ],
+        [
+          "alternative rock",
+          "anti-folk",
+          "baroque pop",
+          "chamber pop",
+          "indie pop",
+          "indie rock",
+          "melancholia",
+          "scottish indie",
+          "scottish rock",
+          "twee pop"
+        ],
+        [
+          "afrofuturism",
+          "art pop",
+          "dance pop",
+          "electropop",
+          "escape room",
+          "indie r&b",
+          "pop",
+          "trip hop"
+        ],
+        [
+          "art pop",
+          "electroclash",
+          "electropop"
+        ],
+        [],
+        [
+          "downtempo",
+          "electronica",
+          "ninja",
+          "nu jazz"
+        ]
+      ],
       "id": 1
     },
     {
-      "savedData": {
-        "savedData": {}
-      },
+      "userName": "remrcll",
+      "userImage": [],
+      "userTracks": [
+        "Boris Brejcha",
+        "Kollektiv Turmstrasse",
+        "Egokind",
+        "The Beatles",
+        "Stephan Bodzin",
+        "Solomun",
+        "Agony Forces",
+        "Bedouin",
+        "Charles Aznavour",
+        "Jimothy Lacoste",
+        "Simply Red",
+        "Adriatique",
+        "Rival Consoles",
+        "Super Flu",
+        "CASISDEAD",
+        "Noir",
+        "Kiasmos",
+        "Advanced Human",
+        "Wiener Philharmoniker",
+        "Actress"
+      ],
+      "userGenres": [
+        [
+          "german house",
+          "german techno",
+          "minimal techno",
+          "tech house"
+        ],
+        [
+          "electronica",
+          "german techno",
+          "hamburg electronic",
+          "microhouse",
+          "minimal techno",
+          "organic electronic",
+          "tech house"
+        ],
+        [
+          "deep euro house"
+        ],
+        [
+          "beatlesque",
+          "british invasion",
+          "classic rock",
+          "merseybeat",
+          "psychedelic rock",
+          "rock"
+        ],
+        [
+          "deep techno",
+          "electronica",
+          "german techno",
+          "microhouse",
+          "minimal techno",
+          "tech house"
+        ],
+        [
+          "german techno",
+          "hamburg electronic",
+          "melodic techno",
+          "microhouse",
+          "minimal techno",
+          "tech house"
+        ],
+        [
+          "industrial techno",
+          "spanish techno"
+        ],
+        [
+          "arab electronic",
+          "ethnotronica",
+          "organic electronic",
+          "organic house"
+        ],
+        [
+          "chanson"
+        ],
+        [
+          "uk alternative hip hop"
+        ],
+        [
+          "british soul",
+          "dance rock",
+          "mellow gold",
+          "new romantic",
+          "new wave",
+          "new wave pop",
+          "soft rock",
+          "sophisti-pop"
+        ],
+        [
+          "deep disco house",
+          "house",
+          "melodic techno",
+          "microhouse",
+          "organic house",
+          "swiss house",
+          "tech house"
+        ],
+        [
+          "ambient",
+          "ambient idm",
+          "chamber psych",
+          "compositional ambient",
+          "drone",
+          "electronica",
+          "intelligent dance music",
+          "microhouse",
+          "neo-classical"
+        ],
+        [
+          "deep euro house",
+          "electronica",
+          "german house",
+          "microhouse",
+          "minimal tech house",
+          "minimal techno",
+          "organic house",
+          "tech house"
+        ],
+        [
+          "grime",
+          "uk alternative hip hop",
+          "uk drill"
+        ],
+        [
+          "danish techno",
+          "deep techno"
+        ],
+        [
+          "compositional ambient",
+          "electronica",
+          "icelandic electronic",
+          "icelandic pop",
+          "microhouse"
+        ],
+        [
+          "minimal dub"
+        ],
+        [
+          "classical",
+          "classical performance",
+          "orchestra"
+        ],
+        [
+          "art pop",
+          "bass music",
+          "deconstructed club",
+          "experimental pop",
+          "float house",
+          "fluxwork",
+          "future garage",
+          "hauntology",
+          "intelligent dance music",
+          "microhouse",
+          "outsider house",
+          "wonky"
+        ]
+      ],
       "id": 2
     },
     {
-      "savedData": {
-        "savedData": {
-          "userTracks": [],
-          "userGenres": []
-        }
-      },
+      "userName": "blessedog",
+      "userImage": [],
+      "userTracks": [
+        "Sakis Rouvas",
+        "Alkistis Protopsalti",
+        "Hot Chip",
+        "Nalyssa Green",
+        "Peaches",
+        "John Grant",
+        "Κόρε. Ύδρο.",
+        "Dimitris Mitropanos",
+        "Despina Vandi",
+        "CSS",
+        "The Growlers",
+        "The Blaze",
+        "Richard Cheese",
+        "Katy Garbi",
+        "Savina Yannatou",
+        "Sevdaliza",
+        "Stereo Total",
+        "Placebo",
+        "Giorgos Marinos",
+        "Hercules & Love Affair"
+      ],
+      "userGenres": [
+        [
+          "eurovision",
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "entehno",
+          "greek indie",
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "alternative dance",
+          "dance-punk",
+          "electronica",
+          "electropop",
+          "indie pop",
+          "indie rock",
+          "indie soul",
+          "indietronica",
+          "modern rock",
+          "neo-synthpop",
+          "new rave"
+        ],
+        [
+          "greek indie"
+        ],
+        [
+          "alternative dance",
+          "dance-punk",
+          "electroclash",
+          "electronica",
+          "escape room",
+          "new rave"
+        ],
+        [
+          "chamber pop",
+          "chamber psych",
+          "freak folk"
+        ],
+        [
+          "greek indie"
+        ],
+        [
+          "entehno",
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "alternative dance",
+          "dance-punk",
+          "electroclash",
+          "electronica",
+          "indietronica",
+          "new rave"
+        ],
+        [
+          "garage rock revival",
+          "indie garage rock",
+          "indie surf"
+        ],
+        [
+          "french indie pop",
+          "french indietronica",
+          "new french touch",
+          "tropical house"
+        ],
+        [
+          "comic",
+          "comic metal"
+        ],
+        [
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "entehno"
+        ],
+        [
+          "art pop",
+          "electropop",
+          "escape room",
+          "indie r&b"
+        ],
+        [
+          "electroclash"
+        ],
+        [
+          "alternative rock",
+          "britpop",
+          "modern rock",
+          "permanent wave",
+          "rock"
+        ],
+        [
+          "neo kyma"
+        ],
+        [
+          "alternative dance",
+          "art pop",
+          "dance pop",
+          "dance-punk",
+          "electronica",
+          "indietronica",
+          "new rave",
+          "nu disco"
+        ]
+      ],
       "id": 3
     },
     {
-      "savedData": {
-        "savedData": {
-          "userTracks": [],
-          "userGenres": []
-        }
-      },
+      "userName": "blessedog",
+      "userImage": [],
+      "userTracks": [
+        "Sakis Rouvas",
+        "Alkistis Protopsalti",
+        "Hot Chip",
+        "Nalyssa Green",
+        "Peaches",
+        "John Grant",
+        "Κόρε. Ύδρο.",
+        "Dimitris Mitropanos",
+        "Despina Vandi",
+        "CSS",
+        "The Growlers",
+        "The Blaze",
+        "Richard Cheese",
+        "Katy Garbi",
+        "Savina Yannatou",
+        "Sevdaliza",
+        "Stereo Total",
+        "Placebo",
+        "Giorgos Marinos",
+        "Hercules & Love Affair"
+      ],
+      "userGenres": [
+        [
+          "eurovision",
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "entehno",
+          "greek indie",
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "alternative dance",
+          "dance-punk",
+          "electronica",
+          "electropop",
+          "indie pop",
+          "indie rock",
+          "indie soul",
+          "indietronica",
+          "modern rock",
+          "neo-synthpop",
+          "new rave"
+        ],
+        [
+          "greek indie"
+        ],
+        [
+          "alternative dance",
+          "dance-punk",
+          "electroclash",
+          "electronica",
+          "escape room",
+          "new rave"
+        ],
+        [
+          "chamber pop",
+          "chamber psych",
+          "freak folk"
+        ],
+        [
+          "greek indie"
+        ],
+        [
+          "entehno",
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "alternative dance",
+          "dance-punk",
+          "electroclash",
+          "electronica",
+          "indietronica",
+          "new rave"
+        ],
+        [
+          "garage rock revival",
+          "indie garage rock",
+          "indie surf"
+        ],
+        [
+          "french indie pop",
+          "french indietronica",
+          "new french touch",
+          "tropical house"
+        ],
+        [
+          "comic",
+          "comic metal"
+        ],
+        [
+          "greek pop",
+          "laiko"
+        ],
+        [
+          "entehno"
+        ],
+        [
+          "art pop",
+          "electropop",
+          "escape room",
+          "indie r&b"
+        ],
+        [
+          "electroclash"
+        ],
+        [
+          "alternative rock",
+          "britpop",
+          "modern rock",
+          "permanent wave",
+          "rock"
+        ],
+        [
+          "neo kyma"
+        ],
+        [
+          "alternative dance",
+          "art pop",
+          "dance pop",
+          "dance-punk",
+          "electronica",
+          "indietronica",
+          "new rave",
+          "nu disco"
+        ]
+      ],
       "id": 4
-    },
-    {
-      "savedData": {
-        "savedData": {
-          "userName": "Vassilis Skrimpas",
-          "userImage": [
-            {
-              "height": null,
-              "url": "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c1.0.318.318a/p320x320/69931209_2555046714555238_22917992736096256_o.jpg?_nc_cat=105&_nc_sid=0c64ff&_nc_ohc=oJg44b8SSZIAX8wZ3hZ&_nc_ht=scontent-frx5-1.xx&oh=cc4937ed1c9b22e1bb54b90e32ae2a86&oe=5F85457F",
-              "width": null
-            }
-          ],
-          "userTracks": [
-            "Terror Jr",
-            "Easter",
-            "Kate Nash",
-            "The Blaze",
-            "Janelle Monáe",
-            "David Bowie",
-            "Fever Ray",
-            "Alkistis Protopsalti",
-            "Katy Garbi",
-            "yeule",
-            "The Boy",
-            "Tami T",
-            "Camera Obscura",
-            "Björk",
-            "Cardi B",
-            "Belle & Sebastian",
-            "FKA twigs",
-            "Planningtorock",
-            "Krista Papista",
-            "The Cinematic Orchestra"
-          ],
-          "userGenres": [
-            [
-              "dance pop",
-              "electropop",
-              "indie electropop",
-              "indie poptimism",
-              "indietronica",
-              "metropopolis",
-              "pop"
-            ],
-            [],
-            [
-              "anti-folk",
-              "electropop",
-              "piano rock"
-            ],
-            [
-              "french indie pop",
-              "french indietronica",
-              "new french touch",
-              "tropical house"
-            ],
-            [
-              "afrofuturism",
-              "alternative r&b",
-              "art pop",
-              "atl hip hop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "neo soul",
-              "pop",
-              "r&b"
-            ],
-            [
-              "album rock",
-              "art rock",
-              "classic rock",
-              "dance rock",
-              "glam rock",
-              "permanent wave",
-              "rock"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "electronica",
-              "electropop",
-              "new rave",
-              "swedish electropop",
-              "swedish synth",
-              "swedish synthpop"
-            ],
-            [
-              "entehno",
-              "greek indie",
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "ambient pop",
-              "escape room",
-              "glitchcore",
-              "hyperpop"
-            ],
-            [
-              "greek indie"
-            ],
-            [],
-            [
-              "indie pop",
-              "scottish indie",
-              "twee pop"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "dance pop",
-              "electronica",
-              "electropop",
-              "experimental pop",
-              "experimental vocal",
-              "icelandic experimental",
-              "icelandic pop",
-              "metropopolis",
-              "permanent wave",
-              "pop rock",
-              "trip hop"
-            ],
-            [
-              "pop",
-              "pop rap",
-              "rap"
-            ],
-            [
-              "alternative rock",
-              "anti-folk",
-              "baroque pop",
-              "chamber pop",
-              "indie pop",
-              "indie rock",
-              "melancholia",
-              "scottish indie",
-              "scottish rock",
-              "twee pop"
-            ],
-            [
-              "afrofuturism",
-              "art pop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "indie r&b",
-              "pop",
-              "trip hop"
-            ],
-            [
-              "art pop",
-              "electroclash",
-              "electropop"
-            ],
-            [],
-            [
-              "downtempo",
-              "electronica",
-              "ninja",
-              "nu jazz"
-            ]
-          ]
-        }
-      },
-      "id": 5
-    },
-    {
-      "savedData": {
-        "savedData": {
-          "userName": "Vassilis Skrimpas",
-          "userImage": [
-            {
-              "height": null,
-              "url": "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c1.0.318.318a/p320x320/69931209_2555046714555238_22917992736096256_o.jpg?_nc_cat=105&_nc_sid=0c64ff&_nc_ohc=oJg44b8SSZIAX8wZ3hZ&_nc_ht=scontent-frx5-1.xx&oh=cc4937ed1c9b22e1bb54b90e32ae2a86&oe=5F85457F",
-              "width": null
-            }
-          ],
-          "userTracks": [
-            "Terror Jr",
-            "Easter",
-            "Kate Nash",
-            "The Blaze",
-            "Janelle Monáe",
-            "David Bowie",
-            "Fever Ray",
-            "Alkistis Protopsalti",
-            "Katy Garbi",
-            "yeule",
-            "The Boy",
-            "Tami T",
-            "Camera Obscura",
-            "Björk",
-            "Cardi B",
-            "Belle & Sebastian",
-            "FKA twigs",
-            "Planningtorock",
-            "Krista Papista",
-            "The Cinematic Orchestra"
-          ],
-          "userGenres": [
-            [
-              "dance pop",
-              "electropop",
-              "indie electropop",
-              "indie poptimism",
-              "indietronica",
-              "metropopolis",
-              "pop"
-            ],
-            [],
-            [
-              "anti-folk",
-              "electropop",
-              "piano rock"
-            ],
-            [
-              "french indie pop",
-              "french indietronica",
-              "new french touch",
-              "tropical house"
-            ],
-            [
-              "afrofuturism",
-              "alternative r&b",
-              "art pop",
-              "atl hip hop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "neo soul",
-              "pop",
-              "r&b"
-            ],
-            [
-              "album rock",
-              "art rock",
-              "classic rock",
-              "dance rock",
-              "glam rock",
-              "permanent wave",
-              "rock"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "electronica",
-              "electropop",
-              "new rave",
-              "swedish electropop",
-              "swedish synth",
-              "swedish synthpop"
-            ],
-            [
-              "entehno",
-              "greek indie",
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "ambient pop",
-              "escape room",
-              "glitchcore",
-              "hyperpop"
-            ],
-            [
-              "greek indie"
-            ],
-            [],
-            [
-              "indie pop",
-              "scottish indie",
-              "twee pop"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "dance pop",
-              "electronica",
-              "electropop",
-              "experimental pop",
-              "experimental vocal",
-              "icelandic experimental",
-              "icelandic pop",
-              "metropopolis",
-              "permanent wave",
-              "pop rock",
-              "trip hop"
-            ],
-            [
-              "pop",
-              "pop rap",
-              "rap"
-            ],
-            [
-              "alternative rock",
-              "anti-folk",
-              "baroque pop",
-              "chamber pop",
-              "indie pop",
-              "indie rock",
-              "melancholia",
-              "scottish indie",
-              "scottish rock",
-              "twee pop"
-            ],
-            [
-              "afrofuturism",
-              "art pop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "indie r&b",
-              "pop",
-              "trip hop"
-            ],
-            [
-              "art pop",
-              "electroclash",
-              "electropop"
-            ],
-            [],
-            [
-              "downtempo",
-              "electronica",
-              "ninja",
-              "nu jazz"
-            ]
-          ]
-        }
-      },
-      "id": 6
-    },
-    {
-      "savedData": {
-        "savedData": {}
-      },
-      "id": 7
-    },
-    {
-      "savedData": {
-        "savedData": {}
-      },
-      "id": 8
-    },
-    {
-      "savedData": {
-        "savedData": {
-          "userTracks": [],
-          "userGenres": []
-        }
-      },
-      "id": 9
-    },
-    {
-      "savedData": {
-        "savedData": {
-          "userTracks": [],
-          "userGenres": []
-        }
-      },
-      "id": 10
-    },
-    {
-      "savedData": {
-        "savedData": {
-          "userName": "Vassilis Skrimpas",
-          "userImage": [
-            {
-              "height": null,
-              "url": "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c1.0.318.318a/p320x320/69931209_2555046714555238_22917992736096256_o.jpg?_nc_cat=105&_nc_sid=0c64ff&_nc_ohc=oJg44b8SSZIAX8wZ3hZ&_nc_ht=scontent-frx5-1.xx&oh=cc4937ed1c9b22e1bb54b90e32ae2a86&oe=5F85457F",
-              "width": null
-            }
-          ],
-          "userTracks": [
-            "Terror Jr",
-            "Easter",
-            "Kate Nash",
-            "The Blaze",
-            "Janelle Monáe",
-            "David Bowie",
-            "Fever Ray",
-            "Alkistis Protopsalti",
-            "Katy Garbi",
-            "yeule",
-            "The Boy",
-            "Tami T",
-            "Camera Obscura",
-            "Björk",
-            "Cardi B",
-            "Belle & Sebastian",
-            "FKA twigs",
-            "Planningtorock",
-            "Krista Papista",
-            "The Cinematic Orchestra"
-          ],
-          "userGenres": [
-            [
-              "dance pop",
-              "electropop",
-              "indie electropop",
-              "indie poptimism",
-              "indietronica",
-              "metropopolis",
-              "pop"
-            ],
-            [],
-            [
-              "anti-folk",
-              "electropop",
-              "piano rock"
-            ],
-            [
-              "french indie pop",
-              "french indietronica",
-              "new french touch",
-              "tropical house"
-            ],
-            [
-              "afrofuturism",
-              "alternative r&b",
-              "art pop",
-              "atl hip hop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "neo soul",
-              "pop",
-              "r&b"
-            ],
-            [
-              "album rock",
-              "art rock",
-              "classic rock",
-              "dance rock",
-              "glam rock",
-              "permanent wave",
-              "rock"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "electronica",
-              "electropop",
-              "new rave",
-              "swedish electropop",
-              "swedish synth",
-              "swedish synthpop"
-            ],
-            [
-              "entehno",
-              "greek indie",
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "ambient pop",
-              "escape room",
-              "glitchcore",
-              "hyperpop"
-            ],
-            [
-              "greek indie"
-            ],
-            [],
-            [
-              "indie pop",
-              "scottish indie",
-              "twee pop"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "dance pop",
-              "electronica",
-              "electropop",
-              "experimental pop",
-              "experimental vocal",
-              "icelandic experimental",
-              "icelandic pop",
-              "metropopolis",
-              "permanent wave",
-              "pop rock",
-              "trip hop"
-            ],
-            [
-              "pop",
-              "pop rap",
-              "rap"
-            ],
-            [
-              "alternative rock",
-              "anti-folk",
-              "baroque pop",
-              "chamber pop",
-              "indie pop",
-              "indie rock",
-              "melancholia",
-              "scottish indie",
-              "scottish rock",
-              "twee pop"
-            ],
-            [
-              "afrofuturism",
-              "art pop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "indie r&b",
-              "pop",
-              "trip hop"
-            ],
-            [
-              "art pop",
-              "electroclash",
-              "electropop"
-            ],
-            [],
-            [
-              "downtempo",
-              "electronica",
-              "ninja",
-              "nu jazz"
-            ]
-          ]
-        }
-      },
-      "id": 11
-    },
-    {
-      "savedData": {
-        "savedData": {
-          "userName": "Vassilis Skrimpas",
-          "userImage": [
-            {
-              "height": null,
-              "url": "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c1.0.318.318a/p320x320/69931209_2555046714555238_22917992736096256_o.jpg?_nc_cat=105&_nc_sid=0c64ff&_nc_ohc=oJg44b8SSZIAX8wZ3hZ&_nc_ht=scontent-frx5-1.xx&oh=cc4937ed1c9b22e1bb54b90e32ae2a86&oe=5F85457F",
-              "width": null
-            }
-          ],
-          "userTracks": [
-            "Terror Jr",
-            "Easter",
-            "Kate Nash",
-            "The Blaze",
-            "Janelle Monáe",
-            "David Bowie",
-            "Fever Ray",
-            "Alkistis Protopsalti",
-            "Katy Garbi",
-            "yeule",
-            "The Boy",
-            "Tami T",
-            "Camera Obscura",
-            "Björk",
-            "Cardi B",
-            "Belle & Sebastian",
-            "FKA twigs",
-            "Planningtorock",
-            "Krista Papista",
-            "The Cinematic Orchestra"
-          ],
-          "userGenres": [
-            [
-              "dance pop",
-              "electropop",
-              "indie electropop",
-              "indie poptimism",
-              "indietronica",
-              "metropopolis",
-              "pop"
-            ],
-            [],
-            [
-              "anti-folk",
-              "electropop",
-              "piano rock"
-            ],
-            [
-              "french indie pop",
-              "french indietronica",
-              "new french touch",
-              "tropical house"
-            ],
-            [
-              "afrofuturism",
-              "alternative r&b",
-              "art pop",
-              "atl hip hop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "neo soul",
-              "pop",
-              "r&b"
-            ],
-            [
-              "album rock",
-              "art rock",
-              "classic rock",
-              "dance rock",
-              "glam rock",
-              "permanent wave",
-              "rock"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "electronica",
-              "electropop",
-              "new rave",
-              "swedish electropop",
-              "swedish synth",
-              "swedish synthpop"
-            ],
-            [
-              "entehno",
-              "greek indie",
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "greek pop",
-              "laiko"
-            ],
-            [
-              "ambient pop",
-              "escape room",
-              "glitchcore",
-              "hyperpop"
-            ],
-            [
-              "greek indie"
-            ],
-            [],
-            [
-              "indie pop",
-              "scottish indie",
-              "twee pop"
-            ],
-            [
-              "alternative dance",
-              "art pop",
-              "dance pop",
-              "electronica",
-              "electropop",
-              "experimental pop",
-              "experimental vocal",
-              "icelandic experimental",
-              "icelandic pop",
-              "metropopolis",
-              "permanent wave",
-              "pop rock",
-              "trip hop"
-            ],
-            [
-              "pop",
-              "pop rap",
-              "rap"
-            ],
-            [
-              "alternative rock",
-              "anti-folk",
-              "baroque pop",
-              "chamber pop",
-              "indie pop",
-              "indie rock",
-              "melancholia",
-              "scottish indie",
-              "scottish rock",
-              "twee pop"
-            ],
-            [
-              "afrofuturism",
-              "art pop",
-              "dance pop",
-              "electropop",
-              "escape room",
-              "indie r&b",
-              "pop",
-              "trip hop"
-            ],
-            [
-              "art pop",
-              "electroclash",
-              "electropop"
-            ],
-            [],
-            [
-              "downtempo",
-              "electronica",
-              "ninja",
-              "nu jazz"
-            ]
-          ]
-        }
-      },
-      "id": 12
     }
   ]
 }

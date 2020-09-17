@@ -28,9 +28,9 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -41,9 +41,10 @@
 }
 
 #root .results li .list-avatar {
+  margin: 1rem;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .main {
@@ -59,57 +60,7 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  height: 100vh;
-}
-
-.App {
-  text-align: center;
-}
-
-.App .login {
-  margin: 0 auto;
-  max-width: 50%;
-}
-
-.logo {
-  width: 10rem;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@-webkit-keyframes App-logo-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+  min-height: 100vh;
 }
 
 div,
