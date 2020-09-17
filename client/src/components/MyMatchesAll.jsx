@@ -3,31 +3,44 @@ import { Link } from "react-router-dom";
 import MyContext from "../MyContext";
 
 export default function MyMatch() {
-  const { dataBase, userData } = useContext(MyContext);
-
+  const { dataBase,userData,topGenres, allArtists} = useContext(MyContext);
   useEffect(() => {
+    console.log(topGenres)
+    console.log(allArtists)
     if (dataBase[0]) {
-      console.log(dataBase[1].userGenres);
-      console.log(dataBase[0].userTracks);
+  let current= dataBase.filter((item)=>item.userName!==userData.display_name)
+console.log(current)
+    
 
-      let sameArtists = dataBase[0].userTracks.filter((value) =>
-        dataBase[1].userTracks.includes(value)
-      );
-      console.log(sameArtists);
+      let sameArtists =[]
+      for (const item of current) {
+         sameArtists.push((item.userTracks.filter((value)=>allArtists.includes(value))))
+      }
+      console.log(sameArtists)
 
-      let allMyGenres = []
-      dataBase[1].userGenres.map((item)=>{
-        allMyGenres.push(...item)
+    
+      let sameGenres =[]
+      let currentGenres = []
+      topGenres.map((item)=>{
+        currentGenres.push(...item)
       })
-      let allMarcelGenres = []
-      dataBase[0].userGenres.map((item)=>{
-        allMarcelGenres.push(...item)
-      })
-let sameGenres = allMyGenres.filter((value)=>allMarcelGenres.includes(value))
+      console.log(currentGenres)
+    let otherGenres = []
+      for (const item of current) {
+      item.userGenres.map((value)=>otherGenres.push(...value))
+      }
+console.log(otherGenres)
+for (const item of current) {
+   sameGenres.push((currentGenres.filter((value)=>otherGenres.includes(value))))
+}
 
+ 
 console.log(sameGenres)
 
-let unique = [...new Set(sameGenres)]
+
+let unique = []
+for (const item of sameGenres)
+ unique.push([...new Set(item)])
 console.log(unique)
 
 

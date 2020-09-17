@@ -140,10 +140,10 @@ export default function Container(props) {
       genresFinalData = genresFinalData.filter((x) => isNaN(x));
       setGenresFinal(genresFinalData);
     }
-    console.log(userData)
+    
   }, [userTop]);
 
-   useEffect(() => {
+  /*  useEffect(() => {
     if (topGenres.length > 0 && !dataBase.includes(userData.display_name)) {
       setSavedData([
         {
@@ -155,7 +155,7 @@ export default function Container(props) {
       ]);
       console.log(savedData);
     }
-  }, [userData]); 
+  }, [userData]);  */
 
   return (
     <MyContext.Provider

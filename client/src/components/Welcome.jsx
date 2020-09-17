@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import MyContext from "../MyContext";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,8 @@ export default function Welcome() {
     genresFinal
   } = useContext(MyContext);
 
- 
+
+
 
   const completeName =
     String(userData.display_name)[0].toUpperCase() +
