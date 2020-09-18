@@ -470,6 +470,186 @@
         ]
       ],
       "id": 3
+    },
+    {
+      "userName": "Konstantinos Phassas",
+      "userImage": [
+        {
+          "height": null,
+          "url": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=116204472104412&height=300&width=300&ext=1602968529&hash=AeQHLArqAfPau56Y",
+          "width": null
+        }
+      ],
+      "userTracks": [
+        "Paramore",
+        "The Magnetic Fields",
+        "Lady Gaga",
+        "alt-J",
+        "Yeah Yeah Yeahs",
+        "Perfume Genius",
+        "Kylie Minogue",
+        "Moby",
+        "The Cranberries",
+        "FKA twigs",
+        "Erasure",
+        "Elvis Depressedly",
+        "Kelly Clarkson",
+        "Current Joys",
+        "Kate Bush",
+        "Antony and the Johnsons",
+        "Arleta",
+        "K. BHTA",
+        "Krista Papista",
+        "Ssion"
+      ],
+      "userGenres": [
+        [
+          "candy pop",
+          "emo",
+          "pixie",
+          "pop emo",
+          "pop punk"
+        ],
+        [
+          "alternative rock",
+          "anti-folk",
+          "art pop",
+          "art rock",
+          "chamber pop",
+          "e6fi",
+          "freak folk",
+          "indie folk",
+          "indie pop",
+          "indie rock",
+          "lo-fi",
+          "melancholia",
+          "metropopolis",
+          "permanent wave",
+          "stomp and holler",
+          "tape club"
+        ],
+        [
+          "dance pop",
+          "pop"
+        ],
+        [
+          "indie rock"
+        ],
+        [
+          "alternative dance",
+          "alternative rock",
+          "dance-punk",
+          "garage rock",
+          "indie pop",
+          "indie rock",
+          "modern rock",
+          "new rave",
+          "rock"
+        ],
+        [
+          "art pop",
+          "chamber pop",
+          "chillwave",
+          "electropop",
+          "experimental pop",
+          "freak folk",
+          "indie pop",
+          "indie rock",
+          "seattle indie"
+        ],
+        [
+          "australian dance",
+          "australian pop",
+          "dance pop",
+          "disco house",
+          "electropop",
+          "eurodance",
+          "europop",
+          "new wave pop",
+          "pop",
+          "pop rock"
+        ],
+        [
+          "downtempo",
+          "electronica"
+        ],
+        [
+          "irish rock",
+          "pop rock"
+        ],
+        [
+          "afrofuturism",
+          "art pop",
+          "dance pop",
+          "electropop",
+          "escape room",
+          "indie r&b",
+          "pop",
+          "trip hop"
+        ],
+        [
+          "dance pop",
+          "dance rock",
+          "europop",
+          "new romantic",
+          "new wave",
+          "new wave pop",
+          "synthpop"
+        ],
+        [
+          "anti-folk",
+          "asheville indie",
+          "indie garage rock",
+          "indie psych-pop",
+          "indie rock",
+          "shimmer psych",
+          "small room"
+        ],
+        [
+          "dance pop",
+          "neo mellow",
+          "pop",
+          "pop rock",
+          "post-teen pop",
+          "talent show",
+          "viral pop"
+        ],
+        [
+          "indie garage rock",
+          "indie pop"
+        ],
+        [
+          "art pop",
+          "art rock",
+          "baroque pop",
+          "dance rock",
+          "new wave pop",
+          "permanent wave",
+          "piano rock",
+          "singer-songwriter"
+        ],
+        [
+          "art pop",
+          "baroque pop",
+          "melancholia"
+        ],
+        [
+          "classic greek pop",
+          "classic greek rock",
+          "entehno",
+          "greek indie",
+          "laiko",
+          "neo kyma"
+        ],
+        [
+          "greek indie"
+        ],
+        [],
+        [
+          "electropop"
+        ]
+      ],
+      "id": 4
     }
   ]
 }

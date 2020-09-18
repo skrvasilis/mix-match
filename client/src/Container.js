@@ -15,7 +15,13 @@ export default function Container(props) {
   const [genresFinal, setGenresFinal] = useState([]);
   const [accesToken, setAccessToken] = useLocalStorage("userAccesTokenKey",); //accesToken saved to local storage
 
-  
+  const[genresSorted, setGenresSorted] = useState([])
+  const[selectedUser, setSelectedUser] = useState('')
+  const[artistsSorted, setArtistsSorted]=useState([])
+
+  // json-server --watch db.json --port 5000
+
+
 // Use localstorage HOOK
 
 function useLocalStorage(key, initialValue) {
@@ -56,19 +62,6 @@ function useLocalStorage(key, initialValue) {
 
 ////
 
-  useEffect(() => {
-    if (savedData.length > 0) {
-      console.log(savedData);
-      fetch("http://localhost:5000/user", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(...savedData),
-      });
-    }
-  }, [savedData]);
 
   const getHashParams = () => {
     var hashParams = {};
@@ -131,6 +124,19 @@ function useLocalStorage(key, initialValue) {
         setDataBase(data);
       }
     });
+
+
+    if (savedData.length > 0 && !dataBase.includes(userData.display_name)) {
+      console.log(savedData);
+      fetch("http://localhost:5000/user", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(...savedData),
+      });
+    }
   }, [loggedIn]);
 
   
@@ -186,8 +192,8 @@ function useLocalStorage(key, initialValue) {
     
   }, [userTop]);
 
-  /*  useEffect(() => {
-    if (topGenres.length > 0 && !dataBase.includes(userData.display_name)) {
+    useEffect(() => {
+    if (topGenres.length > 0 && !dataBase.includes(userData.display_name) ) {
       setSavedData([
         {
           userName: userData.display_name,
@@ -198,7 +204,113 @@ function useLocalStorage(key, initialValue) {
       ]);
       console.log(savedData);
     }
-  }, [userData]);  */
+  }, [userData]);  
+
+
+
+  // code for myMatchesAll 
+
+  useEffect(() => {
+    if (dataBase[0]) {
+      // here we exclude the current user from the database
+      let currentDataBase = dataBase.filter(
+        (item) => item.userName !== userData.display_name
+      );
+      console.log(currentDataBase);
+
+      // make objects with the users from the database
+
+      // i get the same artists 
+      let sameArtists = [];
+
+      currentDataBase.map((item) => {
+        sameArtists.push({
+          userName: item.userName,
+          sameArtists: item.userTracks.filter((value) =>
+            allArtists.includes(value)
+          ),
+        });
+      });
+      console.log(sameArtists)
+      // sort from the biggest
+      let tempArtists = sameArtists.sort((a,b)=> b.sameArtists.length-a.sameArtists.length)
+     
+      
+      setArtistsSorted(tempArtists)
+
+      console.log(artistsSorted)
+      
+
+
+
+      // here i get an array with all the genres the current user has
+      let currentGenres = [];
+      topGenres.map((item) => {
+        currentGenres.push(...item);
+      });
+      console.log(currentGenres);
+
+      // here i get n arrays with the genres that the others users have
+      let otherGenres = [];
+      currentDataBase.map((item) => {
+        otherGenres.push([...item.userGenres]);
+      });
+
+      // here i get the same genres 
+      let sameGenres = [];
+      for (const item of otherGenres) {
+        item.join().split(",");
+        sameGenres.push(
+          item
+            .join()
+            .split(",")
+            .filter((value) => currentGenres.includes(value))
+        );
+      }
+
+      // here we delete duplicates
+      let uniqueGenres = [];
+      for (const item of sameGenres) {
+        uniqueGenres.push([...new Set(item)]);
+      }
+      console.log(uniqueGenres);
+
+      for (const item of uniqueGenres) {
+        console.log(currentDataBase[uniqueGenres.indexOf(item)].userName);
+      }
+
+      
+      let finalSameGenres = [];
+      for (const item of uniqueGenres) {
+        finalSameGenres.push({
+          userName: currentDataBase[uniqueGenres.indexOf(item)].userName,
+          sameGenres: item,
+        });
+      }
+
+      console.log(finalSameGenres)
+    
+
+// we sort the users from the biggest
+     let test = finalSameGenres.sort((a,b)=> b.sameGenres.length-a.sameGenres.length)
+     setGenresSorted(test)
+
+    }
+  }, [dataBase]);
+
+  if (genresSorted) {
+    console.log(genresSorted)
+  }
+
+useEffect(()=>{
+    if (selectedUser) {
+      console.log(selectedUser)
+      
+    }
+
+  },[selectedUser])
+
+
 
   return (
     <MyContext.Provider
@@ -211,6 +323,10 @@ function useLocalStorage(key, initialValue) {
         topArtists,
         genresFinal,
         dataBase,
+        genresSorted,
+        artistsSorted,
+        selectedUser,
+        setSelectedUser
       }}
     >
       {props.children}
