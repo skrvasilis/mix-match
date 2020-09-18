@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import MyContext from "../MyContext";
 
 export default function MyMatchSingle() {
+  const {genresSorted,
+    artistsSorted,
+    selectedUser,}= useContext(MyContext)
+
+
+    useEffect(()=>{
+      if(selectedUser) {
+        console.log(genresSorted)
+        console.log(artistsSorted)
+        console.log(selectedUser)
+      }
+    },[selectedUser])
   return (
     <div className="main">
       <div className="content">

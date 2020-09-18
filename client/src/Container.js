@@ -97,7 +97,7 @@ function useLocalStorage(key, initialValue) {
       },
     }).then((response) => {
       response.json().then((userData) => {
-        setUserData(userData);
+        setUserData(userData); // set userData to userData
       });
     });
     fetch(
@@ -112,7 +112,7 @@ function useLocalStorage(key, initialValue) {
       }
     ).then((response) => {
       response.json().then((data) => {
-        setUserTop(data);
+        setUserTop(data); // set the topartists data from the user to UserTop
         console.log(userTop);
       });
     });
@@ -126,7 +126,7 @@ function useLocalStorage(key, initialValue) {
     });
 
 
-    if (savedData.length > 0 && !dataBase.includes(userData.display_name)) {
+    if (savedData.length > 0 /* && !dataBase.includes(userData.display_name) */) {
       console.log(savedData);
       fetch("http://localhost:5000/user", {
         method: "POST",
@@ -144,19 +144,24 @@ function useLocalStorage(key, initialValue) {
   useEffect(() => {
     if (userTop.items) {
       console.log(userTop.items.slice(0, 5));
-      setTopArtists(userTop.items.slice(0, 5));
+      setTopArtists(userTop.items.slice(0, 5)); // we take the first 5 artists so we can dislay them in welcome page
 
+      // we set all 20 top artists to AllArtists 
       let artistData = userTop.items.map((item) => {
         return item.name;
       });
       setAllArtist(artistData);
 
+      // we set user's top Genres to topGenres 
       let genresData = userTop.items.map((item) => {
         return item.genres;
       });
       setTopGenres(genresData);
       console.log(topGenres);
 
+      // we set top 5 genres to genresFinal
+
+      // first we find the similar genres
       let tmp = {};
       for (let i = 0; i < topGenres.length; i++) {
         for (let j = 0; j < topGenres[i].length; j++) {
@@ -171,13 +176,14 @@ function useLocalStorage(key, initialValue) {
       for (const genre in tmp) {
         sortable.push([genre, tmp[genre]]);
       }
-
+// we sort the genres from bigest to lowest 
       sortable.sort(function (a, b) {
         return a[1] - b[1];
       });
 
       sortable.reverse();
 
+      // we take the first 5 genres 
       for (let i = 0; i < 5; i++) {
         topFiveGenres.push(sortable[i]);
       }
@@ -192,8 +198,9 @@ function useLocalStorage(key, initialValue) {
     
   }, [userTop]);
 
+  // we set the data that we want to post to the data base to savedData
     useEffect(() => {
-    if (topGenres.length > 0 && !dataBase.includes(userData.display_name) ) {
+    if (topGenres.length > 0 /*  && !dataBase.includes(userData.display_name ) */ ) {
       setSavedData([
         {
           userName: userData.display_name,
