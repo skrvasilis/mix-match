@@ -211,12 +211,13 @@ function useLocalStorage(key, initialValue) {
   // code for myMatchesAll 
 
   useEffect(() => {
-    if (dataBase[0]) {
+    if (dataBase[0] && userData) {
       // here we exclude the current user from the database
       let currentDataBase = dataBase.filter(
         (item) => item.userName !== userData.display_name
       );
       console.log(currentDataBase);
+      console.log(allArtists);
 
       // make objects with the users from the database
 
@@ -296,7 +297,7 @@ function useLocalStorage(key, initialValue) {
      setGenresSorted(test)
 
     }
-  }, [dataBase]);
+  }, [userData]);
 
   if (genresSorted) {
     console.log(genresSorted)
