@@ -650,6 +650,189 @@
         ]
       ],
       "id": 4
+    },
+    {
+      "userName": "Demetrious Betas",
+      "userImage": [
+        {
+          "height": null,
+          "url": "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-1/p320x320/67396250_10217585903271371_8450456826142523392_n.jpg?_nc_cat=109&_nc_sid=0c64ff&_nc_ohc=66MY3SgqIgsAX_qaMB4&_nc_oc=AQnAjglLfPkOfI9s5nsArZMXtVAMR99DPAjs6kVRzp49SjewdYcaJURh4gbN_riIJeY&_nc_ht=scontent-amt2-1.xx&tp=6&oh=bf1cd7980ebef505b4d7c2bc7d212c42&oe=5F8995EC",
+          "width": null
+        }
+      ],
+      "userTracks": [
+        "Devendra Banhart",
+        "Sharon Van Etten",
+        "Louis Armstrong",
+        "Sun Kil Moon",
+        "Grimes",
+        "CocoRosie",
+        "Ray Charles",
+        "Alela Diane",
+        "Nina Simone",
+        "Molly Nilsson",
+        "Future Islands",
+        "Tony Bennett",
+        "Geir Henning Braaten",
+        "Duke Ellington",
+        "Sequentia",
+        "Diana Krall",
+        "Rheinland-Pfalz State Philharmonic Orchestra",
+        "BBC Philharmonic",
+        "Fleet Foxes",
+        "Radiohead"
+      ],
+      "userGenres": [
+        [
+          "freak folk"
+        ],
+        [
+          "art pop",
+          "chamber pop",
+          "chamber psych",
+          "freak folk",
+          "indie folk",
+          "indie pop",
+          "indie rock",
+          "melancholia",
+          "new jersey indie",
+          "stomp and holler"
+        ],
+        [
+          "adult standards",
+          "dixieland",
+          "harlem renaissance",
+          "jazz trumpet",
+          "new orleans jazz",
+          "swing",
+          "vocal jazz"
+        ],
+        [
+          "alternative rock",
+          "art pop",
+          "freak folk",
+          "indie rock",
+          "modern folk rock",
+          "slowcore",
+          "stomp and holler"
+        ],
+        [
+          "art pop",
+          "canadian electropop",
+          "chillwave",
+          "dance pop",
+          "electropop",
+          "grave wave",
+          "indie pop",
+          "indietronica",
+          "metropopolis"
+        ],
+        [
+          "art pop",
+          "folktronica",
+          "freak folk",
+          "new weird america"
+        ],
+        [
+          "adult standards",
+          "classic soul",
+          "jazz blues",
+          "piano blues",
+          "soul",
+          "soul blues",
+          "vocal jazz"
+        ],
+        [
+          "chamber pop",
+          "freak folk",
+          "indie folk",
+          "new weird america",
+          "stomp and holler"
+        ],
+        [
+          "jazz blues",
+          "soul",
+          "soul jazz",
+          "torch song",
+          "vocal jazz"
+        ],
+        [
+          "swedish synthpop"
+        ],
+        [
+          "alternative dance",
+          "baltimore indie",
+          "chillwave",
+          "indie pop",
+          "indie rock",
+          "modern rock"
+        ],
+        [
+          "adult standards",
+          "easy listening",
+          "lounge",
+          "vocal jazz"
+        ],
+        [],
+        [
+          "adult standards",
+          "african-american classical",
+          "bebop",
+          "big band",
+          "cool jazz",
+          "harlem renaissance",
+          "jazz",
+          "jazz piano",
+          "lounge",
+          "swing",
+          "vocal jazz"
+        ],
+        [
+          "choral",
+          "early music ensemble",
+          "medieval",
+          "medieval ensemble",
+          "monastic"
+        ],
+        [
+          "adult standards",
+          "contemporary vocal jazz",
+          "jazz pop",
+          "lounge",
+          "soul",
+          "vocal jazz"
+        ],
+        [
+          "orchestra"
+        ],
+        [
+          "british orchestra",
+          "classic soundtrack",
+          "classical",
+          "classical performance",
+          "orchestra",
+          "radio symphony"
+        ],
+        [
+          "chamber pop",
+          "freak folk",
+          "indie folk",
+          "indie pop",
+          "indie rock",
+          "modern rock",
+          "seattle indie",
+          "stomp and holler"
+        ],
+        [
+          "alternative rock",
+          "art rock",
+          "melancholia",
+          "oxford indie",
+          "permanent wave",
+          "rock"
+        ]
+      ],
+      "id": 5
     }
   ]
 }

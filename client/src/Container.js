@@ -126,7 +126,11 @@ function useLocalStorage(key, initialValue) {
     });
 
 
-    if (savedData.length > 0 /* && !dataBase.includes(userData.display_name) */) {
+    
+  }, [loggedIn]);
+
+ /*  useEffect(()=>{
+    if (savedData.length > 0 && !dataBase.includes(userData.display_name)) {
       console.log(savedData);
       fetch("http://localhost:5000/user", {
         method: "POST",
@@ -137,9 +141,7 @@ function useLocalStorage(key, initialValue) {
         body: JSON.stringify(...savedData),
       });
     }
-  }, [loggedIn]);
-
-  
+  },[dataBase]) */
 
   useEffect(() => {
     if (userTop.items) {
