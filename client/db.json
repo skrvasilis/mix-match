@@ -2,6 +2,7 @@
   "user": [
     {
       "userName": "Vassilis Skrimpas",
+      "userID": "Vassilis Skrimpas",
       "userImage": [
         {
           "height": null,
@@ -29,310 +30,65 @@
         "FKA twigs",
         "Planningtorock",
         "Krista Papista",
-        "The Cinematic Orchestra"
+        "The Cinematic Orchestra",
+        "Actress"
       ],
       "userGenres": [
-        [
-          "dance pop",
-          "electropop",
-          "indie electropop",
-          "indie poptimism",
-          "indietronica",
-          "metropopolis",
-          "pop"
-        ],
-        [],
-        [
-          "anti-folk",
-          "electropop",
-          "piano rock"
-        ],
-        [
-          "french indie pop",
-          "french indietronica",
-          "new french touch",
-          "tropical house"
-        ],
-        [
-          "afrofuturism",
-          "alternative r&b",
-          "art pop",
-          "atl hip hop",
-          "dance pop",
-          "electropop",
-          "escape room",
-          "neo soul",
-          "pop",
-          "r&b"
-        ],
-        [
-          "album rock",
-          "art rock",
-          "classic rock",
-          "dance rock",
-          "glam rock",
-          "permanent wave",
-          "rock"
-        ],
-        [
-          "alternative dance",
-          "art pop",
-          "electronica",
-          "electropop",
-          "new rave",
-          "swedish electropop",
-          "swedish synth",
-          "swedish synthpop"
-        ],
-        [
-          "entehno",
-          "greek indie",
-          "greek pop",
-          "laiko"
-        ],
-        [
-          "greek pop",
-          "laiko"
-        ],
-        [
-          "ambient pop",
-          "escape room",
-          "glitchcore",
-          "hyperpop"
-        ],
-        [
-          "greek indie"
-        ],
-        [],
-        [
-          "indie pop",
-          "scottish indie",
-          "twee pop"
-        ],
-        [
-          "alternative dance",
-          "art pop",
-          "dance pop",
-          "electronica",
-          "electropop",
-          "experimental pop",
-          "experimental vocal",
-          "icelandic experimental",
-          "icelandic pop",
-          "metropopolis",
-          "permanent wave",
-          "pop rock",
-          "trip hop"
-        ],
-        [
-          "pop",
-          "pop rap",
-          "rap"
-        ],
-        [
-          "alternative rock",
-          "anti-folk",
-          "baroque pop",
-          "chamber pop",
-          "indie pop",
-          "indie rock",
-          "melancholia",
-          "scottish indie",
-          "scottish rock",
-          "twee pop"
-        ],
-        [
-          "afrofuturism",
-          "art pop",
-          "dance pop",
-          "electropop",
-          "escape room",
-          "indie r&b",
-          "pop",
-          "trip hop"
-        ],
-        [
-          "art pop",
-          "electroclash",
-          "electropop"
-        ],
-        [],
-        [
-          "downtempo",
-          "electronica",
-          "ninja",
-          "nu jazz"
-        ]
+        "dance pop",
+        "electropop",
+        "indie electropop",
+        "french indie pop",
+        "afrofuturism",
+        "alternative r&b",
+        "art pop",
+        "atl hip hop",
+        "dance pop",
+        "electropop",
+        "escape room",
+        "neo soul",
+        "pop",
+        "album rock",
+        "art rock",
+        "classic rock",
+        "alternative dance",
+        "art pop",
+        "electronica",
+        "electropop",
+        "new rave",
+        "swedish electropop",
+        "alternative dance",
+        "art pop",
+        "dance pop",
+        "electronica",
+        "electropop",
+        "experimental pop",
+        "experimental vocal",
+        "icelandic experimental",
+        "icelandic pop",
+        "metropopolis",
+        "permanent wave",
+        "alternative rock",
+        "anti-folk",
+        "baroque pop",
+        "chamber pop",
+        "indie pop",
+        "indie rock",
+        "melancholia",
+        "scottish indie",
+        "scottish rock",
+        "afrofuturism",
+        "art pop",
+        "dance pop",
+        "electropop",
+        "escape room",
+        "indie r&b",
+        "pop"
       ],
       "id": 1
     },
     {
-      "userName": "remrcll",
-      "userImage": [],
-      "userTracks": [
-        "Boris Brejcha",
-        "Kollektiv Turmstrasse",
-        "Egokind",
-        "The Beatles",
-        "Stephan Bodzin",
-        "Solomun",
-        "Agony Forces",
-        "Bedouin",
-        "Charles Aznavour",
-        "Jimothy Lacoste",
-        "Simply Red",
-        "Adriatique",
-        "Rival Consoles",
-        "Super Flu",
-        "CASISDEAD",
-        "Noir",
-        "Kiasmos",
-        "Advanced Human",
-        "Wiener Philharmoniker",
-        "Actress"
-      ],
-      "userGenres": [
-        [
-          "german house",
-          "german techno",
-          "minimal techno",
-          "tech house"
-        ],
-        [
-          "electronica",
-          "german techno",
-          "hamburg electronic",
-          "microhouse",
-          "minimal techno",
-          "organic electronic",
-          "tech house"
-        ],
-        [
-          "deep euro house"
-        ],
-        [
-          "beatlesque",
-          "british invasion",
-          "classic rock",
-          "merseybeat",
-          "psychedelic rock",
-          "rock"
-        ],
-        [
-          "deep techno",
-          "electronica",
-          "german techno",
-          "microhouse",
-          "minimal techno",
-          "tech house"
-        ],
-        [
-          "german techno",
-          "hamburg electronic",
-          "melodic techno",
-          "microhouse",
-          "minimal techno",
-          "tech house"
-        ],
-        [
-          "industrial techno",
-          "spanish techno"
-        ],
-        [
-          "arab electronic",
-          "ethnotronica",
-          "organic electronic",
-          "organic house"
-        ],
-        [
-          "chanson"
-        ],
-        [
-          "uk alternative hip hop"
-        ],
-        [
-          "british soul",
-          "dance rock",
-          "mellow gold",
-          "new romantic",
-          "new wave",
-          "new wave pop",
-          "soft rock",
-          "sophisti-pop"
-        ],
-        [
-          "deep disco house",
-          "house",
-          "melodic techno",
-          "microhouse",
-          "organic house",
-          "swiss house",
-          "tech house"
-        ],
-        [
-          "ambient",
-          "ambient idm",
-          "chamber psych",
-          "compositional ambient",
-          "drone",
-          "electronica",
-          "intelligent dance music",
-          "microhouse",
-          "neo-classical"
-        ],
-        [
-          "deep euro house",
-          "electronica",
-          "german house",
-          "microhouse",
-          "minimal tech house",
-          "minimal techno",
-          "organic house",
-          "tech house"
-        ],
-        [
-          "grime",
-          "uk alternative hip hop",
-          "uk drill"
-        ],
-        [
-          "danish techno",
-          "deep techno"
-        ],
-        [
-          "compositional ambient",
-          "electronica",
-          "icelandic electronic",
-          "icelandic pop",
-          "microhouse"
-        ],
-        [
-          "minimal dub"
-        ],
-        [
-          "classical",
-          "classical performance",
-          "orchestra"
-        ],
-        [
-          "art pop",
-          "bass music",
-          "deconstructed club",
-          "experimental pop",
-          "float house",
-          "fluxwork",
-          "future garage",
-          "hauntology",
-          "intelligent dance music",
-          "microhouse",
-          "outsider house",
-          "wonky"
-        ]
-      ],
-      "id": 2
-    },
-    {
       "userName": "blessedog",
+      "userID": "blessedog",
       "userImage": [],
       "userTracks": [
         "Sakis Rouvas",
@@ -357,122 +113,44 @@
         "Hercules & Love Affair"
       ],
       "userGenres": [
-        [
-          "eurovision",
-          "greek pop",
-          "laiko"
-        ],
-        [
-          "entehno",
-          "greek indie",
-          "greek pop",
-          "laiko"
-        ],
-        [
-          "alternative dance",
-          "dance-punk",
-          "electronica",
-          "electropop",
-          "indie pop",
-          "indie rock",
-          "indie soul",
-          "indietronica",
-          "modern rock",
-          "neo-synthpop",
-          "new rave"
-        ],
-        [
-          "greek indie"
-        ],
-        [
-          "alternative dance",
-          "dance-punk",
-          "electroclash",
-          "electronica",
-          "escape room",
-          "new rave"
-        ],
-        [
-          "chamber pop",
-          "chamber psych",
-          "freak folk"
-        ],
-        [
-          "greek indie"
-        ],
-        [
-          "entehno",
-          "greek pop",
-          "laiko"
-        ],
-        [
-          "greek pop",
-          "laiko"
-        ],
-        [
-          "alternative dance",
-          "dance-punk",
-          "electroclash",
-          "electronica",
-          "indietronica",
-          "new rave"
-        ],
-        [
-          "garage rock revival",
-          "indie garage rock",
-          "indie surf"
-        ],
-        [
-          "french indie pop",
-          "french indietronica",
-          "new french touch",
-          "tropical house"
-        ],
-        [
-          "comic",
-          "comic metal"
-        ],
-        [
-          "greek pop",
-          "laiko"
-        ],
-        [
-          "entehno"
-        ],
-        [
-          "art pop",
-          "electropop",
-          "escape room",
-          "indie r&b"
-        ],
-        [
-          "electroclash"
-        ],
-        [
-          "alternative rock",
-          "britpop",
-          "modern rock",
-          "permanent wave",
-          "rock"
-        ],
-        [
-          "neo kyma"
-        ],
-        [
-          "alternative dance",
-          "art pop",
-          "dance pop",
-          "dance-punk",
-          "electronica",
-          "indietronica",
-          "new rave",
-          "nu disco"
-        ]
+        "alternative dance",
+        "dance-punk",
+        "electronica",
+        "electropop",
+        "indie pop",
+        "indie rock",
+        "indie soul",
+        "indietronica",
+        "modern rock",
+        "alternative dance",
+        "dance-punk",
+        "electroclash",
+        "electronica",
+        "escape room",
+        "alternative dance",
+        "dance-punk",
+        "electroclash",
+        "electronica",
+        "indietronica",
+        "french indie pop",
+        "alternative rock",
+        "britpop",
+        "modern rock",
+        "permanent wave",
+        "alternative dance",
+        "art pop",
+        "dance pop",
+        "dance-punk",
+        "electronica",
+        "indietronica",
+        "new rave",
+        "nu disco"
       ],
-      "id": 3
+      "id": 2
     },
     {
       "userName": "Konstantinos Phassas",
+      "userID": "Konstantinos Phassas",
       "userImage": [
         {
           "height": null,
@@ -481,6 +159,7 @@
         }
       ],
       "userTracks": [
+        "Boris Brejcha",
         "Paramore",
         "The Magnetic Fields",
         "Lady Gaga",
@@ -503,156 +182,94 @@
         "Ssion"
       ],
       "userGenres": [
-        [
-          "candy pop",
-          "emo",
-          "pixie",
-          "pop emo",
-          "pop punk"
-        ],
-        [
-          "alternative rock",
-          "anti-folk",
-          "art pop",
-          "art rock",
-          "chamber pop",
-          "e6fi",
-          "freak folk",
-          "indie folk",
-          "indie pop",
-          "indie rock",
-          "lo-fi",
-          "melancholia",
-          "metropopolis",
-          "permanent wave",
-          "stomp and holler",
-          "tape club"
-        ],
-        [
-          "dance pop",
-          "pop"
-        ],
-        [
-          "indie rock"
-        ],
-        [
-          "alternative dance",
-          "alternative rock",
-          "dance-punk",
-          "garage rock",
-          "indie pop",
-          "indie rock",
-          "modern rock",
-          "new rave",
-          "rock"
-        ],
-        [
-          "art pop",
-          "chamber pop",
-          "chillwave",
-          "electropop",
-          "experimental pop",
-          "freak folk",
-          "indie pop",
-          "indie rock",
-          "seattle indie"
-        ],
-        [
-          "australian dance",
-          "australian pop",
-          "dance pop",
-          "disco house",
-          "electropop",
-          "eurodance",
-          "europop",
-          "new wave pop",
-          "pop",
-          "pop rock"
-        ],
-        [
-          "downtempo",
-          "electronica"
-        ],
-        [
-          "irish rock",
-          "pop rock"
-        ],
-        [
-          "afrofuturism",
-          "art pop",
-          "dance pop",
-          "electropop",
-          "escape room",
-          "indie r&b",
-          "pop",
-          "trip hop"
-        ],
-        [
-          "dance pop",
-          "dance rock",
-          "europop",
-          "new romantic",
-          "new wave",
-          "new wave pop",
-          "synthpop"
-        ],
-        [
-          "anti-folk",
-          "asheville indie",
-          "indie garage rock",
-          "indie psych-pop",
-          "indie rock",
-          "shimmer psych",
-          "small room"
-        ],
-        [
-          "dance pop",
-          "neo mellow",
-          "pop",
-          "pop rock",
-          "post-teen pop",
-          "talent show",
-          "viral pop"
-        ],
-        [
-          "indie garage rock",
-          "indie pop"
-        ],
-        [
-          "art pop",
-          "art rock",
-          "baroque pop",
-          "dance rock",
-          "new wave pop",
-          "permanent wave",
-          "piano rock",
-          "singer-songwriter"
-        ],
-        [
-          "art pop",
-          "baroque pop",
-          "melancholia"
-        ],
-        [
-          "classic greek pop",
-          "classic greek rock",
-          "entehno",
-          "greek indie",
-          "laiko",
-          "neo kyma"
-        ],
-        [
-          "greek indie"
-        ],
-        [],
-        [
-          "electropop"
-        ]
+        "alternative rock",
+        "anti-folk",
+        "art pop",
+        "art rock",
+        "chamber pop",
+        "e6fi",
+        "freak folk",
+        "indie folk",
+        "indie pop",
+        "indie rock",
+        "lo-fi",
+        "melancholia",
+        "metropopolis",
+        "permanent wave",
+        "stomp and holler",
+        "alternative dance",
+        "alternative rock",
+        "dance-punk",
+        "garage rock",
+        "indie pop",
+        "indie rock",
+        "modern rock",
+        "chamber pop",
+        "chillwave",
+        "electropop",
+        "experimental pop",
+        "freak folk",
+        "indie pop",
+        "indie rock",
+        "australian dance",
+        "australian pop",
+        "dance pop",
+        "disco house",
+        "electropop",
+        "eurodance",
+        "europop",
+        "new wave pop",
+        "afrofuturism",
+        "art pop",
+        "dance pop",
+        "electropop",
+        "escape room",
+        "indie r&b",
+        "pop",
+        "dance pop",
+        "dance rock",
+        "europop",
+        "new romantic",
+        "new wave",
+        "new wave pop",
+        "anti-folk",
+        "asheville indie",
+        "indie garage rock",
+        "indie psych-pop",
+        "indie rock",
+        "shimmer psych",
+        "dance pop",
+        "neo mellow",
+        "pop",
+        "pop rock",
+        "post-teen pop",
+        "talent show",
+        "viral pop",
+        "art pop",
+        "art rock",
+        "baroque pop",
+        "dance rock",
+        "new wave pop",
+        "permanent wave",
+        "piano rock",
+        "singer-songwriter",
+        "art pop",
+        "baroque pop",
+        "melancholia",
+        "classic greek pop",
+        "classic greek rock",
+        "entehno",
+        "greek indie",
+        "laiko",
+        "neo kyma",
+        "greek indie",
+        "electropop"
       ],
-      "id": 4
+      "id": 3
     },
     {
       "userName": "Demetrious Betas",
+      "userID": "Demetrious Betas",
       "userImage": [
         {
           "height": null,
@@ -671,6 +288,8 @@
         "Alela Diane",
         "Nina Simone",
         "Molly Nilsson",
+        "Solomun",
+        "Agony Forces",
         "Future Islands",
         "Tony Bennett",
         "Geir Henning Braaten",
@@ -683,156 +302,91 @@
         "Radiohead"
       ],
       "userGenres": [
-        [
-          "freak folk"
-        ],
-        [
-          "art pop",
-          "chamber pop",
-          "chamber psych",
-          "freak folk",
-          "indie folk",
-          "indie pop",
-          "indie rock",
-          "melancholia",
-          "new jersey indie",
-          "stomp and holler"
-        ],
-        [
-          "adult standards",
-          "dixieland",
-          "harlem renaissance",
-          "jazz trumpet",
-          "new orleans jazz",
-          "swing",
-          "vocal jazz"
-        ],
-        [
-          "alternative rock",
-          "art pop",
-          "freak folk",
-          "indie rock",
-          "modern folk rock",
-          "slowcore",
-          "stomp and holler"
-        ],
-        [
-          "art pop",
-          "canadian electropop",
-          "chillwave",
-          "dance pop",
-          "electropop",
-          "grave wave",
-          "indie pop",
-          "indietronica",
-          "metropopolis"
-        ],
-        [
-          "art pop",
-          "folktronica",
-          "freak folk",
-          "new weird america"
-        ],
-        [
-          "adult standards",
-          "classic soul",
-          "jazz blues",
-          "piano blues",
-          "soul",
-          "soul blues",
-          "vocal jazz"
-        ],
-        [
-          "chamber pop",
-          "freak folk",
-          "indie folk",
-          "new weird america",
-          "stomp and holler"
-        ],
-        [
-          "jazz blues",
-          "soul",
-          "soul jazz",
-          "torch song",
-          "vocal jazz"
-        ],
-        [
-          "swedish synthpop"
-        ],
-        [
-          "alternative dance",
-          "baltimore indie",
-          "chillwave",
-          "indie pop",
-          "indie rock",
-          "modern rock"
-        ],
-        [
-          "adult standards",
-          "easy listening",
-          "lounge",
-          "vocal jazz"
-        ],
-        [],
-        [
-          "adult standards",
-          "african-american classical",
-          "bebop",
-          "big band",
-          "cool jazz",
-          "harlem renaissance",
-          "jazz",
-          "jazz piano",
-          "lounge",
-          "swing",
-          "vocal jazz"
-        ],
-        [
-          "choral",
-          "early music ensemble",
-          "medieval",
-          "medieval ensemble",
-          "monastic"
-        ],
-        [
-          "adult standards",
-          "contemporary vocal jazz",
-          "jazz pop",
-          "lounge",
-          "soul",
-          "vocal jazz"
-        ],
-        [
-          "orchestra"
-        ],
-        [
-          "british orchestra",
-          "classic soundtrack",
-          "classical",
-          "classical performance",
-          "orchestra",
-          "radio symphony"
-        ],
-        [
-          "chamber pop",
-          "freak folk",
-          "indie folk",
-          "indie pop",
-          "indie rock",
-          "modern rock",
-          "seattle indie",
-          "stomp and holler"
-        ],
-        [
-          "alternative rock",
-          "art rock",
-          "melancholia",
-          "oxford indie",
-          "permanent wave",
-          "rock"
-        ]
+        "art pop",
+        "chamber pop",
+        "chamber psych",
+        "freak folk",
+        "indie folk",
+        "indie pop",
+        "indie rock",
+        "melancholia",
+        "new jersey indie",
+        "stomp and holler",
+        "adult standards",
+        "dixieland",
+        "harlem renaissance",
+        "jazz trumpet",
+        "new orleans jazz",
+        "swing",
+        "vocal jazz",
+        "art pop",
+        "canadian electropop",
+        "chillwave",
+        "dance pop",
+        "electropop",
+        "grave wave",
+        "indie pop",
+        "indietronica",
+        "metropopolis",
+        "jazz blues",
+        "soul",
+        "soul jazz",
+        "torch song",
+        "vocal jazz",
+        "swedish synthpop",
+        "alternative dance",
+        "baltimore indie",
+        "chillwave",
+        "indie pop",
+        "indie rock",
+        "easy listening",
+        "lounge",
+        "vocal jazz",
+        "adult standards",
+        "african-american classical",
+        "bebop",
+        "big band",
+        "cool jazz",
+        "harlem renaissance",
+        "jazz",
+        "jazz piano",
+        "lounge",
+        "swing",
+        "vocal jazz",
+        "choral",
+        "early music ensemble",
+        "medieval",
+        "medieval ensemble",
+        "monastic",
+        "adult standards",
+        "contemporary vocal jazz",
+        "jazz pop",
+        "lounge",
+        "soul",
+        "vocal jazz",
+        "orchestra",
+        "british orchestra",
+        "classic soundtrack",
+        "classical",
+        "classical performance",
+        "orchestra",
+        "radio symphony",
+        "chamber pop",
+        "freak folk",
+        "indie folk",
+        "indie pop",
+        "indie rock",
+        "modern rock",
+        "seattle indie",
+        "stomp and holler",
+        "alternative rock",
+        "art rock",
+        "melancholia",
+        "oxford indie",
+        "permanent wave",
+        "rock"
       ],
-      "id": 5
+      "id": 4
     }
   ]
 }
