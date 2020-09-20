@@ -124,10 +124,8 @@ function useLocalStorage(key, initialValue) {
         setDataBase(data);
       }
     });
-
-
-    
   }, [loggedIn]);
+
 
  /*  useEffect(()=>{
     if (savedData.length > 0 && !dataBase.includes(userData.display_name)) {
@@ -306,11 +304,9 @@ function useLocalStorage(key, initialValue) {
      setGenresSorted(test)
 
     }
-  }, [userData]);
+  }, [topArtists]);
 
-  if (genresSorted) {
-    console.log(genresSorted)
-  }
+ 
 
 useEffect(()=>{
     if (selectedUser) {
