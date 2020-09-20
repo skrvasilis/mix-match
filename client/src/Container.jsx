@@ -145,7 +145,7 @@ export default function Container(props) {
 
   //We set current user into localstorage, so we know who is logged in
   useEffect(() => {
-    setCurrentUserId(userData.id);
+    setCurrentUserId(userData.display_name);
   }, [loggedIn, accesToken, userData]);
 
   //We fetch top artist data from Spotify
@@ -209,6 +209,7 @@ export default function Container(props) {
         userName: userData.display_name,
         userID: userData.id,
         userImage: userData.images,
+        userLink: userData.external_urls,
         userTracks: myTop20ArtistNames,
         userGenres: myAllGenresFromSpotifyFetch,
       },
@@ -220,6 +221,8 @@ export default function Container(props) {
     myTop20ArtistNames,
     myAllGenresFromSpotifyFetch,
   ]);
+
+  console.log(userData.external_urls)
 
   // code for myMatchesAll
 
@@ -264,7 +267,6 @@ export default function Container(props) {
   }, [dataBase, currentDataBase, myTop20ArtistNames]);
 
   //  Here new filter for genres::
-
   useEffect(() => {
     if (dataBase.length > 0 && currentDataBase.length > 0) {
       // i get the same genres
@@ -272,9 +274,7 @@ export default function Container(props) {
       currentDataBase.map((item) => {
         sameGenres.push({
           userName: item.userName,
-          userImage: item.userImage[0]
-            ? item.userImage[0].url
-            : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
+          userImage: item.userImage[0] ? item.userImage[0].url : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
           sameGenres: item.userGenres.filter((value) =>
             myAllGenresFromSpotifyFetch.includes(value)
           ),
@@ -285,7 +285,15 @@ export default function Container(props) {
       );
       setGenresSorted(tempGenre);
     }
-  }, [dataBase, currentDataBase, myAllGenresFromSpotifyFetch]);
+  }, [loggedIn, accesToken, dataBase, currentDataBase, currentUserId, myAllGenresFromSpotifyFetch]); 
+
+  console.log(dataBase)
+
+  // useEffect(()=> {
+  //   dataBase.map((item) => {
+  //   item.userName === currentUserId ? console.log(true) : console.log(false)
+  //   });
+  // },[dataBase, currentDataBase, myAllGenresFromSpotifyFetch])
 
   // //We should post here the data to database if it doesnt exists, but doesn't work somehow
   // useEffect(() => {
@@ -300,7 +308,7 @@ export default function Container(props) {
   //       body: JSON.stringify(...savedData),
   //     });
   //   }
-  // }, [loggedIn, accesToken, savedData]);
+  // }, [loggedIn, accesToken, userData, myTop20ArtistNames, myAllGenresFromSpotifyFetch, savedData]);
 
   return (
     <MyContext.Provider

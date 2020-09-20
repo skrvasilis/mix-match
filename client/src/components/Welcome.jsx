@@ -28,13 +28,13 @@ export default function Welcome() {
           }
           alt="avatar"
         />
-        <h3>Now we know your music taste</h3>
+        <h2>Now we know your music taste</h2>
         <ul className="results">
-          <h4>Your top 5 Artists are:</h4>
+          <h3>Your top 5 artists are:</h3>
           {myTop5FromSpotifyFetch &&
             myTop5FromSpotifyFetch.map((item) => {
               return (
-                <li>
+                <li className="result">
                   <h4>{item && item.name}</h4>
                   <img
                     className="list-avatar"
@@ -46,11 +46,11 @@ export default function Welcome() {
             })}
         </ul>
         <ul className="results">
-          <h4>Your top 5 music genres:</h4>
+          <h3>Your top 5 music genres:</h3>
           {myAllGenresFromSpotifyFetch &&
             myAllGenresFromSpotifyFetch.slice(0, 5).map((item) => {
               return (
-                <li>
+                <li className="result">
                   <h4>{item}</h4>
                 </li>
               );

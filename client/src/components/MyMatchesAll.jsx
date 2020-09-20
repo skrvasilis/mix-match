@@ -28,17 +28,18 @@ export default function MyMatch() {
           {genresSorted &&
             genresSorted.map((item) => {
               return (
-                <li>
-                  <button onClick={() => setSelectedUser(item.userName)}>
-                    <Link to="/mymatch">
-                      <h4>{item.userName}</h4>
-                      <img
-                        className="list-avatar"
-                        src={item.userImage}
-                        alt="avatar"
-                      />
-                    </Link>
-                  </button>
+                <li
+                  className="result"
+                  onClick={() => setSelectedUser(item.userName)}
+                >
+                  <Link className="list-link" to="/mymatch">
+                    <h4>{item.userName}</h4>
+                    <img
+                      className="list-avatar"
+                      src={item.userImage}
+                      alt="avatar"
+                    />
+                  </Link>
                 </li>
               );
             })}
