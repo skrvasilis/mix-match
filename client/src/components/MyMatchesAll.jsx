@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MyContext from "../MyContext";
 
 export default function MyMatch() {
-  const { genresSorted, artistsSorted, userData, setSelectedUser } = useContext(
+  const { genresSorted, artistsSorted, userData, setSelectedUser,userImage } = useContext(
     MyContext
   );
 
@@ -20,7 +20,7 @@ export default function MyMatch() {
         <h1>{`Top 5 matches of ${userData && userData.display_name}`}</h1>
         <img
           className="avatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+          src={userImage && userImage}
           alt="avatar"
         />
         <ul className="results">

@@ -7,6 +7,7 @@ export default function Welcome() {
     userData,
     myTop5FromSpotifyFetch,
     myAllGenresFromSpotifyFetch,
+    userImage
   } = useContext(MyContext);
 
   //To display only Firstname:
@@ -21,11 +22,7 @@ export default function Welcome() {
         <h1>Welcome {displayFirstName + "!"}</h1>
         <img
           className="avatar"
-          src={
-            userData.images === 0
-              ? userData.images[0].url
-              : " https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-          }
+          src={userImage && userImage}
           alt="avatar"
         />
         <h3>Now we know your music taste</h3>

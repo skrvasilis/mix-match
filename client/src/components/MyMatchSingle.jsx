@@ -47,7 +47,7 @@ export default function MyMatchSingle() {
       );
       setFilteredArtistMatch(filtered);
     }
-  }, [selectedUser, genresSorted, artistsSorted]);
+  }, [selectedUser, genresSorted, artistsSorted,usersTop20]);
   console.log(filteredArtistMatch);
   return (
     <div className="main">
@@ -60,7 +60,7 @@ export default function MyMatchSingle() {
           alt="avatar"
         />
 
-        <ul className="results">
+{filteredArtistMatch.length===0? <h4>Sorry you don't have any Artist matching</h4> :<ul className="results">
           <h4>The same Artists you like</h4>
 
           {filteredArtistMatch &&
@@ -76,7 +76,8 @@ export default function MyMatchSingle() {
                 </li>
               );
             })}
-        </ul>
+        </ul>}
+        
 
         <ul className="results">
           <h4>The same Genres you like</h4>

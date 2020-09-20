@@ -145,7 +145,7 @@ export default function Container(props) {
 
   //We set current user into localstorage, so we know who is logged in
   useEffect(() => {
-    setCurrentUserId(userData.id);
+    setCurrentUserId(userData.display_name);
   }, [loggedIn, accesToken, userData]);
 
   //We fetch top artist data from Spotify
@@ -204,25 +204,25 @@ export default function Container(props) {
   // we set the data that we want to post to the data base to savedData
 
   useEffect(() => {
-    setSavedData([
-      {
-        userName: userData.display_name,
-        userID: userData.id,
-        userImage: userData.images,
-        userTracks: myTop20ArtistNames,
-        userGenres: myAllGenresFromSpotifyFetch,
-      },
-    ]);
+    if(myTop20ArtistNames.length>0 && myAllGenresFromSpotifyFetch && userData){
+      setSavedData([
+        {
+          userName: userData.display_name,
+          userID: userData.id,
+          userImage: userData.images,
+          userTracks: myTop20ArtistNames,
+          userGenres: myAllGenresFromSpotifyFetch,
+        },
+      ]);
+    }
+   
+    console.log(savedData)
   }, [
-    loggedIn,
-    accesToken,
-    userData,
     myTop20ArtistNames,
     myAllGenresFromSpotifyFetch,
+    userData
   ]);
-
   // code for myMatchesAll
-
   useEffect(() => {
     if (userData.images) {
       setUserImage(
@@ -232,7 +232,6 @@ export default function Container(props) {
       );
     }
   }, [loggedIn, accesToken, usersTop20, userData]);
-
   useEffect(() => {
     if (dataBase.length > 0 && currentUserId) {
       // here we exclude the current user from the database
@@ -241,9 +240,7 @@ export default function Container(props) {
       );
     }
   }, [loggedIn, accesToken, dataBase, currentUserId]);
-
   // make objects with the users from the database
-
   useEffect(() => {
     if (dataBase.length > 0 && currentDataBase.length > 0) {
       // i get the same artists
@@ -262,9 +259,7 @@ export default function Container(props) {
       setArtistsSorted(tempArtists);
     }
   }, [dataBase, currentDataBase, myTop20ArtistNames]);
-
   //  Here new filter for genres::
-
   useEffect(() => {
     if (dataBase.length > 0 && currentDataBase.length > 0) {
       // i get the same genres
@@ -287,21 +282,36 @@ export default function Container(props) {
     }
   }, [dataBase, currentDataBase, myAllGenresFromSpotifyFetch]);
 
-  // //We should post here the data to database if it doesnt exists, but doesn't work somehow
-  // useEffect(() => {
-  //   console.log(savedData);
-  //   if (!dataBase.includes(currentUserId) && savedData.length > 0 ) {
-  //     fetch("http://localhost:5000/user", {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(...savedData),
-  //     });
-  //   }
-  // }, [loggedIn, accesToken, savedData]);
+  useEffect(()=> {
+    console.log(dataBase)
+  let check =  dataBase && dataBase.filter((item) => {
+    return item.userName===userData.display_name
+    });
+    console.log(check)
+  },[dataBase, currentDataBase, myAllGenresFromSpotifyFetch])
 
+
+
+  //We should post here the data to database if it doesnt exists, but doesn't work somehow
+ /*  useEffect(() => {
+    let check =  dataBase && dataBase.filter((item) => {
+      return item.userName===userData.display_name
+      });
+     console.log(check);
+     if (!check) {
+       console.log('hello')
+     }
+    if (!check) {
+      fetch("http://localhost:5000/user", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(...savedData),
+      });
+    }
+  }, [ loggedIn, accesToken, userData, myTop20ArtistNames, myAllGenresFromSpotifyFetch, savedData ]); */
   return (
     <MyContext.Provider
       value={{
@@ -324,4 +334,4 @@ export default function Container(props) {
       {props.children}
     </MyContext.Provider>
   );
-}
+    }
