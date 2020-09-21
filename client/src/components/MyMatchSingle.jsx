@@ -2,82 +2,93 @@ import React, { useContext, useEffect, useState } from "react";
 import MyContext from "../MyContext";
 
 export default function MyMatchSingle() {
-  const { genresSorted, artistsSorted, selectedUser } = useContext(MyContext);
-  const [artistsToShow, setArtistsToShow] = useState([])
-const [genresToShow, setGenresToShow] = useState([])
+  const [filteredArtistMatch, setFilteredArtistMatch] = useState([]);
+  const [genresToShow, setGenresToShow] = useState([]);
+  const [otherUserImage, setOtherUserImage] = useState("");
+  const {
+    genresSorted,
+    artistsSorted,
+    selectedUser,
+    usersTop20,
+    userImage,
+  } = useContext(MyContext);
+
   useEffect(() => {
     if (selectedUser) {
-      console.log(genresSorted);
-      console.log(artistsSorted);
-      console.log(selectedUser);
-
-     let  currentGenres = genresSorted.filter(
+      let currentGenres = genresSorted.filter(
         (item) => item.userName === selectedUser
       );
-      let onlyGenres = []
-      for (let i=0;i<5;i++) {
-        onlyGenres.push(currentGenres[0].sameGenres[i])
+      currentGenres.map((item) => {
+        let otherUserImage = item.userImage
+          ? item.userImage
+          : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+        setOtherUserImage(otherUserImage);
+      });
+
+      let onlyGenres = [];
+      for (let i = 0; i < 10; i++) {
+        onlyGenres.push(currentGenres[0].sameGenres[i]);
       }
       
-      setGenresToShow(onlyGenres)
-       
+      setGenresToShow(onlyGenres);
 
-     let currentArtists = artistsSorted.filter(
+      // Artists sorted
+
+      let currentArtists = artistsSorted.filter(
         (item) => item.userName === selectedUser
       );
-      let onlyArtists = []
-      currentArtists[0].sameArtists.map((item)=>{
-        onlyArtists.push(item)
+      let onlyArtists = [];
+      currentArtists[0].sameArtists.map((item) => {
+        onlyArtists.push(item);
       });
-      setArtistsToShow(onlyArtists)
+      console.log(onlyArtists);
+      let filtered = usersTop20.items.filter((item) =>
+        onlyArtists.includes(item.name)
+      );
+      setFilteredArtistMatch(filtered);
     }
-  }, [selectedUser]);
-
-  useEffect(()=>{
-    console.log(genresToShow)
-    console.log(artistsToShow)
-  },[genresToShow])
+  }, [selectedUser, genresSorted, artistsSorted,usersTop20]);
+  console.log(filteredArtistMatch);
   return (
     <div className="main">
       <div className="content">
-        <h1>{`You and ${selectedUser}`}</h1>
+        <h1>You and {selectedUser}</h1>
+        <img className="avatar" src={userImage && userImage} alt="avatar" />
         <img
           className="avatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-          alt="avatar"
-        />
-        <img
-          className="avatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+          src={otherUserImage && otherUserImage}
           alt="avatar"
         />
 
-        <ul className="results">
+{filteredArtistMatch.length===0? <h4>Sorry you don't have any Artist matching</h4> :<ul className="results">
           <h4>The same Artists you like</h4>
-          {artistsToShow && artistsToShow.map((item)=>{
-            return (
-<li>
-                  <h4>{item}</h4>
+
+          {filteredArtistMatch &&
+            filteredArtistMatch.map((item) => {
+              return (
+                <li>
+                  <h4>{item.name}</h4>
                   <img
                     className="list-avatar"
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                    src={item.images[2].url}
                     alt="avatar"
                   />
                 </li>
-            )
-          })}
-        </ul>
+              );
+            })}
+        </ul>}
+        
 
         <ul className="results">
           <h4>The same Genres you like</h4>
-          {genresToShow && genresToShow.map((item)=>{
-            return (
-              <li>
-              <h4>{item}</h4>
-            </li>
-            )
-          })}
-         
+          {genresToShow &&
+            genresToShow.map((item) => {
+              return (
+                <li>
+                  <h4>{item}</h4>
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>
