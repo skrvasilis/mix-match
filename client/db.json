@@ -1,7 +1,6 @@
- 
 {
   "user": [
-    {      
+    {
       "userName": "blessedog",
       "userID": "blessedog",
       "userImage": [],
@@ -158,7 +157,6 @@
         "art rock",
         "baroque pop",
         "dance rock",
-     
         "permanent wave",
         "piano rock",
         "singer-songwriter",
@@ -295,109 +293,9 @@
       "id": 3
     },
     {
-      "userName": "Vassilis Skrimpas",
-      "userID": "Vassilis Skrimpas",
-      "userImage": [
-        {
-          "height": null,
-          "url": "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-1/c1.0.318.318a/p320x320/69931209_2555046714555238_22917992736096256_o.jpg?_nc_cat=105&_nc_sid=0c64ff&_nc_ohc=6HNc2PTwqAkAX_ToTX4&_nc_ht=scontent-amt2-1.xx&oh=63e1a4b80fb506a700f35ad1c4ed019f&oe=5F8D2E7F",
-          "width": null
-        }
-      ],
-      "userTracks": [
-        "Terror Jr",
-        "Easter",
-        "Kate Nash",
-        "The Blaze",
-        "Janelle Monáe",
-        "David Bowie",
-        "Fever Ray",
-        "Alkistis Protopsalti",
-        "Katy Garbi",
-        "yeule",
-        "The Boy",
-        "Tami T",
-        "Camera Obscura",
-        "Björk",
-        "Planningtorock",
-        "Cardi B",
-        "Belle & Sebastian",
-        "FKA twigs",
-        "Krista Papista",
-        "The Cinematic Orchestra"
-      ],
-      "userGenres": [
-        "dance pop",
-        "electropop",
-        "indie electropop",
-        "indie poptimism",
-        "metropopolis",
-        "pop",
-        "anti-folk",
-        "piano rock",
-        "french indie pop",
-        "french indietronica",
-        "new french touch",
-        "tropical house",
-        "afrofuturism",
-        "alternative r&b",
-        "art pop",
-        "atl hip hop",
-        "escape room",
-        "neo soul",
-        "r&b",
-        "album rock",
-        "art rock",
-        "classic rock",
-        "dance rock",
-        "glam rock",
-        "permanent wave",
-        "rock",
-        "alternative dance",
-        "electronica",
-        "new rave",
-        "swedish electropop",
-        "swedish synth",
-        "swedish synthpop",
-        "entehno",
-        "greek indie",
-        "greek pop",
-        "laiko",
-        "ambient pop",
-        "glitchcore",
-        "hyperpop",
-        "indie pop",
-        "scottish indie",
-        "twee pop",
-        "experimental pop",
-        "experimental vocal",
-        "icelandic experimental",
-        "icelandic pop",
-        "trip hop",
-        "electroclash",
-        "pop rap",
-        "rap",
-        "alternative rock",
-        "baroque pop",
-        "chamber pop",
-        "indie rock",
-        "melancholia",
-        "scottish rock",
-        "indie r&b",
-        "downtempo",
-        "ninja",
-        "nu jazz"
-      ],
-      "id": 4
-    },
-    {
       "userName": "remrcll",
       "userID": "remrcll",
       "userImage": [],
-<<<<<<< HEAD
-=======
-      "userLink": "https://open.spotify.com/user/remrcll",
->>>>>>> 468d857f60978418b4bd5b7040702e22067a492b
       "userTracks": [
         "Boris Brejcha",
         "Kollektiv Turmstrasse",
@@ -483,7 +381,7 @@
         "outsider house",
         "wonky"
       ],
-      "id": 5
+      "id": 4
     }
-  ]
+]
 }

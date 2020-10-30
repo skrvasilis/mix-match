@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import MyContext from "../MyContext";
 import { Link } from "react-router-dom";
 
@@ -7,8 +7,12 @@ export default function Welcome() {
     userData,
     myTop5FromSpotifyFetch,
     myAllGenresFromSpotifyFetch,
-    userImage
+    userImage,
+    savedData,
+    dataBase
   } = useContext(MyContext);
+
+ 
 
   //To display only Firstname:
   const completeName =
