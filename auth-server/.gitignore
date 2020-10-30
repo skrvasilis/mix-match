@@ -1,1 +1,4 @@
-node_modules/
+# WE add here the node modules
+node_modules
+#and the config.js
+config.js

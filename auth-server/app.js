@@ -7,14 +7,45 @@
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
 
-var express = require('express'); // Express web server framework
-var request = require('request'); // "Request" library
-var querystring = require('querystring');
-var cookieParser = require('cookie-parser');
+const express = require('express'); // Express web server framework
+const cors = require('cors'); //Middleware CORS
+const app = express(); // Create express 
+const mongoose = require("mongoose"); //Mongoose
+const request = require('request'); // "Request" library
+const querystring = require('querystring');
+const cookieParser = require('cookie-parser');
 
-var client_id = '1a7725c0d63742b99d770b299450e4e8'; // Your client id
-var client_secret = '29b6678e34f34425954efbb4d83bca43'; // Your secret
-var redirect_uri = 'http://localhost:8888/callback'; // Or Your redirect uri
+//We bring here the mongodb connection string:
+const {
+  MONGODB_URI, client_id, client_secret
+} = require("./config.js");
+const PORT = process.env.port || 5000;
+
+/** CONNECT TO DB */
+
+//We have to add our database above the server, so it connects before we run the server.
+//We put the sensitive connection data in config.js file
+//We have to add the useNewUrlPharser and useUnifiedTopology otherwise it gives a deprication warning
+
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+  }) //this returns a promise, so we need to say :
+  .then(() => {
+      console.log("MongoDB Connected!");
+      //Then if connected, we listen to the port (previously defined) 5000 port.
+      return app.listen({
+        port: PORT
+      });
+    })
+  .then((res) => console.log(`Server Started at http://localhost:${PORT}`))
+  .catch((err) => {
+      console.error(err);
+  });
+
+const redirect_uri = 'http://localhost:5000/callback'; // Or Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -33,7 +64,7 @@ var generateRandomString = function(length) {
 
 var stateKey = 'spotify_auth_state';
 
-var app = express();
+// var app = express();
 
 app.use(express.static(__dirname + '/public'))
    .use(cookieParser());
@@ -141,5 +172,4 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-console.log('Listening on 8888');
-app.listen(8888);
+
