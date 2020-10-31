@@ -126,7 +126,7 @@ export default function Container(props) {
           setDataBase(data);
         }
       });
-  }, [loggedIn, accesToken]);
+  }, [loggedIn]);
 
   //We fetch ME data from Spotify
   useEffect(() => {
@@ -143,12 +143,12 @@ export default function Container(props) {
         console.log(userData)
       });
     });
-  }, [loggedIn, accesToken]);
+  }, [loggedIn]);
 
   //We set current user into localstorage, so we know who is logged in
   useEffect(() => {
     setCurrentUserId(userData.display_name);
-  }, [loggedIn, accesToken, userData]);
+  }, [loggedIn]);
 
   //We fetch top artist data from Spotify
 
@@ -168,14 +168,14 @@ export default function Container(props) {
         setUsersTop20(data); // set the top 20 artists data from fetching the current users to usersTop20 state (not Database)
       });
     });
-  }, [loggedIn, accesToken]);
+  }, [loggedIn]);
 
   useEffect(() => {
     if (usersTop20.items) {
       setMyTop5FromSpotifyFetch(usersTop20.items.slice(0, 5));
       setMyTop20FromSpotifyFetch(usersTop20.items);
     }
-  }, [loggedIn, accesToken, usersTop20]);
+  }, [loggedIn]);
 
   //This is all genres from fetched saving to localstorage
   useEffect(() => {
@@ -190,7 +190,7 @@ export default function Container(props) {
       uniq = [...new Set(allGengresCurrentUser)];
       SetMyAllGenresFromSpotifyFetch(uniq);
     }
-  }, [loggedIn, accesToken, usersTop20]);
+  }, [usersTop20]);
 
   //This is all genres from fetched saving to localstorage
   useEffect(() => {
@@ -201,7 +201,7 @@ export default function Container(props) {
         SetMyTop20ArtistNames(myTop20ArtistNames);
       });
     }
-  }, [loggedIn, accesToken, myTop20FromSpotifyFetch]);
+  }, [loggedIn]);
 
   // we set the data that we want to post to the data base to savedData
 
@@ -286,33 +286,7 @@ export default function Container(props) {
     }
   }, [myAllGenresFromSpotifyFetch]); 
 
-  console.log(dataBase)
-
-  // useEffect(()=> {
-  //   dataBase.map((item) => {
-  //   item.userName === currentUserId ? console.log(true) : console.log(false)
-  //   });
-  // },[dataBase, currentDataBase, myAllGenresFromSpotifyFetch])
-
-  //We should post here the data to database if it doesnt exists, but doesn't work somehow
- /*  useEffect(() => {
-    let check=dataBase.find(({userID})=>userID===userData.id)
-    console.log(check)
-    console.log(savedData)
-    console.log(dataBase, 'database')
-    if (savedData.length===1 && !check) {
-      console.log('postrun')
-      fetch("http://localhost:5000/user", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(...savedData),
-      });
-    }
-  }, [savedData]); */
-
+  
   return (
     <MyContext.Provider
       value={{

@@ -3,11 +3,33 @@ import { Link } from "react-router-dom";
 import MyContext from "../MyContext";
 
 export default function MyMatch() {
-  const { genresSorted, artistsSorted, userData, setSelectedUser, userImage } = useContext(
+  const {
+    genresSorted,
+    artistsSorted,
+    userData,
+    setSelectedUser,
+    userImage,
+    dataBase,
+    savedData,
+  } = useContext(MyContext);
 
-  
-    MyContext
-  );
+  useEffect(() => {
+    let check = dataBase.find(({ userID }) => userID === userData.id);
+    console.log(check);
+    console.log(savedData);
+    console.log(dataBase, "database");
+    if (!check) {
+      console.log("postrun");
+      // fetch("http://localhost:5000/user", {
+      //   method: "POST",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(...savedData),
+      // });
+    }
+  }, []);
 
   useEffect(() => {
     if (genresSorted) {
@@ -20,11 +42,7 @@ export default function MyMatch() {
     <div className="main">
       <div className="content">
         <h1>{`Top 5 matches of ${userData && userData.display_name}`}</h1>
-        <img
-          className="avatar"
-          src={userImage && userImage}
-          alt="avatar"
-        />
+        <img className="avatar" src={userImage && userImage} alt="avatar" />
         <ul className="results">
           {/* <Link to="/mymatch">  */}
           {genresSorted &&
