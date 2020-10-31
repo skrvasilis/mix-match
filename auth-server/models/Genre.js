@@ -5,7 +5,7 @@ const {
 
 const GenreSchema = new Schema({
     genre: {
-        type: String,
+        type: Array,
         required: false,
     }
 });
