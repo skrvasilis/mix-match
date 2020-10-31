@@ -286,33 +286,7 @@ export default function Container(props) {
     }
   }, [myAllGenresFromSpotifyFetch]); 
 
-  console.log(dataBase)
-
-  // useEffect(()=> {
-  //   dataBase.map((item) => {
-  //   item.userName === currentUserId ? console.log(true) : console.log(false)
-  //   });
-  // },[dataBase, currentDataBase, myAllGenresFromSpotifyFetch])
-
-  //We should post here the data to database if it doesnt exists, but doesn't work somehow
-  // useEffect(() => {
-  //   let check=dataBase.find(({userID})=>userID===userData.id)
-  //   console.log(check)
-  //   console.log(savedData)
-  //   console.log(dataBase, 'database')
-  //   if (!check) {
-  //     console.log('postrun')
-  //     // fetch("http://localhost:5000/user", {
-  //     //   method: "POST",
-  //     //   headers: {
-  //     //     Accept: "application/json",
-  //     //     "Content-Type": "application/json",
-  //     //   },
-  //     //   body: JSON.stringify(...savedData),
-  //     // });
-  //   }
-  // }, [savedData]); 
-
+  
   return (
     <MyContext.Provider
       value={{
