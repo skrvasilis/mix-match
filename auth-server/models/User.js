@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const {
   Schema
 } = mongoose;
-const Track = require('./Track');
-const Genre = require('./Genre');
+
 
 const UserSchema = new Schema({
   userName: {
@@ -15,7 +14,7 @@ const UserSchema = new Schema({
     required: true,
   },
   userImages: [{
-      image: {
+      url: {
         type: String,
         required: false,
       }
@@ -25,8 +24,14 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
-  userTracks: Track,
-  userGenres: Genre,
+  userArtists: [{ // REFERENCING a document!
+    type: mongoose.ObjectId,
+    ref: 'Artist' // => this tells mongoose WHERE to look for the document with the given ID 
+  }],
+  userGenres: [{ // REFERENCING a document!
+    type: mongoose.ObjectId,
+    ref: 'Genre' // => this tells mongoose WHERE to look for the document with the given ID 
+  }],
 }, {
   timestamps: true
 });

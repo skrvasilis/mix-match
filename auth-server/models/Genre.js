@@ -4,10 +4,10 @@ const {
 } = mongoose;
 
 const GenreSchema = new Schema({
-    gernre: {
+    genre: {
         type: String,
         required: false,
     }
 });
 
-module.exports = mongoose.model('Genre', GenreSchema);
+module.exports = mongoose.model('Genre', GenreSchema) // Artist => equivalent: collection "artists" in MongoDB
