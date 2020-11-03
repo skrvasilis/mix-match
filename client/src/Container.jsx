@@ -45,17 +45,26 @@ export default function Container(props) {
     "similarArtist",
     []
   );
-  const [userToDatabase, setUserToDatabase] = useState({
-    userName: "",
-    userID: "",
-    userImages: [],
-    useLink: "",
-    userGenres: [],
-    userArtists: [],
-  });
+
+  
   const [currentDataBase, setCurrentDataBase] = useState([]);
 
   const [savedData, setSavedData] = useState([]); // this is the data what we prepare to save to database
+
+
+
+
+// from here we start the mongoose backend
+const [userToDatabase, setUserToDatabase] = useState({
+  userName: "",
+  userID: "",
+  userImages: [],
+  useLink: "",
+  userGenres: [],
+  userArtists: [],
+});
+const [myAllGenres,setMyAllGenres] = useState([])
+
 
   // json-server --watch db.json --port 5000
 
@@ -176,59 +185,57 @@ export default function Container(props) {
 
     console.log(usersTop20);
 
-    let myTop20ArtistNames = [];
-    if (myTop20FromSpotifyFetch) {
-      myTop20FromSpotifyFetch.map((item) => {
-        myTop20ArtistNames.push(item.name);
-      });
+    let allMyArtist = []
+    if (usersTop20.items){
+      usersTop20.items.map((item)=>{
+        allMyArtist.push({name:item.name})
+      })
+      console.log(allMyArtist)
     }
-    
 
-     
-
-   
-    
-  }, [loggedIn]);
-
-  useEffect(()=>{
     let allGengresCurrentUser = [];
     let uniq = [];
     if (usersTop20.items) {
       // we set user's top Genres to topGenres
-    usersTop20.items.map((item) => {
-      allGengresCurrentUser.push(...item.genres);
-    });
-    uniq = [...new Set(allGengresCurrentUser)];
-  }
+      usersTop20.items.map((item) => {
+        allGengresCurrentUser.push(...item.genres);
+      });
+      uniq = [...new Set(allGengresCurrentUser)]; // this is an array with all the genres as strings
+    }
+    const allMyGenres = uniq.map((item)=>{
+      let result = {
+        genre: item,
+      };
+      return result;
+    })
 
     let userToPost = {
       userName: userData.display_name,
       spotifyUserID: userData.id,
-      userImages: [userData.images[0].url],
+      userImages: userData.images[0].url,
       userLink: userData.href,
-      userGenres: uniq,
-      userArtists: myTop20ArtistNames,
+      userGenres: allMyGenres, //this is an array of strings
+      userArtists: allMyArtist, // this array of strings
     };
-    setUserToDatabase(userToPost)
-  },[myTop20ArtistNames])
+    setUserToDatabase(userToPost);
 
+  }, [loggedIn]);
 
-  useEffect(()=>{
-    if (userToDatabase.spotifyUserID){
-    console.log(userToDatabase)
-
-    fetch("http://localhost:5000/users", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(...userToDatabase),
-    });
-  } else {
-    console.log('is empty')
-  }
-  },[userToDatabase])
+  
+  useEffect(() => {
+    if (userToDatabase.spotifyUserID) {
+      console.log(userToDatabase);
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        body: JSON.stringify(userToDatabase),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } else {
+      console.log("is empty");
+    }
+  }, [userToDatabase.spotifyUserID]);
 
   useEffect(() => {
     if (usersTop20.items) {

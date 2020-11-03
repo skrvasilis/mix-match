@@ -12,14 +12,10 @@ const UserSchema = new Schema(
       required: true,
       unique:true
     },
-    userImages: [
-      {
-        url: {
+    userImages: {
           type: String,
           required: false,
         },
-      },
-    ],
     userLink: {
       type: String,
       required: true,

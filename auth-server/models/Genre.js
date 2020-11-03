@@ -5,8 +5,9 @@ const {
 
 const GenreSchema = new Schema({
     genre: {
-        type: Array,
+        type: String,
         required: false,
+        unique:true
     }
 });
 

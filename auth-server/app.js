@@ -69,6 +69,7 @@ var stateKey = "spotify_auth_state";
 
 // var app = express();
 
+app.use(express.json({ extended: false }));
 app.use(express.static(__dirname + "/public")).use(cookieParser());
 
 app.get("/login", function (req, res) {
@@ -278,6 +279,7 @@ app.get("/seed", async (req, res, next) => {
   });
 
   let artists = await Artist.insertMany(artistsCreate);
+
   artists.map((item) => {
     console.log(`NEW artists created:${item.name}`);
   });
@@ -287,7 +289,7 @@ app.get("/seed", async (req, res, next) => {
   let users = await User.insertMany([
     {
       userName: "blessedog",
-      userID: "blessedog",
+      spotifyUserID: "blessedog",
       userImages: [],
       userLink: "https://open.spotify.com/user/blessedog",
       userArtists: [
@@ -319,7 +321,7 @@ app.get("/seed", async (req, res, next) => {
     },
     {
       userName: "Konstantinos Phassas",
-      userID: "Konstantinos Phassas",
+      spotifyUserID: "Konstantinos Phassas",
       userImages: [
         {
           url:
@@ -356,7 +358,7 @@ app.get("/seed", async (req, res, next) => {
     },
     {
       userName: "Demetrious Betas",
-      userID: "Demetrious Betas",
+      spotifyUserID: "Demetrious Betas",
       userImages: [
         {
           url:
@@ -391,43 +393,6 @@ app.get("/seed", async (req, res, next) => {
         genres[21]._id,
       ],
     },
-    {
-      userName: "Vassilis Skrimpas",
-      userID: "11134863556",
-      userImages: [
-        {
-          url:
-            "https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-1/c1.0.318.318a/p320x320/69931209_2555046714555238_22917992736096256_o.jpg?_nc_cat=105&_nc_sid=0c64ff&_nc_ohc=6HNc2PTwqAkAX_ToTX4&_nc_ht=scontent-amt2-1.xx&oh=63e1a4b80fb506a700f35ad1c4ed019f&oe=5F8D2E7F",
-        },
-      ],
-      userLink: "https://open.spotify.com/user/11134863556",
-      userArtists: [
-        artists[0]._id,
-        artists[1]._id,
-        artists[2]._id,
-        artists[3]._id,
-        artists[4]._id,
-        artists[5]._id,
-        artists[6]._id,
-        artists[7]._id,
-        artists[8]._id,
-        artists[9]._id,
-        artists[10]._id,
-      ],
-      userGenres: [
-        genres[0]._id,
-        genres[1]._id,
-        genres[2]._id,
-        genres[3]._id,
-        genres[4]._id,
-        genres[5]._id,
-        genres[6]._id,
-        genres[7]._id,
-        genres[8]._id,
-        genres[9]._id,
-        genres[10]._id,
-      ],
-    },
   ]);
   res.send(users);
   console.log(`NEW users created...`);
@@ -457,14 +422,48 @@ app.get("/users/:id", async (req, res, next) => {
   res.send(user);
 });
 
-app.post("/users", async (req, res, next) => {
-  try {
-    const user = new User(req.body);
-    const data = await user.save();
-    console.log('run')
+// app.post("/artists", async (req, res, next) => {
+//   try {
+//     console.log(req.body);
+//     const artists = await Artist.insertMany(req.body);
+//     let myArtists = await Artist.find({ "name": {$in : [req.body]}  });
+//     console.log("myartists", myArtists);
 
-    res.send(data)
-  } catch (error) {
-    console.log(error)
+//     res.send(artists);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+
+// app.post("/genres", async (req, res, next) => {
+//   try {
+//     console.log(req.body);
+//     const genres = await Genre.insertMany(req.body);
+//     let myGenres = await Genre.find({ genre: req.body });
+//     console.log(myGenres);
+
+//     res.send(genres);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+
+app.post("/users", async (req, res) => {
+  try {
+    console.log("the body", req.body);
+    const genres = await Genre.insertMany(req.body.userGenres);
+    const artists = await Artist.insertMany(req.body.userArtists);
+
+    // const theArtistsIDs = await Artist.find({ name: { $in: [req.body.userArtists] } });
+    // const theGenresIDs = await Genre.find({ genre: { $in: [req.body.userGenres] } });
+
+    // console.log(theArtistsIDs)
+    // console.log(theGenresIDs)
+
+    // const user = new User(req.body);
+    // const data = await user.save();
+    res.send("ddd");
+  } catch (err) {
+    console.log(err);
   }
 });
