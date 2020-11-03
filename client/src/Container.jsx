@@ -46,9 +46,25 @@ export default function Container(props) {
     []
   );
 
+  
   const [currentDataBase, setCurrentDataBase] = useState([]);
 
   const [savedData, setSavedData] = useState([]); // this is the data what we prepare to save to database
+
+
+
+
+// from here we start the mongoose backend
+const [userToDatabase, setUserToDatabase] = useState({
+  userName: "",
+  userID: "",
+  userImages: [],
+  useLink: "",
+  userGenres: [],
+  userArtists: [],
+});
+const [myAllGenres,setMyAllGenres] = useState([])
+
 
   // json-server --watch db.json --port 5000
 
@@ -118,11 +134,12 @@ export default function Container(props) {
 
   //we fetch our local db.json database
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("http://localhost:5000/users")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data, 'getdata')
-        if (data.length>0) {
+        console.log(data, "getdata");
+        if (data.length > 0) {
+          console.log(data);
           setDataBase(data);
         }
       });
@@ -140,13 +157,10 @@ export default function Container(props) {
     }).then((response) => {
       response.json().then((userData) => {
         setUserData(userData); // set userData to userData
-        console.log(userData)
+        console.log(userData);
       });
     });
-  }, [loggedIn]);
-
-  //We set current user into localstorage, so we know who is logged in
-  useEffect(() => {
+    //We set current user into localstorage, so we know who is logged in
     setCurrentUserId(userData.display_name);
   }, [loggedIn]);
 
@@ -168,7 +182,60 @@ export default function Container(props) {
         setUsersTop20(data); // set the top 20 artists data from fetching the current users to usersTop20 state (not Database)
       });
     });
+
+    console.log(usersTop20);
+
+    let allMyArtist = []
+    if (usersTop20.items){
+      usersTop20.items.map((item)=>{
+        allMyArtist.push({name:item.name})
+      })
+      console.log(allMyArtist)
+    }
+
+    let allGengresCurrentUser = [];
+    let uniq = [];
+    if (usersTop20.items) {
+      // we set user's top Genres to topGenres
+      usersTop20.items.map((item) => {
+        allGengresCurrentUser.push(...item.genres);
+      });
+      uniq = [...new Set(allGengresCurrentUser)]; // this is an array with all the genres as strings
+    }
+    const allMyGenres = uniq.map((item)=>{
+      let result = {
+        genre: item,
+      };
+      return result;
+    })
+
+    let userToPost = {
+      userName: userData.display_name,
+      spotifyUserID: userData.id,
+      userImages: userData.images[0].url,
+      userLink: userData.href,
+      userGenres: allMyGenres, //this is an array of strings
+      userArtists: allMyArtist, // this array of strings
+    };
+    setUserToDatabase(userToPost);
+
   }, [loggedIn]);
+
+  
+  useEffect(() => {
+    if (userToDatabase.spotifyUserID) {
+      console.log(userToDatabase);
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        body: JSON.stringify(userToDatabase),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } else {
+      console.log("is empty");
+    }
+  }, [userToDatabase.spotifyUserID]);
 
   useEffect(() => {
     if (usersTop20.items) {
@@ -206,22 +273,22 @@ export default function Container(props) {
   // we set the data that we want to post to the data base to savedData
 
   useEffect(() => {
-    console.log(savedData.length, 'dtalength')
-       
-      console.log('run')
-      setSavedData([
-        {
-          userName: userData.display_name,
-          userID: userData.id,
-          userImage: userData.images,
-          userLink: userData.external_urls,
-          userTracks: myTop20ArtistNames,
-          userGenres: myAllGenresFromSpotifyFetch,
-        },
-      ]);
+    console.log(savedData.length, "dtalength");
+
+    console.log("run");
+    setSavedData([
+      {
+        userName: userData.display_name,
+        userID: userData.id,
+        userImage: userData.images,
+        userLink: userData.external_urls,
+        userTracks: myTop20ArtistNames,
+        userGenres: myAllGenresFromSpotifyFetch,
+      },
+    ]);
   }, [myAllGenresFromSpotifyFetch]);
 
-  console.log(userData.external_urls)
+  console.log(userData.external_urls);
 
   // code for myMatchesAll
 
@@ -253,14 +320,15 @@ export default function Container(props) {
       currentDataBase.map((item) => {
         sameArtists.push({
           userName: item.userName,
-          sameArtists:item.userTracks && item.userTracks.filter((value) =>
-            myTop20ArtistNames.includes(value)
-          ),
+          sameArtists:
+            item.userTracks &&
+            item.userTracks.filter((value) =>
+              myTop20ArtistNames.includes(value)
+            ),
         });
       });
-      let tempArtists =sameArtists && sameArtists.sort(
-        (a, b) => b.length - a.length
-      );
+      let tempArtists =
+        sameArtists && sameArtists.sort((a, b) => b.length - a.length);
       setArtistsSorted(tempArtists);
     }
   }, [myTop20ArtistNames]);
@@ -273,20 +341,23 @@ export default function Container(props) {
       currentDataBase.map((item) => {
         sameGenres.push({
           userName: item.userName,
-          userImage: item.userImage && item.userImage[0] ? item.userImage[0].url : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
-          sameGenres:item.userGenres && item.userGenres.filter((value) =>
-            myAllGenresFromSpotifyFetch.includes(value)
-          ),
+          userImage:
+            item.userImage && item.userImage[0]
+              ? item.userImage[0].url
+              : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
+          sameGenres:
+            item.userGenres &&
+            item.userGenres.filter((value) =>
+              myAllGenresFromSpotifyFetch.includes(value)
+            ),
         });
       });
-      let tempGenre =sameGenres && sameGenres.sort(
-        (a, b) => b.length - a.length
-      );
+      let tempGenre =
+        sameGenres && sameGenres.sort((a, b) => b.length - a.length);
       setGenresSorted(tempGenre);
     }
-  }, [myAllGenresFromSpotifyFetch]); 
+  }, [myAllGenresFromSpotifyFetch]);
 
-  
   return (
     <MyContext.Provider
       value={{
