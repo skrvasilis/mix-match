@@ -58,7 +58,7 @@ export default function Container(props) {
 const [userToDatabase, setUserToDatabase] = useState({
   userName: "",
   userID: "",
-  userImages: [],
+  userImages: '',
   useLink: "",
   userGenres: [],
   userArtists: [],
@@ -162,11 +162,7 @@ const [myAllGenres,setMyAllGenres] = useState([])
     });
     //We set current user into localstorage, so we know who is logged in
     setCurrentUserId(userData.display_name);
-  }, [loggedIn]);
 
-  //We fetch top artist data from Spotify
-
-  useEffect(() => {
     fetch(
       "https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=20&offset=5",
       {
@@ -185,6 +181,12 @@ const [myAllGenres,setMyAllGenres] = useState([])
 
     console.log(usersTop20);
 
+  }, [loggedIn]);
+
+  //We fetch top artist data from Spotify
+
+  useEffect(() => {
+   
     let allMyArtist = []
     if (usersTop20.items){
       usersTop20.items.map((item)=>{
@@ -208,22 +210,22 @@ const [myAllGenres,setMyAllGenres] = useState([])
       };
       return result;
     })
-
+    console.log(userData)
     let userToPost = {
       userName: userData.display_name,
       spotifyUserID: userData.id,
-      userImages: userData.images[0].url,
+      userImages:userImage,
       userLink: userData.href,
       userGenres: allMyGenres, //this is an array of strings
       userArtists: allMyArtist, // this array of strings
     };
     setUserToDatabase(userToPost);
 
-  }, [loggedIn]);
+  }, [usersTop20]);
 
   
   useEffect(() => {
-    if (userToDatabase.spotifyUserID) {
+    if (userToDatabase.userGenres.length>0) {
       console.log(userToDatabase);
       fetch("http://localhost:5000/users", {
         method: "POST",
@@ -235,7 +237,7 @@ const [myAllGenres,setMyAllGenres] = useState([])
     } else {
       console.log("is empty");
     }
-  }, [userToDatabase.spotifyUserID]);
+  }, [userToDatabase]);
 
   useEffect(() => {
     if (usersTop20.items) {

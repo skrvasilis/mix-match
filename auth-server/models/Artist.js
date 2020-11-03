@@ -4,8 +4,8 @@ const { Schema } = mongoose;
 const ArtistSchema = new Schema({
   name: {
     type: String,
+    index: {unique: true},
     required: false,
-    unique: true,
   },
 });
 
