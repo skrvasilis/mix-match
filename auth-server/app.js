@@ -450,20 +450,39 @@ app.get("/users/:id", async (req, res, next) => {
 
 app.post("/users", async (req, res) => {
   try {
-    console.log("the body", req.body);
-    const genres = await Genre.insertMany(req.body.userGenres);
-    const artists = await Artist.insertMany(req.body.userArtists);
+    // const genres = await Genre.insertMany(req.body.userGenres);
+    // const artists = await Artist.insertMany(req.body.userArtists);
 
-    // const theArtistsIDs = await Artist.find({ name: { $in: [req.body.userArtists] } });
-    // const theGenresIDs = await Genre.find({ genre: { $in: [req.body.userGenres] } });
+    const myArtists = req.body.userArtists.map((item) => item.name);
+    const myGenres = req.body.userGenres.map((item) => item.genre);
 
-    // console.log(theArtistsIDs)
-    // console.log(theGenresIDs)
+    let theArtistsIDs = await Artist.find({ name: { $in: myArtists } });
+    let theGenresIDs = await Genre.find({ genre: { $in: myGenres } });
 
-    // const user = new User(req.body);
-    // const data = await user.save();
-    res.send("ddd");
+    
+    theArtistsIDs = theArtistsIDs.map((item)=>{
+      return item._id
+    })
+
+    theGenresID = theGenresIDs.map((item)=>{
+      return item._id
+    })
+
+    console.log(req.body)
+
+    const user = new User({
+      userName: req.body.userName,
+      spotifyUserID: req.body.spotifyUserID,
+      userImages: req.body.userImages,
+      userLink: req.body.userLink,
+      userArtists: theArtistsIDs,
+      userGenres: theGenresIDs,
+    });
+     const data = await user.save();
+    res.send(data);
   } catch (err) {
     console.log(err);
   }
 });
+
+//lsof -ti :5000 | xargs kill
