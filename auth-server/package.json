@@ -4,7 +4,7 @@
   "description": "Basic examples of the Spotify authorization flows through OAuth 2",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "seed": "node seed/db_seed.js"
   },
   "dependencies": {
@@ -12,7 +12,12 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.11",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "passport": "^0.4.1",
+    "passport-spotify": "^2.0.0",
     "querystring": "~0.2.0",
     "request": "~2.34.0"
   }

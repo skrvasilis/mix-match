@@ -1,122 +1,130 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import MyContext from "../MyContext";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 export default function MyMatchSingle() {
-  const [filteredArtistMatch, setFilteredArtistMatch] = useState([]);
-  const [genresToShow, setGenresToShow] = useState([]);
-  const [otherUserImage, setOtherUserImage] = useState("");
-  const [userLink, setUserLink] = useState("")
-  const {
-    genresSorted,
-    artistsSorted,
-    selectedUser,
-    usersTop20,
-    userImage,
-    dataBase
-  } = useContext(MyContext);
+  const { userInfo, sortedMatches, avatarUrl } = useContext(MyContext);
+  let { id } = useParams();
 
+  const [selectedUser, setSelectedUser] = useState();
+  const [loader, setLoader] = useState(false);
   useEffect(() => {
-    if (selectedUser) {
-      let currentGenres = genresSorted.filter(
-        (item) => item.userName === selectedUser
-      );
-      currentGenres.map((item) => {
-        let otherUserImage = item.userImage
-          ? item.userImage
-          : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
-        setOtherUserImage(otherUserImage);
+    const myUser =
+      sortedMatches &&
+      sortedMatches.find((item) => {
+        return item._id === id;
       });
+    setSelectedUser(myUser);
+  }, [sortedMatches]);
 
-      let onlyGenres = [];
-      for (let i = 0; i < 5; i++) {
-        onlyGenres.push(currentGenres[0].sameGenres[i]);
-      }
+  setTimeout(function () {
+    setLoader(true);
+  }, 200);
 
-      setGenresToShow(onlyGenres);
-
-      dataBase.map((item)=> {
-        if (item.userName === selectedUser) {
-          setUserLink(item.userLink)
-        } 
-      })
-
-
-      // Artists sorted
-
-      let currentArtists = artistsSorted.filter(
-        (item) => item.userName === selectedUser
-      );
-      let onlyArtists = [];
-      currentArtists[0].sameArtists.map((item) => {
-        onlyArtists.push(item);
-      });
-      console.log(onlyArtists);
-      let filtered = usersTop20.items.filter((item) =>
-        onlyArtists.includes(item.name)
-      );
-      setFilteredArtistMatch(filtered);
-    }
-  }, [selectedUser, genresSorted, artistsSorted, dataBase, usersTop20]);
-  
-  console.log(userLink)
-  
-
-  return (
-    <div className="main">
-      <div className="content">
-        <h1>You and {selectedUser}</h1>
-        <img className="avatar" src={userImage && userImage} alt="avatar" />
-        <img
-          className="avatar"
-          src={otherUserImage && otherUserImage}
-          alt="avatar"
-        />
-
-        {filteredArtistMatch.length === 0 ? (
-          <h3>Sorry you don't have any Artist matching</h3>
-        ) : (
-          <ul className="results">
-            <h3>The same artists you both like</h3>
-
-            {filteredArtistMatch &&
-              filteredArtistMatch.map((item) => {
-                return (
-                  <li className="result">
-                    <h4>{item.name}</h4>
-                    <img
-                      className="list-avatar"
-                      src={item.images[2].url}
-                      alt="avatar"
-                    />
-                  </li>
-                );
-              })}
-          </ul>
-        )}
-
-        {genresToShow.length === 0 ? (
-          <h3>Sorry you don't have any Gernres matching</h3>
-        ) : (
-          <ul className="results">
-            <h3>The top genres you both like</h3>
-            {genresToShow &&
-              genresToShow.map((item) => {
-                return (
-                  <li className="result">
-                    <h4>{item}</h4>
-                  </li>
-                );
-              })}
-          </ul>
-        )}
-        <a href={userLink}>
-       
-          <button type="button">
-            Click here to to visit {selectedUser} Spotify page
-          </button>
-        </a>
-       
+  if (loader === false) {
+    return (
+      <div className="main">
+        <div className="content">
+          <section>
+            <Loader
+              type="Oval"
+              color="#ff00ff"
+              height={100}
+              width={100}
+              timeout={300}
+            />
+          </section>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="main">
+        <div className="content">
+          <h1>You and {selectedUser && selectedUser.userName}</h1>
+
+          {userInfo && userInfo.avatar === null ? (
+            <object
+              alt="avatar-placeholder"
+              type="image/svg+xml"
+              data={avatarUrl}
+              className="avatar"
+            ></object>
+          ) : (
+            <img
+              className="avatar"
+              src={userInfo && userInfo.avatar}
+              alt="avatar"
+            />
+          )}
+
+          {selectedUser && selectedUser.avatar === null ? (
+            <object
+              alt="avatar-placeholder"
+              type="image/svg+xml"
+              data={avatarUrl}
+              className="avatar"
+            ></object>
+          ) : (
+            <img
+              className="avatar"
+              src={selectedUser && selectedUser.avatar}
+              alt="avatar"
+            />
+          )}
+          {selectedUser && selectedUser.commonArtists.lenght === 0 ? (
+            <h3>Sorry you don't have any Artist matching</h3>
+          ) : (
+            <ul className="results">
+              <h3>The same artists you both like</h3>
+
+              {selectedUser &&
+                selectedUser.commonArtists.map((item) => {
+                  return (
+                    <li className="result">
+                      <h4>{item.artistName}</h4>
+                      <img
+                        className="list-avatar"
+                        src={item.artistAvatar}
+                        alt="avatar"
+                      />
+                    </li>
+                  );
+                })}
+            </ul>
+          )}
+
+          {selectedUser && selectedUser.commonGenres.lenght === 0 ? (
+            <h3>Sorry you don't have any Gernres matching</h3>
+          ) : (
+            <ul className="results">
+              <h3>The top genres you both like</h3>
+              {selectedUser &&
+                selectedUser.commonGenres.map((item) => {
+                  return (
+                    <li className="result">
+                      <h4>{item.genre}</h4>
+                    </li>
+                  );
+                })}
+            </ul>
+          )}
+          <a href={selectedUser && selectedUser.userLink}>
+            <button type="button">
+              Click here to to visit {selectedUser && selectedUser.userName}{" "}
+              Spotify page
+            </button>
+          </a>
+          <object
+            alt="avatar-placeholder"
+            type="image/svg+xml"
+            data={avatarUrl}
+            className="avatar"
+          ></object>
+        </div>
+      </div>
+    );
+  }
 }
