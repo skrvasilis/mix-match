@@ -9,4 +9,5 @@ module.exports = {
   MONGODB_URI: env.MIX_AND_MATCH_DB,
   SPOTIFY_CLIENT_ID: env.SPOTIFY_CLIENT_ID, // Your client id
   SPOTIFY_SECRET: env.SPOTIFY_SECRET, // Your secret
+  JWT_SECRET: env.JWT_SECRET
 };
