@@ -24,16 +24,19 @@ export default function Container(props) {
   }, []); // initialize context ONCE on startup
 
   useEffect(() => {
-    (async function () {
-      const res = await findMatches(userInfo && userInfo._id);
-
-      if (res.length > 0) {
-        const similarusers = res.filter((item) => {
-          return item.userName !== userInfo.userName;
-        });
-        setMatchedUsers(similarusers);
-      }
-    })();
+    if (userInfo._id){
+      (async function () {
+        const res = await findMatches(userInfo._id);
+  
+        if (res.length > 0) {
+          const similarusers = res.filter((item) => {
+            return item.userName !== userInfo.userName;
+          });
+          setMatchedUsers(similarusers);
+        }
+      })();
+    }
+   
   }, [userInfo]);
 
   useEffect(() => {

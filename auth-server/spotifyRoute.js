@@ -121,7 +121,7 @@ const sortedGenres = sorted.map((item) => {
               httpOnly: true,
             })
             // .send(data)
-            .redirect("http://localhost:3000/");
+            .redirect("http://localhost:3000/welcome");
         } catch (error) {
           next(error);
         }
@@ -147,7 +147,7 @@ const sortedGenres = sorted.map((item) => {
               httpOnly: true,
             })
             // .send(data)
-            .redirect("http://localhost:3000/");
+            .redirect("http://localhost:3000/welcome");
         } catch (error) {
           next(error);
         }
