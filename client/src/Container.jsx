@@ -21,7 +21,7 @@ export default function Container(props) {
         setUserStatus(true);
       }
     })();
-  }, []); // initialize context ONCE on startup
+  }, []); 
 
   useEffect(() => {
     if (userInfo._id){
@@ -36,7 +36,6 @@ export default function Container(props) {
         }
       })();
     }
-   
   }, [userInfo]);
 
   useEffect(() => {

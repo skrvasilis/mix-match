@@ -5,7 +5,6 @@
   "version": "0.0.1",
   "scripts": {
     "start": "nodemon app.js",
-    "seed": "node seed/db_seed.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",

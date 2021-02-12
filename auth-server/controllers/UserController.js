@@ -20,7 +20,6 @@ exports.me = async (req, res, next) => {
 
 exports.findMatches = async (req, res, next) => {
   try {
-    console.log(req.params);
 
     const user = await User.findById(req.params.id);
 
@@ -53,7 +52,6 @@ exports.findMatches = async (req, res, next) => {
     next(e);
   }
 };
-
 
 exports.logoutUser = async (req, res, next) => {
   res.clearCookie("token").status(200).send("Bye bye");

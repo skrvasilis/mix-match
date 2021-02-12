@@ -6,8 +6,6 @@ import MyContext from "../MyContext";
 export default function Home() {
   const { userInfo } = useContext(MyContext);
 
-  console.log(userInfo)
-
   if (userInfo.userName) {
     return <Redirect to="/welcome" />;
   } 

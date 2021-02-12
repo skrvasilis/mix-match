@@ -35,16 +35,14 @@ router
         userGenres.push(...item.genres);
       });
 
-      /* console.log(userGenres)
-      userGenres = [...new Set(userGenres)]; */
 
-      var counts = {};
+      const counts = {};
 userGenres.forEach(function (x) {
   counts[x] = (counts[x] || 0) + 1;
 });
 
-var sortable = [];
-for (var number in counts) {
+let sortable = [];
+for (let number in counts) {
   sortable.push([number, counts[number]]);
 }
 
@@ -135,7 +133,6 @@ const sortedGenres = sorted.map((item) => {
         });
         const user = await newUser.save();
 
-        // create the cookie and send the user to the front end
         try {
           const authToken = user.generateAuthToken();
           const data = user;
@@ -143,7 +140,7 @@ const sortedGenres = sorted.map((item) => {
             .status(200)
             .cookie("token", authToken, {
               expires: new Date(Date.now() + 604800000),
-              secure: false, // if we are not using https
+              secure: false, 
               httpOnly: true,
             })
             // .send(data)

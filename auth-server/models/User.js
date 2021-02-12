@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const jwt = require("jsonwebtoken");
 const env = require("../config");
-const jwt_key = env.JWT_SECRET
-
+const jwt_key = env.JWT_SECRET;
 
 const UserSchema = new Schema(
   {
@@ -12,10 +11,10 @@ const UserSchema = new Schema(
       required: false,
     },
     avatar: {
-          type: String,
-          required: false,
-          default:null
-        },
+      type: String,
+      required: false,
+      default: null,
+    },
     userLink: {
       type: String,
       required: true,
@@ -40,8 +39,6 @@ const UserSchema = new Schema(
     timestamps: true,
   }
 );
-
-
 
 UserSchema.methods.generateAuthToken = function () {
   const user = this;
@@ -72,35 +69,6 @@ UserSchema.methods.generateVerificationToken = function () {
   return token;
 };
 
-UserSchema.methods.checkPassword = async function (password) {
-  const user = this;
-  return await encryption.compare(password, user.password);
-};
-
-UserSchema.methods.getPublicFields = function () {
-  return {
-    _id: this._id,
-    lastName: this.lastName,
-    firstName: this.firstName,
-    email: this.email,
-    fullName: this.fullName,
-    birthday: new Date(this.birthday),
-    address: this.address,
-    avatar: this.avatar,
-    userName: this.userName,
-    role: this.role,
-    verified: this.verified,
-    myVenues: this.myVenues,
-    venuesFollowed: this.venuesFollowed,
-    venuesLiked: this.venuesLiked,
-    myEvents: this.myEvents,
-    artistsFollowed: this.artistsFollowed,
-    artistsLiked: this.artistsLiked,
-    spotifyId: this.spotifyId,
-    socialMedia: this.socialMedia
-  };
-};
-
 UserSchema.statics.findByToken = function (token) {
   const User = this;
   let decoded;
@@ -115,25 +83,5 @@ UserSchema.statics.findByToken = function (token) {
     _id: decoded._id,
   });
 };
-
-UserSchema.statics.findByVerifToken = function (token) {
-  const User = this;
-  let decoded;
-
-  try {
-    decoded = jwt.verify(token, env.ver_key);
-  } catch (err) {
-    return;
-  }
-
-  return User.findByIdAndUpdate(
-    {
-      _id: decoded._id,
-    },
-    { verified: true },
-    { new: true }
-  );
-};
-
 
 module.exports = mongoose.model("User", UserSchema);
