@@ -1,5 +1,4 @@
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
   BrowserRouter,
@@ -17,8 +16,9 @@ import MyContext from "./MyContext";
 function App() {
   return (
     <Container>
-       <Nav/> 
+     
       <BrowserRouter>
+      <Nav/> 
         <Switch>
           <Route exact path="/" exact component={Home} />
           <Route exact path="/welcome" component={Welcome} />

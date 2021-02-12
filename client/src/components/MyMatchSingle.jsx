@@ -117,12 +117,6 @@ export default function MyMatchSingle() {
               Spotify page
             </button>
           </a>
-          <object
-            alt="avatar-placeholder"
-            type="image/svg+xml"
-            data={avatarUrl}
-            className="avatar"
-          ></object>
         </div>
       </div>
     );

@@ -27,10 +27,9 @@ const app = express();
 
 /** LOGS */
 app.use(logger("dev"));
-////mrcll:yk67t9AagGSKOU2b@cluster0.kfmcv.mongodb.net/mixandmatch?retryWrites=true&w=majority
 
 /** CONNECT TO MONGO */
-mongoose.connect("mongodb://localhost/mix-match", {
+mongoose.connect(/* "mongodb://localhost/mix-match" */"mongodb+srv://mrcll:yk67t9AagGSKOU2b@cluster0.kfmcv.mongodb.net/mixandmatch?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,

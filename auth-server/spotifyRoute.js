@@ -34,6 +34,8 @@ router
       usersTop.items.map((item) => {
         userGenres.push(...item.genres);
       });
+
+      console.log(userGenres)
       userGenres = [...new Set(userGenres)];
 
       // checking for duplicates
@@ -54,18 +56,7 @@ router
         });
       });
 
-     /*  console.log(myArtists);
-      console.log(usersTop.items) */
-
-      /*  const userArtists = myArtists.map(async (item) => {
-       return new Artists({
-        artistName: item.artistName,
-        artistAvatar: item.artistAvatar
-      });
-      }) */
-
-      /*       const allArtsits = await Artists.insertMany(myArtists)
-       */
+     
       const userArtists = usersTop.items.map(async (item) => {
         return await Artists.findOneAndUpdate(
           { artistName: item.name },
@@ -76,20 +67,7 @@ router
           { new: true, upsert: true }
         );
       });
-      // await Promise.all(myArtists);
-
-      /*  const userArtists = usersTop.items.map(async (item) => {
-        return await Artists.findOneAndUpdate(
-          { artistName: item.name },
-          {
-            artistName: item.name,
-            artistAvatar: item.images[0] && item.images[0].url,
-          },
-          { new: true, upsert: true }
-        );
-      });
-      //////////////////////////////////////////////////////////
- */
+     
       /// get thr artists ids
       console.log((await genres[0])._id);
       const userArtistsIds = [];
