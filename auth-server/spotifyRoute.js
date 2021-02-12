@@ -35,11 +35,29 @@ router
         userGenres.push(...item.genres);
       });
 
-      console.log(userGenres)
-      userGenres = [...new Set(userGenres)];
+      /* console.log(userGenres)
+      userGenres = [...new Set(userGenres)]; */
+
+      var counts = {};
+userGenres.forEach(function (x) {
+  counts[x] = (counts[x] || 0) + 1;
+});
+
+var sortable = [];
+for (var number in counts) {
+  sortable.push([number, counts[number]]);
+}
+
+const sorted = sortable.sort(function (a, b) {
+  return b[1] - a[1];
+});
+
+const sortedGenres = sorted.map((item) => {
+  return item[0];
+});
 
       // checking for duplicates
-      const genres = userGenres.map(async (item) => {
+      const genres = sortedGenres.map(async (item) => {
         return await MusicGenre.findOneAndUpdate(
           { genre: item },
           { genre: item },
