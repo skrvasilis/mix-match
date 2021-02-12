@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const jwt = require("jsonwebtoken");
-const jwt_key = 'extremelysecretkey'
+const env = require("../config");
+const jwt_key = env.JWT_SECRET
 
 
 const UserSchema = new Schema(
