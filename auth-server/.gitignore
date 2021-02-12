@@ -2,3 +2,9 @@
 node_modules
 #and the config.js
 config.js
+
+# dotenv environment variables file
+.env
+
+
+.github

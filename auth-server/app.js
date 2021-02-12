@@ -1,4 +1,5 @@
 /** EXTERNAL DEPENDENCIES */
+require('dotenv').config()
 const path = require("path");
 const express = require("express");
 const cookieParser = require("cookie-parser");
@@ -29,7 +30,7 @@ const app = express();
 app.use(logger("dev"));
 
 /** CONNECT TO MONGO */
-mongoose.connect(/* "mongodb://localhost/mix-match" */"mongodb+srv://mrcll:yk67t9AagGSKOU2b@cluster0.kfmcv.mongodb.net/mixandmatch?retryWrites=true&w=majority", {
+mongoose.connect(env.MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
@@ -96,8 +97,8 @@ const authCallbackPath = "/auth/spotify/callback";
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: "1a7725c0d63742b99d770b299450e4e8",
-      clientSecret: "29b6678e34f34425954efbb4d83bca43",
+      clientID: env.SPOTIFY_CLIENT_ID,
+      clientSecret: env.SPOTIFY_SECRET,
       callbackURL: "http://localhost:5000" + authCallbackPath,
     },
     function (accessToken, refreshToken, expires_in, profile, done) {
