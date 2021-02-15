@@ -14,7 +14,6 @@ export default function Welcome() {
   useEffect(() => {
     if (userInfo.userArtists) {
       const fiveArtist = userInfo.userArtists.slice(0, 5);
-      console.log(fiveArtist);
       setTop5artists(fiveArtist);
     }
   }, [userInfo]);
@@ -70,7 +69,7 @@ export default function Welcome() {
             {top5artists &&
               top5artists.map((item) => {
                 return (
-                  <li className="result">
+                  <li key={item._id} className="result">
                     <h4>{item && item.artistName}</h4>
                     <img
                       className="list-avatar"
@@ -86,7 +85,7 @@ export default function Welcome() {
             {userInfo.userGenres &&
               userInfo.userGenres.slice(0, 5).map((item) => {
                 return (
-                  <li className="result">
+                  <li key={item._id} className="result">
                     <h4>{item.genre}</h4>
                   </li>
                 );

@@ -9,9 +9,8 @@ import Home from "./components/Home";
 import Welcome from "./components/Welcome";
 import MyMatchesAll from "./components/MyMatchesAll";
 import MyMatchSingle from "./components/MyMatchSingle";
-import React, { useContext } from "react";
+import React from "react";
 import Nav from "./components/Nav";
-import MyContext from "./MyContext";
 
 function App() {
   return (

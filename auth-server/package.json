@@ -4,7 +4,7 @@
   "description": "Basic examples of the Spotify authorization flows through OAuth 2",
   "version": "0.0.1",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
@@ -20,6 +20,7 @@
     "passport": "^0.4.1",
     "passport-spotify": "^2.0.0",
     "querystring": "~0.2.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "vercel": "^21.2.3"
   }
 }

@@ -23,6 +23,7 @@ export default function MyMatchSingle() {
     setLoader(true);
   }, 200);
 
+
   if (loader === false) {
     return (
       <div className="main">
@@ -74,7 +75,7 @@ export default function MyMatchSingle() {
               alt="avatar"
             />
           )}
-          {selectedUser && selectedUser.commonArtists.lenght === 0 ? (
+          {selectedUser && selectedUser.commonArtists[0] === undefined ? (
             <h3>Sorry you don't have any Artist matching</h3>
           ) : (
             <ul className="results">
@@ -102,7 +103,7 @@ export default function MyMatchSingle() {
             <ul className="results">
               <h3>The top genres you both like</h3>
               {selectedUser &&
-                selectedUser.commonGenres.map((item) => {
+                selectedUser.commonGenres.slice(0, 5).map((item) => {
                   return (
                     <li className="result">
                       <h4>{item.genre}</h4>
