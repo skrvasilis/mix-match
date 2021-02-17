@@ -117,7 +117,7 @@ router
               httpOnly: true,
             })
             // .send(data)
-            .redirect(`${credentials.clientUrl}/welcome`);
+            .redirect(`${credentials.credentials.clientUrl}/welcome`);
         } catch (error) {
           next(error);
         }
@@ -146,7 +146,7 @@ router
               sameSite: 'none',
             })
             // .send(data)
-            .redirect(`${credentials.clientUrl}/welcome`);
+            .redirect(`${credentials.credentials.clientUrl}/welcome`);
         } catch (error) {
           next(error);
         }
