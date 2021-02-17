@@ -23,6 +23,9 @@ const env = require("./config");
 const usersRouter = require("./routes/users");
 const cors = require("cors");
 
+
+
+
 /** INIT THE SERVER */
 const app = express();
 
@@ -58,9 +61,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 let frontendOrigin = "http://localhost:3000";
+let vercelOrigin = "https://mixandmatch.vercel.app"
 app.use(
   cors({
-    origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
+    origin: [frontendOrigin,vercelOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
     credentials: true, // allow cookies from other origins
   })
 );
@@ -99,7 +103,7 @@ passport.use(
     {
       clientID: env.SPOTIFY_CLIENT_ID,
       clientSecret: env.SPOTIFY_SECRET,
-      callbackURL: "http://localhost:5000" + authCallbackPath,
+      callbackURL: "https://mixandmatchserver.vercel.app" + authCallbackPath,
     },
     function (accessToken, refreshToken, expires_in, profile, done) {
       // asynchronous verification, for effect...

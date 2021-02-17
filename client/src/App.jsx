@@ -3,7 +3,7 @@ import {
   Switch,
   BrowserRouter,
 } from "react-router-dom";
-import "./App.css";
+import "./css/index.css"
 import Container from "./Container";
 import Home from "./components/Home";
 import Welcome from "./components/Welcome";

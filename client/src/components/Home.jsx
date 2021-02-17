@@ -9,6 +9,7 @@ export default function Home() {
   if (userInfo.userName) {
     return <Redirect to="/welcome" />;
   } 
+  const url = `https://mixandmatchserver.vercel.app/auth/spotify`
 
   return (
     <div className="main">
@@ -16,7 +17,7 @@ export default function Home() {
         <h2>Welcome to</h2>
         <h1>Mix & Match</h1>
         <div className="container">
-          <a className="login-button" href="http://localhost:5000/auth/spotify">
+          <a className="login-button" href={url}>
             <h3>Please login using your</h3>
             <img className="logo" src={Logo} alt="Spotify Logo" />
             <h3>to find your real music Buddy!</h3>

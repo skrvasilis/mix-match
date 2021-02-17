@@ -5,6 +5,7 @@ const Artists = require("../models/Artist");
 exports.me = async (req, res, next) => {
   try {
     const token = req.cookies.token;
+    console.log("token" , token)
 
     const user = await User.findByToken(token)
       .populate("userGenres")

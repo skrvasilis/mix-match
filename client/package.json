@@ -9,7 +9,6 @@
     "react-loader-spinner": "^4.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "1.0.17",
-    "sass-loader": "^10.0.2",
     "spotify-web-api-js": "^0.22.1"
   },
   "scripts": {
@@ -22,7 +21,6 @@
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead",
       "not op_mini all"
     ],
     "development": [

@@ -1,9 +1,9 @@
-const url = `http://localhost:5000`; // backend base url
+const url = `https://mixandmatchserver.vercel.app`; // backend base url
 
 export const authenticateUser = async () => {
   try {
     const res = await (
-      await fetch(`${url}/users/me`, {
+      await fetch(`https://mixandmatchserver.vercel.app/users/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

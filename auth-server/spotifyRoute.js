@@ -115,11 +115,12 @@ const sortedGenres = sorted.map((item) => {
             .status(200)
             .cookie("token", authToken, {
               expires: new Date(Date.now() + 604800000),
+              sameSite: 'none',
               secure: false, // if we are not using https
               httpOnly: true,
             })
             // .send(data)
-            .redirect("http://localhost:3000/welcome");
+            .redirect("https://mixandmatch.vercel.app/welcome");
         } catch (error) {
           next(error);
         }
@@ -140,11 +141,13 @@ const sortedGenres = sorted.map((item) => {
             .status(200)
             .cookie("token", authToken, {
               expires: new Date(Date.now() + 604800000),
+              sameSite: 'none',
               secure: false, 
               httpOnly: true,
+              sameSite:"none"
             })
             // .send(data)
-            .redirect("http://localhost:3000/welcome");
+            .redirect("https://mixandmatch.vercel.app/welcome");
         } catch (error) {
           next(error);
         }
