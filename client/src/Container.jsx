@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import MyContext from "./MyContext";
-import { authenticateUser, findMatches } from "./helper/apiCalls";
-import avatarPlaceholder from "./assets/avatarUrl.svg"
+import React, { useState, useEffect } from 'react';
+import MyContext from './MyContext';
+import { authenticateUser, findMatches } from './helpers/apiCalls';
+import avatarPlaceholder from './assets/avatarUrl.svg';
 
 export default function Container(props) {
   const [userStatus, setUserStatus] = useState(false);
   const [userInfo, setUserInfo] = useState({});
   const [sortedMatches, setSortedMatches] = useState([]);
   const [matchedUsers, setMatchedUsers] = useState();
-  const [avatarUrl, setAvatarUrl] = useState(avatarPlaceholder)
+  const [avatarUrl, setAvatarUrl] = useState(avatarPlaceholder);
 
   useEffect(() => {
     //Authenticate our cookie sir
@@ -21,13 +21,13 @@ export default function Container(props) {
         setUserStatus(true);
       }
     })();
-  }, []); 
+  }, []);
 
   useEffect(() => {
-    if (userInfo._id){
+    if (userInfo._id) {
       (async function () {
         const res = await findMatches(userInfo._id);
-  
+
         if (res.length > 0) {
           const similarusers = res.filter((item) => {
             return item.userName !== userInfo.userName;
@@ -54,9 +54,9 @@ export default function Container(props) {
         setMatchedUsers,
         sortedMatches,
         avatarUrl,
-        userStatus, 
+        userStatus,
         setUserInfo,
-        setUserStatus
+        setUserStatus,
       }}
     >
       {props.children}

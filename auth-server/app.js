@@ -1,16 +1,15 @@
 /** EXTERNAL DEPENDENCIES */
-require('dotenv').config()
-const path = require("path");
-const express = require("express");
-const cookieParser = require("cookie-parser");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const SpotifyStrategy = require("passport-spotify").Strategy;
-const spotify = require("./spotifyRoute");
+require('dotenv').config();
+const path = require('path');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const SpotifyStrategy = require('passport-spotify').Strategy;
+const spotify = require('./spotifyRoute');
 const port = 5000;
-
-
+const credentials = require('./helpers/credentials');
 
 /** ROUTERS */
 /* const indexRouter = require("./routes/index");
@@ -19,18 +18,15 @@ const spotify = require("./routes/spotify");
 const musicGenresRouter = require("./routes/musicGenres");
 const artistsRouter = require("./routes/artists"); */
 /** OUR MIDDLEWARE */
-const env = require("./config");
-const usersRouter = require("./routes/users");
-const cors = require("cors");
-
-
-
+const env = require('./config');
+const usersRouter = require('./routes/users');
+const cors = require('cors');
 
 /** INIT THE SERVER */
 const app = express();
 
 /** LOGS */
-app.use(logger("dev"));
+app.use(logger('dev'));
 
 /** CONNECT TO MONGO */
 mongoose.connect(env.MONGODB_URI, {
@@ -40,12 +36,9 @@ mongoose.connect(env.MONGODB_URI, {
   useFindAndModify: false,
 });
 
-mongoose.connection.on(
-  "error",
-  console.error.bind(console, "connection error:")
-);
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 
-mongoose.connection.on("open", () => {
+mongoose.connection.on('open', () => {
   console.log(`Connected to the database...`);
 });
 
@@ -60,18 +53,18 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-let frontendOrigin = "http://localhost:3000";
-let vercelOrigin = "https://mixandmatch.vercel.app"
+let frontendOrigin = credentials.clientUrl;
+// let vercelOrigin = 'https://mixandmatch.vercel.app';
 app.use(
   cors({
-    origin: [frontendOrigin,vercelOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
-    credentials: true, // allow cookies from other origins
+    origin: ['*'], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
+    // credentials: true, // allow cookies from other origins
   })
 );
 
 /** STATIC FILES */
-app.use(express.static(path.join(__dirname, "public"))); // => current_folder / public
-app.use("/avatars", express.static(path.join(__dirname, "uploads")));
+app.use(express.static(path.join(__dirname, 'public'))); // => current_folder / public
+app.use('/avatars', express.static(path.join(__dirname, 'uploads')));
 
 /** ROUTES */
 
@@ -80,12 +73,9 @@ app.use("/users", usersRouter);
 app.use("/genres", musicGenresRouter);
 app.use("/artists", artistsRouter); */
 
+app.use('/auth', spotify);
+app.use('/users', usersRouter);
 
-app.use("/auth", spotify);
-app.use("/users", usersRouter);
-
-
- 
 // the spotify
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -95,15 +85,14 @@ passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
 
-
-const authCallbackPath = "/auth/spotify/callback";
+const authCallbackPath = credentials.serverUrl + '/auth/spotify/callback';
 
 passport.use(
   new SpotifyStrategy(
     {
       clientID: env.SPOTIFY_CLIENT_ID,
       clientSecret: env.SPOTIFY_SECRET,
-      callbackURL: "https://mixandmatchserver.vercel.app" + authCallbackPath,
+      callbackURL: authCallbackPath,
     },
     function (accessToken, refreshToken, expires_in, profile, done) {
       // asynchronous verification, for effect...
@@ -124,12 +113,10 @@ passport.use(
   next(err);
 }); */
 
-
 app.listen(port, console.log(`server is running on port ${port}`));
 
-
 app.use(function (err, req, res, next) {
-  console.log(err)
+  console.log(err);
   res.status(400).send({
     error: {
       message: err.message,

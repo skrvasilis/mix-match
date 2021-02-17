@@ -1,14 +1,14 @@
-const url = `https://mixandmatchserver.vercel.app`; // backend base url
+import credentials from '../helpers/credentials';
 
 export const authenticateUser = async () => {
   try {
     const res = await (
-      await fetch(`https://mixandmatchserver.vercel.app/users/me`, {
-        method: "GET",
+      await fetch(`${credentials.serverUrl}/users/me`, {
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        credentials: "include", // send in cookies (=> token)
+        credentials: 'include', // send in cookies (=> token)
       })
     ).json();
 
@@ -21,12 +21,12 @@ export const authenticateUser = async () => {
 export const findMatches = async (data) => {
   try {
     const res = await (
-      await fetch(`${url}/users/matches/${data}`, {
-        method: "GET",
+      await fetch(`${credentials.serverUrl}/users/matches/${data}`, {
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        credentials: "include",
+        credentials: 'include',
       })
     ).json();
 
@@ -39,17 +39,15 @@ export const findMatches = async (data) => {
   }
 };
 
-
-
 export const logOut = async (data) => {
   try {
     const res = await (
-      await fetch(`${url}/users/logout`, {
-        method: "POST",
+      await fetch(`${credentials.serverUrl}/users/logout`, {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        credentials: "include",
+        credentials: 'include',
       })
     ).json();
 
