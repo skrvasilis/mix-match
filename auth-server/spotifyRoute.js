@@ -108,6 +108,10 @@ router
         try {
           const authToken = userExist.generateAuthToken();
           const data = userExist;
+          console.log('---------------------------------------------');
+          console.log('User exists');
+          console.log(userExist);
+          console.log('token:', authToken);
           res
             .status(200)
             .cookie('token', authToken, {
@@ -116,8 +120,8 @@ router
               secure: false, // if we are not using https
               httpOnly: true,
             })
-            // .send(data)
-            .redirect(`${credentials.clientUrl}/welcome`);
+            .send(data);
+          // .redirect(`${credentials.credentials.clientUrl}/welcome`);
         } catch (error) {
           next(error);
         }
@@ -134,6 +138,7 @@ router
         try {
           const authToken = user.generateAuthToken();
           const data = user;
+          console.log('---------------------------------------------');
           console.log('We created the user and saved them');
           console.log(user);
           console.log('token:', authToken);
@@ -145,8 +150,8 @@ router
               httpOnly: true,
               sameSite: 'none',
             })
-            // .send(data)
-            .redirect(`${credentials.clientUrl}/welcome`);
+            .send(data);
+          // .redirect(`${credentials.credentials.clientUrl}/welcome`);
         } catch (error) {
           next(error);
         }

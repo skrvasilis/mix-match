@@ -53,12 +53,12 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-let frontendOrigin = credentials.clientUrl;
+let frontendOrigin = credentials.credentials.clientUrl;
 // let vercelOrigin = 'https://mixandmatch.vercel.app';
 app.use(
   cors({
-    origin: ['*'], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
-    // credentials: true, // allow cookies from other origins
+    origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
+    credentials: true, // allow cookies from other origins
   })
 );
 
@@ -85,7 +85,7 @@ passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
 
-const authCallbackPath = credentials.serverUrl + '/auth/spotify/callback';
+const authCallbackPath = credentials.credentials.serverUrl + '/auth/spotify/callback';
 
 passport.use(
   new SpotifyStrategy(
