@@ -41,7 +41,7 @@ export default function Container(props) {
   useEffect(() => {
     const sortedUsers =
       matchedUsers &&
-      matchedUsers.sort((a, b) => {
+      matchedUsers.slice(0, 10).sort((a, b) => {
         return b.commonGenres.length - a.commonGenres.length;
       });
     setSortedMatches(sortedUsers);

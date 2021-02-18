@@ -7,6 +7,7 @@ import Loader from "react-loader-spinner";
 export default function MyMatch() {
   const { sortedMatches, userInfo, avatarUrl } = useContext(MyContext);
   const [loader, setLoader] = useState(false);
+  console.log(sortedMatches)
 
   setTimeout(function () {
     setLoader(true);

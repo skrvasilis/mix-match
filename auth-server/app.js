@@ -53,12 +53,12 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-let frontendOrigin = credentials.clientUrl;
+let frontendOrigin = credentials.credentials.clientUrl;
 // let vercelOrigin = 'https://mixandmatch.vercel.app';
 app.use(
   cors({
     origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
-    // credentials: true, // allow cookies from other origins
+    credentials: true, // allow cookies from other origins
   })
 );
 

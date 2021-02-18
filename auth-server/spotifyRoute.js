@@ -108,11 +108,15 @@ router
         try {
           const authToken = userExist.generateAuthToken();
           const data = userExist;
+          console.log('---------------------------------------------');
+          console.log('User exists');
+          console.log(userExist);
+          console.log('token:', authToken);
           res
             .status(200)
             .cookie('token', authToken, {
               expires: new Date(Date.now() + 604800000),
-              sameSite: 'none',
+              // sameSite: 'none',
               secure: false, // if we are not using https
               httpOnly: true,
             })
@@ -134,6 +138,7 @@ router
         try {
           const authToken = user.generateAuthToken();
           const data = user;
+          console.log('---------------------------------------------');
           console.log('We created the user and saved them');
           console.log(user);
           console.log('token:', authToken);
@@ -143,7 +148,7 @@ router
               expires: new Date(Date.now() + 604800000),
               secure: false,
               httpOnly: true,
-              sameSite: 'none',
+              // sameSite: 'none',
             })
             // .send(data)
             .redirect(`${credentials.credentials.clientUrl}/welcome`);
