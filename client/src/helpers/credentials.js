@@ -1,6 +1,9 @@
 const credentials = {
-  serverUrl: 'http://localhost:5000',
-  clientUrl: 'http://localhost:3000',
+  serverUrl:" https://mixandmatchserver.vercel.app/",
+  clientUrl: "https://mixandmatch.vercel.app/"
 };
 
 export default credentials;
+
+//'http://localhost:5000',
+//'http://localhost:3000'
