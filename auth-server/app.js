@@ -9,7 +9,6 @@ const passport = require('passport');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const spotify = require('./spotifyRoute');
 const port = 5000;
-const credentials = require('./helpers/credentials');
 
 /** ROUTERS */
 /* const indexRouter = require("./routes/index");
@@ -53,7 +52,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-let frontendOrigin = credentials.credentials.clientUrl;
+let frontendOrigin = process.env.CLIENT_URL;
 app.use(
   cors({
     origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
@@ -83,7 +82,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
-const authCallbackPath = credentials.credentials.serverUrl + '/auth/spotify/callback';
+const authCallbackPath = process.env.SERVER_URL + '/auth/spotify/callback';
 
 passport.use(
   new SpotifyStrategy(

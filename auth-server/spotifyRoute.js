@@ -5,8 +5,6 @@ const User = require("./models/User");
 const MusicGenre = require("./models/Genre");
 const Artists = require("./models/Artist");
 const fetch = require("node-fetch");
-const credentials = require("./helpers/credentials");
-console.log(credentials.credentials.clientUrl);
 
 router
   .route("/spotify/callback")
@@ -148,7 +146,7 @@ router
               // sameSite: 'none',
             })
             .send(data)
-            .redirect(`${credentials.credentials.clientUrl}/welcome`);
+            .redirect(`${process.env.CLIENT_URL}/welcome`);
         } catch (error) {
           next(error);
         }
