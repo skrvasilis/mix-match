@@ -115,9 +115,9 @@ router
             .status(200)
             .cookie("token", authToken, {
               expires: new Date(Date.now() + 604800000),
-              // sameSite: 'none',
-              secure: false, // if we are not using https
               httpOnly: true,
+              sameSite: "none",
+              secure: true,
             })
             .redirect(`${process.env.CLIENT_URL}/welcome`);
         } catch (error) {
