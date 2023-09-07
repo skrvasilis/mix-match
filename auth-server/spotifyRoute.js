@@ -119,7 +119,7 @@ router
               secure: false, // if we are not using https
               httpOnly: true,
             })
-            .redirect(`http://localhost:3000/welcome`);
+            .redirect(`${process.env.CLIENT_URL}/welcome`);
         } catch (error) {
           next(error);
         }
