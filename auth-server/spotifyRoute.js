@@ -1,31 +1,35 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const passport = require('passport');
-const User = require('./models/User');
-const MusicGenre = require('./models/Genre');
-const Artists = require('./models/Artist');
-const fetch = require('node-fetch');
-const credentials = require('./helpers/credentials');
+const passport = require("passport");
+const User = require("./models/User");
+const MusicGenre = require("./models/Genre");
+const Artists = require("./models/Artist");
+const fetch = require("node-fetch");
+const credentials = require("./helpers/credentials");
+console.log(credentials.credentials.clientUrl);
 
 router
-  .route('/spotify/callback')
-  .get(passport.authenticate('spotify'), async function (req, res, next) {
+  .route("/spotify/callback")
+  .get(passport.authenticate("spotify"), async function (req, res, next) {
     try {
-      let usersId = '';
+      let usersId = "";
       const userData = req.user._json;
 
       ////////////////////////////////////////////////////////
       // here we make a call to spotify using the node-fetch library in order to get the top 20 artists from the current user user
       accessToken = req.authInfo;
       const usersTop = await (
-        await fetch('https://api.spotify.com/v1/me/top/artists?time_range=medium_term', {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + accessToken,
-          },
-        })
+        await fetch(
+          "https://api.spotify.com/v1/me/top/artists?time_range=medium_term",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + accessToken,
+            },
+          }
+        )
       ).json();
 
       // we get the genres we delete duplicates and then we save it to the database
@@ -82,7 +86,6 @@ router
       });
 
       /// get thr artists ids
-      console.log((await genres[0])._id);
       const userArtistsIds = [];
       for (let i = 0; i < userArtists.length; i++) {
         userArtistsIds.push((await userArtists[i])._id);
@@ -108,20 +111,17 @@ router
         try {
           const authToken = userExist.generateAuthToken();
           const data = userExist;
-          console.log('---------------------------------------------');
-          console.log('User exists');
-          console.log(userExist);
-          console.log('token:', authToken);
+          console.log("---------------------------------------------");
+          console.log("User exists");
           res
             .status(200)
-            .cookie('token', authToken, {
+            .cookie("token", authToken, {
               expires: new Date(Date.now() + 604800000),
               // sameSite: 'none',
               secure: false, // if we are not using https
               httpOnly: true,
             })
-            // .send(data)
-            .redirect(`${credentials.credentials.clientUrl}/welcome`);
+            .redirect(`http://localhost:3000/welcome`);
         } catch (error) {
           next(error);
         }
@@ -134,23 +134,20 @@ router
           userGenres: genresIds,
         });
         const user = await newUser.save();
-
         try {
           const authToken = user.generateAuthToken();
           const data = user;
-          console.log('---------------------------------------------');
-          console.log('We created the user and saved them');
-          console.log(user);
-          console.log('token:', authToken);
+          console.log("---------------------------------------------");
+          console.log("We created the user and saved them");
           res
             .status(200)
-            .cookie('token', authToken, {
+            .cookie("token", authToken, {
               expires: new Date(Date.now() + 604800000),
               secure: false,
               httpOnly: true,
               // sameSite: 'none',
             })
-            // .send(data)
+            .send(data)
             .redirect(`${credentials.credentials.clientUrl}/welcome`);
         } catch (error) {
           next(error);
@@ -161,9 +158,9 @@ router
     }
   });
 
-router.route('/spotify').get(
-  passport.authenticate('spotify', {
-    scope: ['user-read-email', 'user-read-private', 'user-top-read'],
+router.route("/spotify").get(
+  passport.authenticate("spotify", {
+    scope: ["user-read-email", "user-read-private", "user-top-read"],
     showDialog: true,
   })
 );

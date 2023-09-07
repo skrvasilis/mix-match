@@ -1,9 +1,8 @@
-import credentials from '../helpers/credentials';
-
+const serverUrl = process.env.REACT_APP_SERVER_URL
 export const authenticateUser = async () => {
   try {
     const res = await (
-      await fetch(`${credentials.serverUrl}/users/me`, {
+      await fetch(`${serverUrl}/users/me`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -21,7 +20,7 @@ export const authenticateUser = async () => {
 export const findMatches = async (data) => {
   try {
     const res = await (
-      await fetch(`${credentials.serverUrl}/users/matches/${data}`, {
+      await fetch(`${serverUrl}/users/matches/${data}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +41,7 @@ export const findMatches = async (data) => {
 export const logOut = async (data) => {
   try {
     const res = await (
-      await fetch(`${credentials.serverUrl}/users/logout`, {
+      await fetch(`${serverUrl}/users/logout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

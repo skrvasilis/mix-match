@@ -29,18 +29,18 @@ const app = express();
 app.use(logger('dev'));
 
 /** CONNECT TO MONGO */
-mongoose.connect(env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
+const MONGO_URI = process.env.MONGODB_URI;
+mongoose.set("strictQuery", true);
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("database Connected"))
+  .catch((err) => console.log("Not connected", err.message));
+
+app.get("/", (req, res) => {
+  res.json("deployed");
 });
 
-mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 
-mongoose.connection.on('open', () => {
-  console.log(`Connected to the database...`);
-});
+
 
 /** REQUEST PARSERS */
 app.use(express.json()); // parser for JSON data => req.body
@@ -54,7 +54,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 let frontendOrigin = credentials.credentials.clientUrl;
-// let vercelOrigin = 'https://mixandmatch.vercel.app';
 app.use(
   cors({
     origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT

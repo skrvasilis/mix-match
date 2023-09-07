@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import Logo from '../assets/Spotify_Logo_RGB_Green.png';
 import MyContext from '../MyContext';
-import credentials from '../helpers/credentials';
 
 export default function Home() {
   const { userInfo } = useContext(MyContext);
@@ -10,7 +9,10 @@ export default function Home() {
   if (userInfo.userName) {
     return <Redirect to='/welcome' />;
   }
-  const url = `${credentials.serverUrl}/auth/spotify`;
+
+  console.log(process.env.REACT_APP_SERVER_URL)
+  // const url = `${credentials.serverUrl}/auth/spotify`;
+  const url = `${process.env.REACT_APP_SERVER_URL}/auth/spotify` ;
 
   return (
     <div className='main'>
