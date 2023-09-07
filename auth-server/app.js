@@ -82,6 +82,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
+console.log(process.env.SERVER_URL)
 const authCallbackPath = process.env.SERVER_URL + '/auth/spotify/callback';
 
 passport.use(
