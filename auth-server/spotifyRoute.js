@@ -116,8 +116,8 @@ router
             .cookie("token", authToken, {
               expires: new Date(Date.now() + 604800000),
               httpOnly: true,
-              sameSite: "none",
               secure: true,
+              sameSite : "none"
             })
             .redirect(`${process.env.CLIENT_URL}/welcome`);
         } catch (error) {
@@ -143,9 +143,8 @@ router
               expires: new Date(Date.now() + 604800000),
               secure: false,
               httpOnly: true,
-              // sameSite: 'none',
+              sameSite: "none",
             })
-            .send(data)
             .redirect(`${process.env.CLIENT_URL}/welcome`);
         } catch (error) {
           next(error);
