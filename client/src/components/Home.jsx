@@ -11,8 +11,9 @@ export default function Home() {
   }
 
   console.log(process.env.REACT_APP_SERVER_URL)
-  // const url = `${credentials.serverUrl}/auth/spotify`;
+
   const url = `${process.env.REACT_APP_SERVER_URL}/auth/spotify` ;
+  console.log(process.env.REACT_APP_SERVER_URL)
 
   return (
     <div className='main'>
