@@ -57,6 +57,8 @@ app.use(
   cors({
     origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
     credentials: true, // allow cookies from other origins
+    allowedHeaders: ["Content-Type", "Authorization"],
+
   })
 );
 
@@ -82,9 +84,9 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
-console.log(process.env.SERVER_URL)
-const authCallbackPath = process.env.SERVER_URL + '/auth/spotify/callback';
 
+const authCallbackPath = process.env.SERVER_URL + '/auth/spotify/callback';
+console.log("serverurl" ,  process.env.SERVER_URL)
 passport.use(
   new SpotifyStrategy(
     {

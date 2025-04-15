@@ -1,15 +1,17 @@
-const User = require('../models/User');
-const Genres = require('../models/Genre');
-const Artists = require('../models/Artist');
+const User = require("../models/User");
+const Genres = require("../models/Genre");
+const Artists = require("../models/Artist");
 
 exports.me = async (req, res, next) => {
   try {
-    const token = req.cookies.token;
-    console.log('token', token);
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(" ")[1]; // this gives you just the token
+
+    console.log("token", token);
 
     const user = await User.findByToken(token)
-      .populate('userGenres')
-      .populate('userArtists');
+      .populate("userGenres")
+      .populate("userArtists");
 
     if (!user) throw new createError.NotFound();
 
@@ -30,23 +32,22 @@ exports.findMatches = async (req, res, next) => {
           avatar: 1,
           userLink: 1,
           commonArtists: {
-            $setIntersection: ['$userArtists', user.userArtists],
+            $setIntersection: ["$userArtists", user.userArtists],
           },
-          commonGenres: { $setIntersection: ['$userGenres', user.userGenres] },
+          commonGenres: { $setIntersection: ["$userGenres", user.userGenres] },
           _id: 1,
         },
       },
     ]);
 
     const pop = await User.populate(similarArtists, {
-      path: 'commonArtists',
+      path: "commonArtists",
       model: Artists,
     });
     const afterPop = await User.populate(pop, {
-      path: 'commonGenres',
+      path: "commonGenres",
       model: Genres,
     });
-
     res.send(afterPop);
   } catch (e) {
     next(e);
@@ -54,5 +55,5 @@ exports.findMatches = async (req, res, next) => {
 };
 
 exports.logoutUser = async (req, res, next) => {
-  res.clearCookie('token').status(200).send('Bye bye');
+  res.clearCookie("token").status(200).send("Bye bye");
 };

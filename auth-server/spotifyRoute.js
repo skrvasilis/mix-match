@@ -108,18 +108,18 @@ router
       if (userExist) {
         try {
           const authToken = userExist.generateAuthToken();
-          const data = userExist;
+          const data = { userExist: userExist, authToken: authToken };
           console.log("---------------------------------------------");
           console.log("User exists");
           res
             .status(200)
-            .cookie("token", authToken, {
-              expires: new Date(Date.now() + 604800000),
-              httpOnly: true,
-              secure: true,
-              sameSite : "none"
-            })
-            .redirect(`${process.env.CLIENT_URL}/welcome`);
+            // .cookie("token", authToken, {
+            //   expires: new Date(Date.now() + 604800000),
+            //   httpOnly: true,
+            //   secure: true,
+            //   sameSite: "none",
+            // })
+            .redirect(`${process.env.CLIENT_URL}/welcome?token=${authToken}`);
         } catch (error) {
           next(error);
         }
@@ -134,18 +134,18 @@ router
         const user = await newUser.save();
         try {
           const authToken = user.generateAuthToken();
-          const data = user;
+          const data = { user: user, authToken: authToken };
           console.log("---------------------------------------------");
           console.log("We created the user and saved them");
           res
             .status(200)
-            .cookie("token", authToken, {
-              expires: new Date(Date.now() + 604800000),
-              secure: false,
-              httpOnly: true,
-              sameSite: "none",
-            })
-            .redirect(`${process.env.CLIENT_URL}/welcome`);
+            // .cookie("token", authToken, {
+            //   expires: new Date(Date.now() + 604800000),
+            //   secure: false,
+            //   httpOnly: true,
+            //   sameSite: "none",
+            // })
+            .redirect(`${process.env.CLIENT_URL}/welcome?token=${authToken}`);
         } catch (error) {
           next(error);
         }
