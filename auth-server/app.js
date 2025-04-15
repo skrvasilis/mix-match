@@ -51,12 +51,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 let frontendOrigin = process.env.CLIENT_URL;
+console.log(frontendOrigin);
 app.use(
   cors({
-    origin: ["https://mix-match-xi.vercel.app/"], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
-    credentials: true, // allow cookies from other origins
+    origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
+
     allowedHeaders: ["Content-Type", "Authorization"],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
 );
 
