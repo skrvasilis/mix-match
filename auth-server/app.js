@@ -1,13 +1,13 @@
 /** EXTERNAL DEPENDENCIES */
-require('dotenv').config();
-const path = require('path');
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const mongoose = require('mongoose');
-const passport = require('passport');
-const SpotifyStrategy = require('passport-spotify').Strategy;
-const spotify = require('./spotifyRoute');
+require("dotenv").config();
+const path = require("path");
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const mongoose = require("mongoose");
+const passport = require("passport");
+const SpotifyStrategy = require("passport-spotify").Strategy;
+const spotify = require("./spotifyRoute");
 const port = 5000;
 
 /** ROUTERS */
@@ -17,29 +17,27 @@ const spotify = require("./routes/spotify");
 const musicGenresRouter = require("./routes/musicGenres");
 const artistsRouter = require("./routes/artists"); */
 /** OUR MIDDLEWARE */
-const env = require('./config');
-const usersRouter = require('./routes/users');
-const cors = require('cors');
+const env = require("./config");
+const usersRouter = require("./routes/users");
+const cors = require("cors");
 
 /** INIT THE SERVER */
 const app = express();
 
 /** LOGS */
-app.use(logger('dev'));
+app.use(logger("dev"));
 
 /** CONNECT TO MONGO */
 const MONGO_URI = process.env.MONGODB_URI;
 mongoose.set("strictQuery", true);
-mongoose.connect(MONGO_URI)
+mongoose
+  .connect(MONGO_URI)
   .then(() => console.log("database Connected"))
   .catch((err) => console.log("Not connected", err.message));
 
 app.get("/", (req, res) => {
   res.json("deployed");
 });
-
-
-
 
 /** REQUEST PARSERS */
 app.use(express.json()); // parser for JSON data => req.body
@@ -58,13 +56,13 @@ app.use(
     origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
     credentials: true, // allow cookies from other origins
     allowedHeaders: ["Content-Type", "Authorization"],
-
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
 );
 
 /** STATIC FILES */
-app.use(express.static(path.join(__dirname, 'public'))); // => current_folder / public
-app.use('/avatars', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, "public"))); // => current_folder / public
+app.use("/avatars", express.static(path.join(__dirname, "uploads")));
 
 /** ROUTES */
 
@@ -73,8 +71,8 @@ app.use("/users", usersRouter);
 app.use("/genres", musicGenresRouter);
 app.use("/artists", artistsRouter); */
 
-app.use('/auth', spotify);
-app.use('/users', usersRouter);
+app.use("/auth", spotify);
+app.use("/users", usersRouter);
 
 // the spotify
 passport.serializeUser(function (user, done) {
@@ -85,8 +83,8 @@ passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
 
-const authCallbackPath = process.env.SERVER_URL + '/auth/spotify/callback';
-console.log("serverurl" ,  process.env.SERVER_URL)
+const authCallbackPath = process.env.SERVER_URL + "/auth/spotify/callback";
+console.log("serverurl", process.env.SERVER_URL);
 passport.use(
   new SpotifyStrategy(
     {
