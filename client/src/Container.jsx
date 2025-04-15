@@ -14,6 +14,7 @@ export default function Container(props) {
     //Authenticate our cookie sir
     (async function () {
       const user = await authenticateUser();
+      console.log(user)
 
       // still logged in?
       if (!user.error) {

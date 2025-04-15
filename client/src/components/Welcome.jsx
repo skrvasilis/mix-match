@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MyContext from '../MyContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { findMatches } from '../helpers/apiCalls';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Loader from 'react-loader-spinner';
-
+import { authenticateUser } from "../helpers/apiCalls";
 export default function Welcome() {
   const { userInfo, avatarUrl } = useContext(MyContext);
+  const location = useLocation();
+  const history = useHistory();
 
   const [top5artists, setTop5artists] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -17,6 +19,27 @@ export default function Welcome() {
       setTop5artists(fiveArtist);
     }
   }, [userInfo]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    console.log(params)
+    const token = params.get("token");
+    console.log("Token" , token)
+    if (token) {
+      localStorage.setItem("token", token); // or sessionStorage.setItem
+      history.replace("/welcome"); // remove token from URL
+    }
+
+    const fetchUser = async () => {
+      try {
+        const data = await authenticateUser(token);
+        console.log(data);
+      } catch (err) {
+        console.error("Failed to fetch user", err);
+      }
+    };
+    fetchUser();
+  }, []);
 
   //To display only Firstname:
   const completeName =
