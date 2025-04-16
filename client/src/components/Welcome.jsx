@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import MyContext from "../MyContext";
 import { Link, useLocation, useHistory } from "react-router-dom";
-import { findMatches } from "../helpers/apiCalls";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import { authenticateUser } from "../helpers/apiCalls";
 export default function Welcome() {
   const { userInfo, avatarUrl } = useContext(MyContext);
   const location = useLocation();
@@ -28,14 +26,14 @@ export default function Welcome() {
       history.replace("/welcome"); // remove token from URL
     }
 
-    const fetchUser = async () => {
-      try {
-        const data = await authenticateUser(token);
-      } catch (err) {
-        console.error("Failed to fetch user", err);
-      }
-    };
-    fetchUser();
+    // const fetchUser = async () => {
+    //   try {
+    //     const data = await authenticateUser(token);
+    //   } catch (err) {
+    //     console.error("Failed to fetch user", err);
+    //   }
+    // };
+    // fetchUser();
   }, []);
 
   //To display only Firstname:

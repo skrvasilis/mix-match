@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MyContext from "./MyContext";
 import { authenticateUser, findMatches } from "./helpers/apiCalls";
-import avatarPlaceholder from "./assets/avatarUrl.svg";
 
 export default function Container(props) {
   const [userStatus, setUserStatus] = useState(false);

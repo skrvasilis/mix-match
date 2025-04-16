@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { logOut } from "../helpers/apiCalls";
 import MyContext from "../MyContext";
 
 export default function Nav() {
