@@ -7,7 +7,6 @@ exports.me = async (req, res, next) => {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(" ")[1]; // this gives you just the token
 
-    console.log("token", token);
 
     const user = await User.findByToken(token)
       .populate("userGenres")

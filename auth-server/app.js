@@ -51,7 +51,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 let frontendOrigin = process.env.CLIENT_URL;
-console.log(frontendOrigin);
 app.use(
   cors({
     origin: [frontendOrigin], // HERE YOU CAN WHITELIST THE DOMAIN OF YOUR CLIENT
@@ -84,7 +83,6 @@ passport.deserializeUser(function (obj, done) {
 });
 
 const authCallbackPath = process.env.SERVER_URL + "/auth/spotify/callback";
-console.log("serverurl", process.env.SERVER_URL);
 passport.use(
   new SpotifyStrategy(
     {

@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import MyContext from './MyContext';
-import { authenticateUser, findMatches } from './helpers/apiCalls';
-import avatarPlaceholder from './assets/avatarUrl.svg';
+import React, { useState, useEffect } from "react";
+import MyContext from "./MyContext";
+import { authenticateUser, findMatches } from "./helpers/apiCalls";
+import avatarPlaceholder from "./assets/avatarUrl.svg";
 
 export default function Container(props) {
   const [userStatus, setUserStatus] = useState(false);
   const [userInfo, setUserInfo] = useState({});
   const [sortedMatches, setSortedMatches] = useState([]);
   const [matchedUsers, setMatchedUsers] = useState();
-  const [avatarUrl, setAvatarUrl] = useState(avatarPlaceholder);
 
   useEffect(() => {
     //Authenticate our cookie sir
     (async function () {
       const user = await authenticateUser();
-      console.log(user)
 
       // still logged in?
       if (!user.error) {
@@ -33,6 +31,7 @@ export default function Container(props) {
           const similarusers = res.filter((item) => {
             return item.userName !== userInfo.userName;
           });
+
           setMatchedUsers(similarusers);
         }
       })();
@@ -43,7 +42,7 @@ export default function Container(props) {
     const sortedUsers =
       matchedUsers &&
       matchedUsers.slice(0, 10).sort((a, b) => {
-        return b.commonGenres.length - a.commonGenres.length;
+        return b.commonArtists.length - a.commonArtists.length;
       });
     setSortedMatches(sortedUsers);
   }, matchedUsers);
@@ -54,7 +53,6 @@ export default function Container(props) {
         userInfo,
         setMatchedUsers,
         sortedMatches,
-        avatarUrl,
         userStatus,
         setUserInfo,
         setUserStatus,

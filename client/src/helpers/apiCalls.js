@@ -10,7 +10,6 @@ export const authenticateUser = async () => {
         },
       })
     ).json();
-    console.log("resssss", res);
     return res;
   } catch (error) {
     return error;
@@ -27,7 +26,6 @@ export const findMatches = async (data) => {
         },
       })
     ).json();
-    console.log(res);
     return res;
   } catch (error) {
     // catch route is NOT called on error responses from the backend

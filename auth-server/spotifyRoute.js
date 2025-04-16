@@ -16,19 +16,39 @@ router
       ////////////////////////////////////////////////////////
       // here we make a call to spotify using the node-fetch library in order to get the top 20 artists from the current user user
       accessToken = req.authInfo;
-      const usersTop = await (
-        await fetch(
-          "https://api.spotify.com/v1/me/top/artists?time_range=medium_term",
-          {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + accessToken,
-            },
-          }
-        )
-      ).json();
+      // const usersTop = await (
+      //   await fetch(
+      //     "https://api.spotify.com/v1/me/top/artists?time_range=medium_term",
+      //     {
+      //       method: "GET",
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json",
+      //         Authorization: "Bearer " + accessToken,
+      //       },
+      //     }
+      //   )
+      // ).json();
+
+      const response = await fetch(
+        "https://api.spotify.com/v1/me/top/artists?time_range=medium_term",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + accessToken,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        const text = await response.text();
+        console.error("Error response from Spotify:", text);
+        throw new Error("Failed to fetch top artists");
+      }
+
+      const usersTop = await response.json();
 
       // we get the genres we delete duplicates and then we save it to the database
       let userGenres = [];
@@ -99,8 +119,8 @@ router
         { userName: userData.display_name },
         {
           userName: userData.display_name,
-          $push: { artistsFollowed: userArtistsIds },
-          $push: { musicGenres: genresIds },
+          artistsFollowed: userArtistsIds,
+          musicGenres: genresIds,
         },
 
         { new: true }
@@ -109,16 +129,8 @@ router
         try {
           const authToken = userExist.generateAuthToken();
           const data = { userExist: userExist, authToken: authToken };
-          console.log("---------------------------------------------");
-          console.log("User exists");
           res
             .status(200)
-            // .cookie("token", authToken, {
-            //   expires: new Date(Date.now() + 604800000),
-            //   httpOnly: true,
-            //   secure: true,
-            //   sameSite: "none",
-            // })
             .redirect(`${process.env.CLIENT_URL}/welcome?token=${authToken}`);
         } catch (error) {
           next(error);
@@ -135,16 +147,8 @@ router
         try {
           const authToken = user.generateAuthToken();
           const data = { user: user, authToken: authToken };
-          console.log("---------------------------------------------");
-          console.log("We created the user and saved them");
           res
             .status(200)
-            // .cookie("token", authToken, {
-            //   expires: new Date(Date.now() + 604800000),
-            //   secure: false,
-            //   httpOnly: true,
-            //   sameSite: "none",
-            // })
             .redirect(`${process.env.CLIENT_URL}/welcome?token=${authToken}`);
         } catch (error) {
           next(error);
