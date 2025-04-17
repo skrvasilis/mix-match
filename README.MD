@@ -1,4 +1,4 @@
-# 🎧 Mix & Match
+# Mix & Match
 
 Mix & Match is a project built with Node.js, Express, React, and the Spotify Web API. It connects music lovers by analyzing their top Spotify artists and genres, and then matching them with others who share similar music tastes.
 
@@ -7,9 +7,9 @@ Mix & Match is a project built with Node.js, Express, React, and the Spotify Web
 - **Client:** [https://mix-match-xi.vercel.app/](https://mix-match-xi.vercel.app/)
 - **Server:** [https://mixandmatchserver.onrender.com](https://mixandmatchserver.onrender.com)
 
-> ⚠️ Currently, only users registered in the Spotify developer dashboard can log in. Production access is in progress.
+>  Currently, only users registered in the Spotify developer dashboard can log in. Production access is in progress.
 
-## 🧠 Features
+## Features
 
 - Spotify OAuth authentication
 - Fetch top artists and genres via Spotify Web API
@@ -19,7 +19,7 @@ Mix & Match is a project built with Node.js, Express, React, and the Spotify Web
 - JWT token-based authentication
 - Fully deployed on Render and Vercel
 
-## 💡 Tech Stack
+## Tech Stack
 
 **Frontend**  
 - React.js  
